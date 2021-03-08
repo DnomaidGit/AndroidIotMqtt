@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">MqttDnomaid</string>
+    <string name="empty"></string>
+    <!-- Fragment -->
+    <string name="serverText">Server</string>
+    <string name="portText">Port</string>
+    <string name="clientIdText">Client ID</string>
+    <string name="cleanSessionText">Clean Session</string>
+    <string name="connectionText">Connection</string>
+    <string name="topicText">Topic</string>
+    <string name="connectText">Connect</string>
+    <string name="disconnectText">Disconnect</string>
+    <string name="subscribeText">Subscribe</string>
+    <string name="unsubscribeText">Unsubscribe</string>
+    <string name="Relay01Text">Relay01  ::Sonoff20 #TASMOTA</string>
+    <string name="Relay02Text">Relay02  ::Sonoff20 #TASMOTA</string>
+    <string name="Relay03Text">Relay03  ::Sonoff20 #TASMOTA</string>
+    <string name="Relay04Text">Relay04  ::Sonoff20 #TASMOTA</string>
+    <string name="Relay05Text">Relay05  ::Sonoff20 #TASMOTA</string>
+    <string name="Relay06Text">Relay06  ::XiaomiZNCZ04LM #ZIGBEE</string>
+    <string name="onText">On</string>
+    <string name="offText">Off</string>
+    <string name="statusText">Status</string>
+    <string name="Sensor01Text">Sensor01  ::SonoffS20 #ZIGBEE</string>
+    <string name="Sensor02Text">Sensor02  ::Aqara #ZIGBEE</string>
+    <string name="Sensor03Text">Sensor03  ::XiaomiZNCZ04LM #ZIGBEE</string>
+    <string name="Sensor04Text">Sensor04  ::TuyaZigbeeSensor #ZIGBEE</string>
+    <string name="TemperatureText">Temperature</string>
+    <string name="HumidityText">Humidity</string>
+    <!-- Hints -->
+    <string name="serverURIHint">192.168.1.39</string>
+    <string name="portHint">1883</string>
+    <string name="clientIdHint">ClientIdAndroidDnomaid</string>
+    <!-- ContentDescription -->
+    <string name="contentDescriptionCleanSession">Clean Session</string>
+    <!-- Notify -->
+    <string name="client_connecting">Client connecting...</string>
+    <string name="client_error_connecting">Client error connecting</string>
+    <string name="alreadyConnecting">Already connecting!</string>
+    <string name="connecting___">Connecting...</string>
+    <string name="notConnecting">You are not connecting</string>
+    <string name="disconnecting___">Disconnecting...</string>
+    <string name="alreadyDisconnected">Already disconnected</string>
+    <string name="clientConnectedSuccessfully">Client connected successfully</string>
+    <string name="onCreateSQLiteDatabase">"onCreate SQLiteDatabase"</string>
+    <string name="onUpgradeSQLiteDatabase">"onUpgrade SQLiteDatabase"</string>
+    <string name="onDowngradeSQLiteDatabase">"onDowngrade SQLiteDatabase"</string>
+    <string name="failedPersistConn">"Failed to persist connection"</string>
+    <string name="restoreConnection">"Restore connection"</string>
+    <string name="deleteConnection">"Restore connection"</string>
+    <string name="failedPersistRest">"Failed restoring connection"</string>
+    <!-- MqttCallback  -->
+    <string name="connectionLost">%1$s has lost connection to %2$s</string>
+    <string name="messageRecieved">Received message %1$s &lt;br/&gt; &lt;small&gt;Topic: %2$s &lt;/small&gt; </string>
+    <string name="notification">%1$s has received %2$s on topic %3$s</string>
+    <!-- Action  -->
+    <string name="dateFormatAction">----dd/MM/yy \'at\' HH:mm:ss----</string>
+    <string name="timestampAction">&lt;br/&gt; &lt;small&gt; %1$s &lt;/small&gt;</string>
+    <string name="clientConnAction">Client Connected</string>
+    <string name="clientConnActionFailed">Failed to client connected</string>
+    <string name="clientDiscAction">Client Disconnected</string>
+    <string name="clientDiscActionFailed">Failed to client disconnected</string>
+    <string name="pubAction">Published message: %1$s</string>
+    <string name="pubActionFailed">Failed to publish to %1$s</string>
+    <string name="subAction">Subscribed to %1$s</string>
+    <string name="subActionFailed">Failed to subscribe to %1$s</string>
+    <string name="unSubAction">UnSubscribed to %1$s</string>
+    <string name="unSubActionFailed">Failed to unsubscribe to %1$s</string>
+</resources>

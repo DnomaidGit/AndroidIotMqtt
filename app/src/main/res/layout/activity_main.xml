@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="8dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingTop="8dp"
+    android:orientation="vertical"
+    android:background="@color/colorText"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/btnConnectionFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Connection"
+            android:onClick="onClickFragment"
+            app:srcCompat="@mipmap/conexp128x128" />
+        <ImageButton
+            android:id="@+id/btnTemperatureFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Temperature"
+            android:onClick="onClickFragment"
+            app:srcCompat="@mipmap/gradosp128x128" />
+        <ImageButton
+            android:id="@+id/btnRelayFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Relay"
+            android:onClick="onClickFragment"
+            app:srcCompat="@mipmap/interruptp128x128i" />
+        <ImageButton
+            android:id="@+id/btnHistoryFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="History"
+            android:onClick="onClickFragment"
+            app:srcCompat="@mipmap/commandj128x128" />
+        <ImageButton
+            android:id="@+id/btnConfigFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="History"
+            android:onClick="onClickFragment"
+            app:srcCompat="@mipmap/configj128x128" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/contenedorFragments"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp">
+    </FrameLayout>
+
+</LinearLayout>

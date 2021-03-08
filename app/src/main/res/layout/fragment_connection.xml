@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--Overview-->
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:text=""
+                android:textSize="14sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorText"
+                android:text="" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorText"
+                android:text="" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorText"
+                android:text="" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorText"
+                android:text="" />
+        </LinearLayout>
+        <!--Connection-->
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@color/colorConfig"
+                        android:textColor="@color/colorText"
+                        android:text="@string/connectionText">
+                    </TextView>
+                </RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/serverGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/clientIdGroup" >
+                    <TextView
+                        android:id="@+id/serverTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="5dip"
+                        android:layout_marginRight="17dip"
+                        android:text="@string/serverText" />
+
+                    <EditText
+                        android:id="@+id/server"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.22"
+                        android:ems="10"
+                        android:hint="@string/serverURIHint"
+                        android:inputType="text" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/portGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/serverGroup" >
+
+                    <TextView
+                        android:id="@+id/portTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="5dip"
+                        android:layout_marginRight="32dip"
+                        android:text="@string/portText" />
+
+                    <EditText
+                        android:id="@+id/port"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.22"
+                        android:ems="10"
+                        android:maxLength="4"
+                        android:hint="@string/portHint"
+                        android:inputType="number" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/clientIdGroup"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/clientIDTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="5dip"
+                        android:layout_marginRight="5dip"
+                        android:text="@string/clientIdText" />
+
+                    <EditText
+                        android:id="@+id/clientId"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.22"
+                        android:ems="10"
+                        android:hint="@string/clientIdHint"
+                        android:inputType="text" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/cleanSessionGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/portGroup" >
+
+                    <TextView
+                        android:id="@+id/cleanSessionTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="5dip"
+                        android:layout_marginRight="30dip"
+                        android:text="@string/cleanSessionText" />
+
+                    <CheckBox
+                        android:id="@+id/cleanSessionCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/contentDescriptionCleanSession"
+                        android:text="@string/empty" />
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/btnConnect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/connectText"/>
+                    <Button
+                        android:id="@+id/btnDisconnect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/btnConnect"
+                        android:layout_toEndOf="@+id/btnConnect"
+                        android:text="@string/disconnectText"/>
+                    <TextView
+                        android:id="@+id/textViConnect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/btnDisconnect"
+                        android:layout_toEndOf="@+id/btnDisconnect"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorTextStatus"
+                        android:autoSizeTextType="uniform"
+                        android:text="ConnectStatus" />
+                </RelativeLayout>
+        <!--Subscribe-->
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@color/colorConfig"
+                        android:textColor="@color/colorText"
+                        android:text="@string/topicText">
+                    </TextView>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center">
+                    <Button
+                        android:id="@+id/btnSubscribe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/subscribeText"/>
+                    <Button
+                        android:id="@+id/btnUnsubscribe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/btnSubscribe"
+                        android:layout_toRightOf="@+id/btnSubscribe"
+                        android:text="@string/unsubscribeText"/>
+                    <TextView
+                        android:id="@+id/textViSubscribe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/btnUnsubscribe"
+                        android:layout_toRightOf="@+id/btnUnsubscribe"
+                        android:textColor="@color/colorTextStatus"
+                        android:text="SubscribeStatus" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/textViMessageArrived"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/colorTextHist"
+                        android:text="Message Arrived" />
+                </RelativeLayout>
+    </LinearLayout>
+</ScrollView>
