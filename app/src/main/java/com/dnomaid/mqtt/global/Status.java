@@ -41,6 +41,4 @@ public class Status {
     public String getMessageArrived() { return messageArrived; }
     public void setMessageArrived(String messageArrived) { this.messageArrived = messageArrived; }
 
-
-
 }

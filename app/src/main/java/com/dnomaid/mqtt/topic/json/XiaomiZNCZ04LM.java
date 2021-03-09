@@ -1,7 +1,6 @@
 package com.dnomaid.mqtt.topic.json;
 
 public class XiaomiZNCZ04LM {
-	                          //{"consumption":0.21,"current":0,"energy":0.21,"linkquality":78,"power":0,"state":"OFF","temperature":17,"voltage":230}
 	//{"consumer_connected":true,"consumption":0.83,"current":0,"energy":0.83,"linkquality":23,"power":0,"state":"OFF","temperature":17,"voltage":230}
 	private Boolean consumer_connected;
 	private Double consumption;

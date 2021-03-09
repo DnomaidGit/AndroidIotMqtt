@@ -1,7 +1,5 @@
 package com.dnomaid.mqtt.global;
 
-import com.dnomaid.mqtt.R;
-
 public interface Constants {
     String ID= "Dnomaid";
     String STAT_PREFIX =ID+"/stat";
