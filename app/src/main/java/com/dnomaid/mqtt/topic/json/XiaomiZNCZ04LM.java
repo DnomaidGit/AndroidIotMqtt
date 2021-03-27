@@ -1,6 +1,8 @@
 package com.dnomaid.mqtt.topic.json;
 
-public class XiaomiZNCZ04LM {
+import com.dnomaid.mqtt.topic.ActionTopic;
+
+public class XiaomiZNCZ04LM implements ActionTopic {
 	//{"consumer_connected":true,"consumption":0.83,"current":0,"energy":0.83,"linkquality":23,"power":0,"state":"OFF","temperature":17,"voltage":230}
 	private Boolean consumer_connected;
 	private Double consumption;
@@ -76,5 +78,20 @@ public class XiaomiZNCZ04LM {
 	public void setVoltage(Double voltage) {
 		this.voltage = voltage;
 	}
-			
+
+	@Override
+	public String getValueTopic(TypeTopic typeTopic) {
+		String str = "--.--";
+		switch (typeTopic) {
+			case Power:
+				str = getState();
+				break;
+			case Temperature:	
+				str = String.valueOf(getTemperature());
+				break;				
+			default:
+				str = "??¿¿";
+		}
+		return str;
+	}
 }

@@ -1,6 +1,8 @@
 package com.dnomaid.mqtt.topic.json;
 
-public class TuyaZigBeeSensorJson {
+import com.dnomaid.mqtt.topic.ActionTopic;
+
+public class TuyaZigBeeSensorJson implements ActionTopic {
 	//{"battery":100,"humidity":00.00,"linkquality":00,"temperature":00.00,"voltage":3200}
 	private Double battery;
 	private Double humidity;
@@ -45,5 +47,23 @@ public class TuyaZigBeeSensorJson {
 	public void setVoltage(Double voltage) {
 		this.voltage = voltage;
 	}
-	
+
+	@Override
+	public String getValueTopic(TypeTopic typeTopic) {
+		String str = "--.--";
+		switch (typeTopic) {
+			case Battery:
+				str = String.valueOf(getBattery());
+				break;
+			case Humidity:
+				str = String.valueOf(getHumidity());
+				break;
+			case Temperature:	
+				str = String.valueOf(getTemperature());
+				break;				
+			default:
+				str = "??¿¿";
+		}
+		return str;
+	}	
 }

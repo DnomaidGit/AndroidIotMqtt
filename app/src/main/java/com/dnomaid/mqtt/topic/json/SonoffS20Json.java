@@ -1,6 +1,8 @@
 package com.dnomaid.mqtt.topic.json;
 
-public class SonoffS20Json {
+import com.dnomaid.mqtt.topic.ActionTopic;
+
+public class SonoffS20Json implements ActionTopic {
     //../cmnd/Relay0x/PowerRetain message: "ON" --> enable MQTT power retain on status update
 
 	private String POWER;
@@ -11,4 +13,17 @@ public class SonoffS20Json {
 
 	public String getPOWER() { return POWER; }
 	public void setPOWER(String pOWER) { POWER = pOWER; }
+
+	@Override
+	public String getValueTopic(TypeTopic typeTopic) {
+		String str = "--.--";
+		switch (typeTopic) {
+			case Power:
+				str = String.valueOf(getPOWER());
+				break;
+			default:
+				str = "??¿¿";
+		}
+		return str;
+	}
 }
