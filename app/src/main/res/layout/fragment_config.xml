@@ -141,5 +141,22 @@
                 android:textColor="@color/colorText"
                 android:text="False" />
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp">
+            <Spinner
+                android:id="@+id/spinTypeDevice"
+                android:spinnerMode="dialog"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="17dip"
+                android:textSize="16dp"
+                 />
+        </RelativeLayout>
+
     </LinearLayout>
 </ScrollView>

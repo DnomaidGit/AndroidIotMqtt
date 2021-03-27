@@ -6,8 +6,7 @@ import com.dnomaid.mqtt.global.Constants;
 import com.dnomaid.mqtt.topic.TopicJson;
 import com.dnomaid.mqtt.topic.TopicNoJson;
 import com.dnomaid.mqtt.topic.json.*;
-import com.dnomaid.mqtt.topic.noJson.POWER;
-import com.dnomaid.mqtt.topic.noJson.Set;
+import com.dnomaid.mqtt.topic.noJson.*;
 
 public class Devices implements Constants {	
     private ArrayList<Device> Devices;
@@ -139,7 +138,13 @@ public class Devices implements Constants {
 		device.addTopic(topic01);
 		device.addTopic(topic02);
 		return device;
-	}	
-	
-        
+	}
+
+	public String getPublishTopicRelay(Integer numberRelay) {
+		String PublishTopicRelay = "PublishTopic01Relay??";
+		if(numberRelay>0&getRelays().size()>=numberRelay) {
+			PublishTopicRelay = getRelays().get(numberRelay-1).getTopics().get(1).getName();
+		}
+		return PublishTopicRelay;
+	}
 }

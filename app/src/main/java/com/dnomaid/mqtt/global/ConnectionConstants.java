@@ -1,7 +1,5 @@
 package com.dnomaid.mqtt.global;
 
-import com.dnomaid.mqtt.device.Devices;
-
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 
 public class ConnectionConstants implements ConnectionDefaults {
@@ -117,11 +115,5 @@ public class ConnectionConstants implements ConnectionDefaults {
     PublishTopic = PUBLISH_TOPIC;
     SubscribeTopic = SUBSCRIBE_TOPIC;
   }
-  public String getPTOPIC01RELAY(Integer numberRelay) {
-    String PTOPIC01RELAY = "PublishTopic01Relay??";
-    if(numberRelay>0&Devices.getInst().getRelays().size()>=numberRelay) {
-      PTOPIC01RELAY = Devices.getInst().getRelays().get(numberRelay-1).getTopics().get(1).getName();
-    }
-    return PTOPIC01RELAY;
-  }
+
 }

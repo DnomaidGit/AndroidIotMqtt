@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.dnomaid.mqtt.R;
 import com.dnomaid.mqtt.client.Actions;
+import com.dnomaid.mqtt.device.Devices;
 import com.dnomaid.mqtt.global.ConnectionConstants;
 
 public class RelayFragment extends Fragment {
@@ -32,7 +33,7 @@ public class RelayFragment extends Fragment {
         String message;
         for(int i=1; i<=6; i++) {
             numberRelay = i;
-            topic = ConnectionConstants.getInst().getPTOPIC01RELAY(numberRelay);
+            topic = Devices.getInst().getPublishTopicRelay(numberRelay);
             message = "OFF";
             onClickHandler( buttonIndex, numberRelay, topic, message);
             message = "ON";

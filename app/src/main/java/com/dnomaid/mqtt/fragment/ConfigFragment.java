@@ -6,7 +6,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,9 +19,13 @@ import androidx.fragment.app.Fragment;
 
 import com.dnomaid.mqtt.R;
 import com.dnomaid.mqtt.client.Actions;
+import com.dnomaid.mqtt.global.Constants;
+
+import java.util.ArrayList;
 
 public class ConfigFragment extends Fragment {
     private TextView textViServer,textViPort,textViClientId,textViCleanSession;
+    private Spinner spinTypeDevice;
     View view;
     Activity activity;
     Actions actions;
@@ -42,6 +51,28 @@ public class ConfigFragment extends Fragment {
         textViPort = view.findViewById(R.id.textViPort);
         textViClientId = view.findViewById(R.id.textViClientId);
         textViCleanSession = view.findViewById(R.id.textViCleanSession);
+        spinTypeDevice = view.findViewById(R.id.spinTypeDevice);
+        ArrayList<Constants.TypeDevice> spinTypeDeviceList = new ArrayList<>();
+        for(Constants.TypeDevice value: Constants.TypeDevice.values() )
+        {
+            spinTypeDeviceList.add(value);
+        }
+        ArrayAdapter<Constants.TypeDevice> adapter = new ArrayAdapter<>(this.getContext(),android.R.layout.simple_spinner_item,spinTypeDeviceList);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinTypeDevice.setAdapter(adapter);
+        spinTypeDevice.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(parent.getContext(),"Selected : "
+                        +parent.getItemAtPosition(position).toString(),Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
     }
     public interface OnFragmentCommunicationListener {
         void onNameChangeServer(String name);
