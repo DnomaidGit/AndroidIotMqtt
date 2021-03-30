@@ -18,6 +18,7 @@ import com.dnomaid.mqtt.fragment.ConnectionFragment;
 import com.dnomaid.mqtt.fragment.HistoryFragment;
 import com.dnomaid.mqtt.fragment.RelayFragment;
 import com.dnomaid.mqtt.fragment.TemperatureFragment;
+import com.dnomaid.mqtt.global.Constants;
 import com.dnomaid.mqtt.global.Status;
 import com.dnomaid.mqtt.topic.ActionTopic;
 
@@ -46,6 +47,17 @@ public class MainActivity extends AppCompatActivity
         configFragment = new ConfigFragment();
         //Init
         getSupportFragmentManager().beginTransaction().add(R.id.contenedorFragments,connectionFragment).commit();
+
+        Devices.getInst().newDevice(Constants.TypeDevice.SonoffS20, "1");
+        Devices.getInst().newDevice(Constants.TypeDevice.SonoffS20, "2");
+        Devices.getInst().newDevice(Constants.TypeDevice.SonoffS20, "3");
+        Devices.getInst().newDevice(Constants.TypeDevice.SonoffS20, "4");
+        Devices.getInst().newDevice(Constants.TypeDevice.SonoffS20, "5");
+        Devices.getInst().newDevice(Constants.TypeDevice.SonoffSNZB02, "1");
+        Devices.getInst().newDevice(Constants.TypeDevice.AqaraTemp, "1");
+        Devices.getInst().newDevice(Constants.TypeDevice.TuyaZigBeeSensor, "1");
+        Devices.getInst().newDevice(Constants.TypeDevice.XiaomiZNCZ04LM, "1");
+
         connection = Connection.getInstance(this);
         mqtt = new Mqtt(this);
     }
@@ -60,20 +72,16 @@ public class MainActivity extends AppCompatActivity
                 onNameChangeConnection(Status.getInst().getConnectionStatus());
                 onNameChangeSubscribe(Status.getInst().getTopicStatus());
                 onNameChangeMessageArrived(Status.getInst().getMessageArrived());
-                onStatusChangeRelay(1,Devices.getInst().getRelays().get(0).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Power));
-                onStatusChangeRelay(2,Devices.getInst().getRelays().get(1).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Power));
-                onStatusChangeRelay(3,Devices.getInst().getRelays().get(2).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Power));
-                onStatusChangeRelay(4,Devices.getInst().getRelays().get(3).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Power));
-                onStatusChangeRelay(5,Devices.getInst().getRelays().get(4).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Power));
-                onStatusChangeRelay(6,Devices.getInst().getRelays().get(5).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Power));
-                onStatusChangeTemp(1,Devices.getInst().getSensors().get(0).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Temperature));
-                onStatusChangeHum(1,Devices.getInst().getSensors().get(0).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Humidity));
-                onStatusChangeTemp(2,Devices.getInst().getSensors().get(1).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Temperature));
-                onStatusChangeHum(2,Devices.getInst().getSensors().get(1).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Humidity));
-                onStatusChangeTemp(3,Devices.getInst().getSensors().get(2).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Temperature));
-                onStatusChangeHum(3,Devices.getInst().getSensors().get(2).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Humidity));
-                onStatusChangeTemp(4,Devices.getInst().getSensors().get(3).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Temperature));
-                onStatusChangeHum(4,Devices.getInst().getSensors().get(3).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Humidity));
+                for (int i=0;i<Devices.getInst().getRelays().size();i++) {
+                    onStatusChangeRelay(i+1,
+                        Devices.getInst().getRelays().get(i).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Power));
+                }
+                for (int i=0;i<Devices.getInst().getSensorsClimate().size();i++) {
+                    onStatusChangeTemp(i+1,
+                        Devices.getInst().getSensorsClimate().get(i).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Temperature));
+                    onStatusChangeHum(i+1,
+                        Devices.getInst().getSensorsClimate().get(i).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Humidity));
+                }
                 onNameChangeHistory();
                 onNameChangeServer(ConnectionConstants.getInst().getServer());
                 onNameChangePort(String.valueOf(ConnectionConstants.getInst().getPort()));
