@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity
     private Runnable runnable;
     Spanned[] HISTORY;
     private Mqtt mqtt;
+    private Devices devices;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,17 +48,19 @@ public class MainActivity extends AppCompatActivity
         configFragment = new ConfigFragment();
         //Init
         getSupportFragmentManager().beginTransaction().add(R.id.contenedorFragments,connectionFragment).commit();
-
-        Devices.getInst().newDevice(Constants.TypeDevice.SonoffS20, "1");
-        Devices.getInst().newDevice(Constants.TypeDevice.SonoffS20, "2");
-        Devices.getInst().newDevice(Constants.TypeDevice.SonoffS20, "3");
-        Devices.getInst().newDevice(Constants.TypeDevice.SonoffS20, "4");
-        Devices.getInst().newDevice(Constants.TypeDevice.SonoffS20, "5");
-        Devices.getInst().newDevice(Constants.TypeDevice.SonoffSNZB02, "1");
-        Devices.getInst().newDevice(Constants.TypeDevice.AqaraTemp, "1");
-        Devices.getInst().newDevice(Constants.TypeDevice.TuyaZigBeeSensor, "1");
-        Devices.getInst().newDevice(Constants.TypeDevice.XiaomiZNCZ04LM, "1");
-
+        if (devices== null){
+            Devices.getInst().getDevicesConfig().clear();
+            devices = Devices.getInst();
+            devices.newDevice(Constants.TypeDevice.SonoffS20, "1");
+            devices.newDevice(Constants.TypeDevice.SonoffS20, "2");
+            devices.newDevice(Constants.TypeDevice.SonoffS20, "3");
+            devices.newDevice(Constants.TypeDevice.SonoffS20, "4");
+            devices.newDevice(Constants.TypeDevice.SonoffS20, "5");
+            devices.newDevice(Constants.TypeDevice.SonoffSNZB02, "1");
+            devices.newDevice(Constants.TypeDevice.AqaraTemp, "1");
+            devices.newDevice(Constants.TypeDevice.TuyaZigBeeSensor, "1");
+            devices.newDevice(Constants.TypeDevice.XiaomiZNCZ04LM, "1");
+        }
         connection = Connection.getInstance(this);
         mqtt = new Mqtt(this);
     }
@@ -175,7 +178,7 @@ public class MainActivity extends AppCompatActivity
         if (historyFragment != null && historyFragment.isVisible()) {
             connection = Connection.getInstance(this);
             if (connection != null) {
-                HISTORY = Connection.getInstance(this).history();
+                HISTORY = Status.getInst().getHistory();
                 historyFragment.onNameChangeHistory(HISTORY);
             }
         }

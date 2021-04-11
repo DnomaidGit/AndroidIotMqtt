@@ -165,6 +165,7 @@ public class Connection {
     Integer HistoryNumber = history.size();
     if(HistoryNumber >= maxHistoryNumber)history.remove(maxHistoryNumber-1);
     history.add(0,textHistory + timestamp);
+    Status.getInst().setHistory(history);
   }
   //Getter
   public MqttAndroidClient getClient() { return client; }

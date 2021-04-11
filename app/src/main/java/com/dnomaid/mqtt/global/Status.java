@@ -1,9 +1,15 @@
 package com.dnomaid.mqtt.global;
 
+import android.text.Html;
+import android.text.Spanned;
+
+import java.util.ArrayList;
+
 public class Status {
     private String messageArrived;
     private ConnectionStatus status;
     private TopicStatus topicStatus;
+    private Spanned[] history;
     public static final String SPACE = " ";
     public static final String EMPTY = new String();
     public enum ConnectionStatus {CONNECTING, CONNECTED, DISCONNECTING, DISCONNECTED, ERROR, NONE}
@@ -13,7 +19,7 @@ public class Status {
     private Status(){
         changeConnectionStatus(ConnectionStatus.NONE);
         changeTopicStatus(TopicStatus.NONE);
-
+        history = new Spanned[new ArrayList<String>().size()];
     }
     public  static synchronized Status getInst() {
         if (instance==null) {
@@ -40,5 +46,18 @@ public class Status {
 
     public String getMessageArrived() { return messageArrived; }
     public void setMessageArrived(String messageArrived) { this.messageArrived = messageArrived; }
+    public Spanned[] getHistory() {
+        return history;
+    }
+    public void setHistory(ArrayList<String> historys) {
+        int i = 0;
+        history = new Spanned[historys.size()];
+        for (String s : historys) {
+            if (s != null) {
+                history[i] = Html.fromHtml(s);
+                i++;
+            }
+        }
+    }
 
 }
