@@ -1,5 +1,18 @@
 <resources>
-    <string name="app_name">MqttDnomaid</string>
+    <string name="app_name">DnomaidMqtt</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_connection">Connection</string>
+    <string name="menu_relay">Relay</string>
+    <string name="menu_temperature">Temperature</string>
+    <string name="menu_history">History</string>
+    <string name="menu_config">Config</string>
+
     <string name="empty"> </string>
     <!-- Fragment -->
     <string name="serverText">Server</string>
@@ -12,19 +25,11 @@
     <string name="disconnectText">Disconnect</string>
     <string name="subscribeText">Subscribe</string>
     <string name="unsubscribeText">Unsubscribe</string>
-    <string name="Relay01Text">Relay01  ::Sonoff20 #TASMOTA</string>
-    <string name="Relay02Text">Relay02  ::Sonoff20 #TASMOTA</string>
-    <string name="Relay03Text">Relay03  ::Sonoff20 #TASMOTA</string>
-    <string name="Relay04Text">Relay04  ::Sonoff20 #TASMOTA</string>
-    <string name="Relay05Text">Relay05  ::Sonoff20 #TASMOTA</string>
-    <string name="Relay06Text">Relay06  ::XiaomiZNCZ04LM #ZIGBEE</string>
+    <string name="RelayText">::::Relay::::</string>
     <string name="onText">On</string>
     <string name="offText">Off</string>
     <string name="statusText">Status</string>
-    <string name="Sensor01Text">Sensor01  ::SonoffS20 #ZIGBEE</string>
-    <string name="Sensor02Text">Sensor02  ::Aqara #ZIGBEE</string>
-    <string name="Sensor03Text">Sensor03  ::XiaomiZNCZ04LM #ZIGBEE</string>
-    <string name="Sensor04Text">Sensor04  ::TuyaZigbeeSensor #ZIGBEE</string>
+    <string name="SensorText">::::Sensor::::</string>
     <string name="TemperatureText">Temperature</string>
     <string name="HumidityText">Humidity</string>
     <!-- Hints -->

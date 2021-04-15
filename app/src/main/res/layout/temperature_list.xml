@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/textViNameTemp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="@color/colorConfig"
+                android:textColor="@color/colorText"
+                android:text="@string/SensorText">
+            </TextView>
+        </LinearLayout>
+    <!--Sensor-->
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/txtViTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="2dp"
+                android:layout_centerVertical="true"
+                android:textSize="16dp"
+                android:text="@string/TemperatureText" />
+            <TextView
+                android:id="@+id/textViTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/txtViTemp"
+                android:layout_toRightOf="@+id/txtViTemp"
+                android:textSize="30dp"
+                android:textColor="@color/colorTextTemp"
+                android:text="00.00" />
+            <TextView
+                android:id="@+id/txtViHum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="2dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/textViTemp"
+                android:layout_toRightOf="@+id/textViTemp"
+                android:textSize="16dp"
+                android:text="@string/HumidityText" />
+            <TextView
+                android:id="@+id/textViHum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/txtViHum"
+                android:layout_toRightOf="@+id/txtViHum"
+                android:textSize="30dp"
+                android:textColor="@color/colorTextTemp"
+                android:text="00.00" />
+        </RelativeLayout>
+
+</RelativeLayout>

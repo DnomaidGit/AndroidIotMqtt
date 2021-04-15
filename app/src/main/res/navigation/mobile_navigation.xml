@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_connection">
+
+    <fragment
+        android:id="@+id/nav_connection"
+        android:name="com.dnomaid.mqtt.ui.connection.ConnectionFragment"
+        android:label="@string/menu_connection"
+        tools:layout="@layout/fragment_connection" />
+
+    <fragment
+        android:id="@+id/nav_relay"
+        android:name="com.dnomaid.mqtt.ui.relay.RelayFragment"
+        android:label="@string/menu_relay"
+        tools:layout="@layout/fragment_relay" />
+
+    <fragment
+        android:id="@+id/nav_temperature"
+        android:name="com.dnomaid.mqtt.ui.temperature.TemperatureFragment"
+        android:label="@string/menu_temperature"
+        tools:layout="@layout/fragment_temperature" />
+
+    <fragment
+        android:id="@+id/nav_history"
+        android:name="com.dnomaid.mqtt.ui.history.HistoryFragment"
+        android:label="@string/menu_history"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/nav_config"
+        android:name="com.dnomaid.mqtt.ui.config.ConfigFragment"
+        android:label="@string/menu_config" />
+
+</navigation>

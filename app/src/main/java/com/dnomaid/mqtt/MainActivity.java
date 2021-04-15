@@ -2,52 +2,75 @@ package com.dnomaid.mqtt;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Spanned;
+import android.view.Menu;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import com.dnomaid.mqtt.client.Actions;
 import com.dnomaid.mqtt.client.Connection;
 import com.dnomaid.mqtt.client.Mqtt;
 import com.dnomaid.mqtt.device.Devices;
-import com.dnomaid.mqtt.global.ConnectionConstants;
-import com.dnomaid.mqtt.fragment.ConfigFragment;
-import com.dnomaid.mqtt.fragment.ConnectionFragment;
-import com.dnomaid.mqtt.fragment.HistoryFragment;
-import com.dnomaid.mqtt.fragment.RelayFragment;
-import com.dnomaid.mqtt.fragment.TemperatureFragment;
 import com.dnomaid.mqtt.global.Constants;
-import com.dnomaid.mqtt.global.Status;
-import com.dnomaid.mqtt.topic.ActionTopic;
+import com.dnomaid.mqtt.ui.config.ConfigViewModel;
+import com.dnomaid.mqtt.ui.connection.ConnectionViewModel;
+import com.dnomaid.mqtt.ui.history.HistoryViewModel;
+import com.dnomaid.mqtt.ui.relay.RelayViewModel;
+import com.dnomaid.mqtt.ui.temperature.TemperatureViewModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity
-        implements Actions, ConnectionFragment.OnFragmentCommunicationListener, TemperatureFragment.OnFragmentCommunicationListener,
-        RelayFragment.OnFragmentCommunicationListener, HistoryFragment.OnFragmentCommunicationListener, ConfigFragment.OnFragmentCommunicationListener{
-    ConnectionFragment connectionFragment;
-    TemperatureFragment temperatureFragment;
-    RelayFragment relayFragment;
-    HistoryFragment historyFragment;
-    ConfigFragment configFragment;
-    private Connection connection = null;
+        implements Actions {
     public static final long PERIODO = 500; // 60 segundos (6 * 1000 millisegundos)
     private Handler handler;
     private Runnable runnable;
-    Spanned[] HISTORY;
+
+    private Connection connection = null;
     private Mqtt mqtt;
     private Devices devices;
+    private AppBarConfiguration mAppBarConfiguration;
+    private ConnectionViewModel connectionViewModel;
+    private HistoryViewModel historyViewModel;
+    private TemperatureViewModel temperatureViewModel;
+    private RelayViewModel relayViewModel;
+    private ConfigViewModel configViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        connectionFragment = new ConnectionFragment();
-        temperatureFragment = new TemperatureFragment();
-        relayFragment = new RelayFragment();
-        historyFragment = new HistoryFragment();
-        configFragment = new ConfigFragment();
-        //Init
-        getSupportFragmentManager().beginTransaction().add(R.id.contenedorFragments,connectionFragment).commit();
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_connection ,R.id.nav_relay, R.id.nav_temperature, R.id.nav_history, R.id.nav_config
+        )
+                .setDrawerLayout(drawer)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
+
         if (devices== null){
             Devices.getInst().getDevicesConfig().clear();
             devices = Devices.getInst();
@@ -60,10 +83,14 @@ public class MainActivity extends AppCompatActivity
             devices.newDevice(Constants.TypeDevice.AqaraTemp, "1");
             devices.newDevice(Constants.TypeDevice.TuyaZigBeeSensor, "1");
             devices.newDevice(Constants.TypeDevice.XiaomiZNCZ04LM, "1");
-        }
-        connection = Connection.getInstance(this);
-        mqtt = new Mqtt(this);
+            }
+
+        setupViewModel();
+        if (connection == null) connection = Connection.getInstance(this);
+        if (mqtt == null) mqtt = new Mqtt(this);
+
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -72,141 +99,31 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void run() {
                 handler.postDelayed(this, PERIODO);
-                onNameChangeConnection(Status.getInst().getConnectionStatus());
-                onNameChangeSubscribe(Status.getInst().getTopicStatus());
-                onNameChangeMessageArrived(Status.getInst().getMessageArrived());
-                for (int i=0;i<Devices.getInst().getRelays().size();i++) {
-                    onStatusChangeRelay(i+1,
-                        Devices.getInst().getRelays().get(i).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Power));
-                }
-                for (int i=0;i<Devices.getInst().getSensorsClimate().size();i++) {
-                    onStatusChangeTemp(i+1,
-                        Devices.getInst().getSensorsClimate().get(i).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Temperature));
-                    onStatusChangeHum(i+1,
-                        Devices.getInst().getSensorsClimate().get(i).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Humidity));
-                }
-                onNameChangeHistory();
-                onNameChangeServer(ConnectionConstants.getInst().getServer());
-                onNameChangePort(String.valueOf(ConnectionConstants.getInst().getPort()));
-                onNameChangeClientId(ConnectionConstants.getInst().getClientId());
-                onNameChangeCleanSession(String.valueOf(ConnectionConstants.getInst().isCleanSession()));
-                if(Status.getInst().isConnected()&Status.getInst().isNoneTopicStatus())subscribe();
+                updateState();
             }
         };
         handler.postDelayed(runnable, PERIODO);
         //Recover connections.
         connection = Connection.getInstance(this);
-        //Register receivers again
-        //if (connection != null) {
-            //connection.getClient().registerResources(this);
-            //connection.getClient().setCallback(new MqttCallbackHandler(this));
-        //}
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        connection = Connection.getInstance(this);
-        connection.getClient().unregisterResources();
-        //connection.removeConnection();
     }
     @Override
     protected void onPause() {
         super.onPause();
         handler.removeCallbacks(runnable);
     }
-    //onClickFragment
-    public void onClickFragment(View view) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        switch (view.getId()) {
-            case R.id.btnConnectionFragment:
-                transaction.replace(R.id.contenedorFragments,connectionFragment);
-                break;
-            case R.id.btnTemperatureFragment:
-                transaction.replace(R.id.contenedorFragments,temperatureFragment);
-                break;
-            case R.id.btnRelayFragment:
-                transaction.replace(R.id.contenedorFragments,relayFragment);
-                break;
-            case R.id.btnHistoryFragment:
-                transaction.replace(R.id.contenedorFragments,historyFragment);
-                break;
-            case R.id.btnConfigFragment:
-                transaction.replace(R.id.contenedorFragments,configFragment);
-                break;
-        }
-        transaction.commit();
-    }
-    //onNameChange
     @Override
-    public void onNameChangeConnection(String name) {
-        if (connectionFragment != null && connectionFragment.isVisible() ) {
-            connectionFragment.onNameChangeConnection(name);
-        }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
     @Override
-    public void onNameChangeSubscribe(String name) {
-        if (connectionFragment != null && connectionFragment.isVisible()) {
-            connectionFragment.onNameChangeSubscribe(name);
-        }
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
     }
-    @Override
-    public void onNameChangeMessageArrived(String name) {
-        if (connectionFragment != null && connectionFragment.isVisible()) {
-            connectionFragment.onNameChangeMessageArrived(name);
-        }
-    }
-    @Override
-    public void onStatusChangeRelay(int numberRelay, String status) {
-        if (relayFragment != null && relayFragment.isVisible()) {
-            relayFragment.onStatusChangeRelay(numberRelay, status);
-        }
-    }    
-    @Override
-    public void onStatusChangeTemp(int numberSensor, String status){
-        if (temperatureFragment != null && temperatureFragment.isVisible()) {
-            temperatureFragment.onStatusChangeTemp(numberSensor,status);
-        }
-    }
-    @Override
-    public void onStatusChangeHum(int numberSensor, String status) {
-        if (temperatureFragment != null && temperatureFragment.isVisible()) {
-            temperatureFragment.onStatusChangeHum(numberSensor,status);
-        }
-    }
-    @Override
-    public void onNameChangeHistory() {
-        if (historyFragment != null && historyFragment.isVisible()) {
-            connection = Connection.getInstance(this);
-            if (connection != null) {
-                HISTORY = Status.getInst().getHistory();
-                historyFragment.onNameChangeHistory(HISTORY);
-            }
-        }
-    }
-    @Override
-    public void onNameChangeServer(String name) {
-        if (configFragment != null && configFragment.isVisible()) {
-            configFragment.onNameChangeServer(name);
-        }
-    }
-    @Override
-    public void onNameChangePort(String name) {
-        if (configFragment != null && configFragment.isVisible()) {
-            configFragment.onNameChangePort(name);
-        }
-    }
-    @Override
-    public void onNameChangeClientId(String name) {
-        if (configFragment != null && configFragment.isVisible()) {
-            configFragment.onNameChangeClientId(name);
-        }
-    }
-    @Override
-    public void onNameChangeCleanSession(String name) {
-        if (configFragment != null && configFragment.isVisible()) {
-            configFragment.onNameChangeCleanSession(name);
-        }
-    }
+
     //Interface Actions
     @Override
     public void connection() {
@@ -228,4 +145,20 @@ public class MainActivity extends AppCompatActivity
     public void publish(String topic, String message) {
         mqtt.publish(topic,message);
     }
+
+    private void setupViewModel(){
+        if (connectionViewModel == null) connectionViewModel = new ViewModelProvider(this).get(ConnectionViewModel.class);
+        if (historyViewModel == null) historyViewModel = new ViewModelProvider(this).get(HistoryViewModel.class);
+        if (temperatureViewModel == null) temperatureViewModel = new ViewModelProvider(this).get(TemperatureViewModel.class);
+        if (relayViewModel == null) relayViewModel = new ViewModelProvider(this).get(RelayViewModel.class);
+        if (configViewModel == null) configViewModel = new ViewModelProvider(this).get(ConfigViewModel.class);
+    }
+    private void updateState() {
+            connectionViewModel.updateState();
+            historyViewModel.updateState();
+            temperatureViewModel.updateState();
+            relayViewModel.updateState();
+            configViewModel.updateState();
+    }
+
 }

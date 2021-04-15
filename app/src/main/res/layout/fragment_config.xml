@@ -1,48 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorConfig">
+    tools:context=".ui.config.ConfigFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/colorText"
-                android:text="" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/colorText"
-                android:text="" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/colorText"
-                android:text="" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/colorText"
-                android:text="" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/colorConfig"
-                android:text="" />
-        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -65,7 +31,7 @@
                 android:layout_toEndOf="@+id/textViServ"
                 android:layout_toRightOf="@+id/textViServ"
                 android:text="0.0.0.0"
-                android:textColor="@color/colorText"
+                android:textColor="@color/colorConfig"
                 android:textSize="20dp" />
         </RelativeLayout>
         <RelativeLayout
@@ -90,7 +56,7 @@
                 android:layout_toEndOf="@+id/textViPor"
                 android:layout_toRightOf="@+id/textViPor"
                 android:textSize="20dp"
-                android:textColor="@color/colorText"
+                android:textColor="@color/colorConfig"
                 android:text="1000" />
         </RelativeLayout>
         <RelativeLayout
@@ -114,7 +80,7 @@
                 android:layout_toEndOf="@+id/textViClientI"
                 android:layout_toRightOf="@+id/textViClientI"
                 android:textSize="20dp"
-                android:textColor="@color/colorText"
+                android:textColor="@color/colorConfig"
                 android:text="Client" />
         </RelativeLayout>
         <RelativeLayout
@@ -138,7 +104,7 @@
                 android:layout_toEndOf="@+id/textViCleanSessio"
                 android:layout_toRightOf="@+id/textViCleanSessio"
                 android:textSize="20dp"
-                android:textColor="@color/colorText"
+                android:textColor="@color/colorConfig"
                 android:text="False" />
         </RelativeLayout>
         <RelativeLayout
@@ -146,16 +112,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp">
-            <Spinner
-                android:id="@+id/spinTypeDevice"
-                android:spinnerMode="dialog"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="17dip"
-                android:textSize="16dp"
-                 />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViDevice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </RelativeLayout>
 
     </LinearLayout>
