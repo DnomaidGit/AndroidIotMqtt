@@ -1,4 +1,4 @@
-package com.dnomaid.mqtt.ui.relay;
+package com.dnomaid.mqtt.ui.connection;
 
 import android.view.View;
 import android.widget.TextView;
@@ -7,13 +7,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dnomaid.mqtt.R;
+import com.dnomaid.mqtt.ui.relay.RecyclerViewClickListener;
 
-public class RelayViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class ConnectionViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     private RecyclerViewClickListener mListener;
     private TextView name, power;
 
-    public RelayViewHolder(@NonNull View itemView, RecyclerViewClickListener listener) {
+    public ConnectionViewHolder(@NonNull View itemView, RecyclerViewClickListener listener) {
         super(itemView);
         mListener = listener;
         name = itemView.findViewById(R.id.textViNameRelay);

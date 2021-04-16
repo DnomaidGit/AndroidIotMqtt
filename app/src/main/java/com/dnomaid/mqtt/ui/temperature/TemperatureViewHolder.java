@@ -10,9 +10,8 @@ import com.dnomaid.mqtt.R;
 import com.dnomaid.mqtt.ui.relay.RecyclerViewClickListener;
 
 public class TemperatureViewHolder extends RecyclerView.ViewHolder {
-    private TextView name;
-    private TextView temp;
-    private TextView hum;
+
+    private TextView name, temp, hum;
 
     public TemperatureViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -23,10 +22,10 @@ public class TemperatureViewHolder extends RecyclerView.ViewHolder {
     public void setDataTemp(String temp) {
         this.temp.setText(temp);
     }
-    public void setDataHum(String hum) {
-        this.hum.setText(hum);
-    }
     public void setNameTemperature(String name) {
         this.name.setText(name);
+    }
+    public void setDataHum(String hum) {
+        this.hum.setText(hum);
     }
 }

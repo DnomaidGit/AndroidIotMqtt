@@ -40,8 +40,8 @@ public class RelayDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof RelayViewHolder) {
             RelayViewHolder relayHolder = (RelayViewHolder) holder;
-            relayHolder.setDataPower(Device.get(position).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Power));
             relayHolder.setNameRelay(Device.get(position).getNameDevice());
+            relayHolder.setDataPower(Device.get(position).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Power));
         }
     }
     @Override

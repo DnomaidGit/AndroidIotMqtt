@@ -69,7 +69,6 @@ public class RelayFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-
         listener = (view, position) -> {
             String topic = Devices.getInst().getPublishTopicRelay(position+1);
             String message = "";
@@ -77,12 +76,10 @@ public class RelayFragment extends Fragment {
                 case R.id.btnRelayOFF:
                     message = "OFF";
                     actions.publish(topic,message);
-                    //Toast.makeText(getContext(), "Position " + position +" OFF ", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.btnRelayON:
                     message = "ON";
                     actions.publish(topic,message);
-                    //Toast.makeText(getContext(), "Position " + position +" ON " + view.getId(), Toast.LENGTH_SHORT).show();
                     break;
                 default:
                     break;
