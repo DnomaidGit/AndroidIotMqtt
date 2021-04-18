@@ -1,6 +1,6 @@
 package com.dnomaid.mqtt.client;
 
-public interface Actions {
+public interface ActionsMqtt {
     void connection();
     void disconnection();
     void subscribe();

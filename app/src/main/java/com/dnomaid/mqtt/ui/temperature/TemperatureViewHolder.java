@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dnomaid.mqtt.R;
-import com.dnomaid.mqtt.ui.relay.RecyclerViewClickListener;
 
 public class TemperatureViewHolder extends RecyclerView.ViewHolder {
 

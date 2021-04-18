@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class ConfigViewModel extends ViewModel {
 
     private ConfigViewState viewState;
-    private ConnectionConstants status = ConnectionConstants.getInst();
-    private ArrayList<DeviceConfig> status2 = Devices.getInst().getDevicesConfig();;
+    private ConnectionConstants status1 = ConnectionConstants.getInst();
+    private ArrayList<DeviceConfig> status2 = Devices.getInst().getDevicesConfig();
     private  MutableLiveData<ConfigViewState> viewMLD = new MutableLiveData<>();
     LiveData<ConfigViewState> viewLD = viewMLD;
 
@@ -22,14 +22,15 @@ public class ConfigViewModel extends ViewModel {
         viewState = new ConfigViewState();
     }
 
-    public void updateState() {
-        viewState.setServer(status.getServer());
-        viewState.setPort(String.valueOf(status.getPort()));
-        viewState.setClientId(status.getClientId());
+    public void updateState(ArrayList<DeviceConfig> status2) {
+        viewState.setServer(this.status1.getServer());
+        viewState.setPort(String.valueOf(this.status1.getPort()));
+        viewState.setClientId(this.status1.getClientId());
         String aux = "false";
-        if (status.isCleanSession()) aux = "true";
+        if (this.status1.isCleanSession()) aux = "true";
         viewState.setCleanSession(aux);
-        viewState.setDevicesConfig(status2);
+        this.status2 = status2;
+        viewState.setDeviceConfig(this.status2);
         viewMLD.setValue(viewState);
     }
 }

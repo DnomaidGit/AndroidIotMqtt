@@ -1,5 +1,7 @@
 package com.dnomaid.mqtt.device;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -30,15 +32,32 @@ public class Devices implements Constants {
     	DevicesConfig.add(new DeviceConfig(typeDevice, numberDevice));
     	selectDevice(typeDevice, numberDevice);
     }
-    public void deleteDevice(DeviceConfig deviceConfig){ 
+    public void deleteDevice(DeviceConfig deviceConfig){
+    	/*
     	IntStream.range(0, (getDevices().size()-1))
-		.forEach(index -> {
-			if (deviceConfig.toString().equals(getDevices().get(index).toString())){
-				getDevices().remove(index);
+			.forEach(index -> {
+				if (deviceConfig.toString().equals(getDevices().get(index).toString())){
+					getDevices().remove(index);
+				}
+			});
+		IntStream.range(0, (getDevicesConfig().size()-1))
+			.forEach(index -> {
+				if (deviceConfig.toString().equals(getDevicesConfig().get(index).toString())){
+					getDevicesConfig().remove(index);
+				}
+			});
+    	 */
+		for (int i = 0; i < getDevices().size(); ++i) {
+			if (deviceConfig.toString().equals(getDevices().get(i).toString())){
+				getDevices().remove(i);
 			}
-		});
-    }
-    
+		}
+		for (int i = 0; i < getDevicesConfig().size(); ++i) {
+			if (deviceConfig.toString().equals(getDevicesConfig().get(i).toString())){
+				getDevicesConfig().remove(i);
+			}
+		}
+	}
     public ArrayList<DeviceConfig> getDevicesConfig() {return DevicesConfig;}
 	public ArrayList<Device> getDevices() {return Devices;}
 	public ArrayList<Device> getRelays() {

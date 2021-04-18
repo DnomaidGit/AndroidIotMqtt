@@ -9,7 +9,7 @@ public class ConfigViewState {
     private String port;
     private String clientId;
     private String cleanSession;
-    private ArrayList<DeviceConfig> DevicesConfig;
+    private ArrayList<DeviceConfig> DeviceConfig;
 
     public ConfigViewState() {
 
@@ -47,12 +47,11 @@ public class ConfigViewState {
         this.cleanSession = cleanSession;
     }
 
-    public ArrayList<DeviceConfig> getDevicesConfig() {
-        return DevicesConfig;
+    public ArrayList<DeviceConfig> getDeviceConfig() {
+        return DeviceConfig;
     }
 
-    public void setDevicesConfig(ArrayList<DeviceConfig> devicesConfig) {
-        DevicesConfig = devicesConfig;
+    public void setDeviceConfig(ArrayList<DeviceConfig> deviceConfig) {
+        DeviceConfig = deviceConfig;
     }
-
 }

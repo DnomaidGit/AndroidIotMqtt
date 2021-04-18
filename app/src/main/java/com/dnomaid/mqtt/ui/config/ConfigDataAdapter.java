@@ -1,50 +1,49 @@
 package com.dnomaid.mqtt.ui.config;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dnomaid.mqtt.R;
 import com.dnomaid.mqtt.device.DeviceConfig;
+import com.dnomaid.mqtt.device.Devices;
 
 import java.util.ArrayList;
 
-public class ConfigDataAdapter extends RecyclerView.Adapter<ConfigDataAdapter.ViewHolderData> {
-    ArrayList<DeviceConfig> DevicesConfig;
+public class ConfigDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private ArrayList<DeviceConfig> DeviceConfig;
+    private ConfigRecyclerViClickList mListener;
 
-    public ConfigDataAdapter(ArrayList<DeviceConfig> devicesConfig) {
-        DevicesConfig = devicesConfig;
+    public ConfigDataAdapter(ConfigRecyclerViClickList mListener) {
+        this.mListener = mListener;
+        DeviceConfig = new ArrayList<>();
+        updateData(Devices.getInst().getDevicesConfig());
     }
-
+    public void updateData(ArrayList<DeviceConfig> deviceConfig) {
+        DeviceConfig.clear();
+        DeviceConfig.addAll(deviceConfig);
+        notifyDataSetChanged();
+    }
     @NonNull
     @Override
-    public ViewHolderData onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.device_list,null,false);
-        return new ViewHolderData(view);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Context context = parent.getContext();
+        View v = LayoutInflater.from(context).inflate(R.layout.device_list, null, false);
+        return new ConfigViewHolder(v, mListener);
     }
-
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderData holder, int position) {
-        holder.data.setText(DevicesConfig.get(position).toString());
-    }
-
-    @Override
-    public int getItemCount() {
-        return DevicesConfig.size();
-    }
-
-    public class ViewHolderData extends RecyclerView.ViewHolder {
-        TextView data;
-        public ViewHolderData(@NonNull View itemView) {
-            super(itemView);
-            data = itemView.findViewById(R.id.recyclerViDeviceData);
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof ConfigViewHolder) {
+            ConfigViewHolder configHolder = (ConfigViewHolder) holder;
+            configHolder.setNameDevice(DeviceConfig.get(position).toString());
         }
     }
-    public void notifyDataSetChanged(ArrayList<DeviceConfig> devicesConfig) {
-        DevicesConfig = devicesConfig;
+    @Override
+    public int getItemCount() {
+        return DeviceConfig.size();
     }
 }

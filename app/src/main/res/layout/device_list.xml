@@ -6,20 +6,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="center">
-        <TextView
-        android:id="@+id/recyclerViDeviceData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:text="Data" />
+        android:layout_marginBottom="5dp">
         <Button
-        android:id="@+id/recyclerViDeviceDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/recyclerViDeviceData"
-        android:layout_toRightOf="@+id/recyclerViDeviceData"
-        android:text="Delete" />
+            android:id="@+id/btnDeleteDevice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Delete" />
+        <TextView
+            android:id="@+id/textViNameDevice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/btnDeleteDevice"
+            android:layout_toRightOf="@+id/btnDeleteDevice"
+            android:text="Data" />
     </RelativeLayout>
 </RelativeLayout>

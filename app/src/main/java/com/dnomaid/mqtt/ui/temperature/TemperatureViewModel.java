@@ -19,8 +19,9 @@ public class TemperatureViewModel extends ViewModel {
     public TemperatureViewModel(){
         viewState = new TemperatureViewState();
     }
-    public void updateState() {
-        viewState.setDevice(status);
+    public void updateState(ArrayList<Device> status) {
+        this.status = status;
+        viewState.setDevice(this.status);
         viewMLD.setValue(viewState);
     }
 }

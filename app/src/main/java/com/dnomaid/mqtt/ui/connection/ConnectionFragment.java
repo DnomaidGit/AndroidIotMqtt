@@ -17,7 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.dnomaid.mqtt.R;
-import com.dnomaid.mqtt.client.Actions;
+import com.dnomaid.mqtt.client.ActionsMqtt;
 
 public class ConnectionFragment extends Fragment {
 
@@ -29,7 +29,7 @@ public class ConnectionFragment extends Fragment {
     private TextView textViConnect,textViSubscribe,textViMessageArrived;
     private Button btnConnect,btnDisconnect,btnSubscribe,btnUnsubscribe;
     private Activity activity;
-    private Actions actions;
+    private ActionsMqtt actions;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class ConnectionFragment extends Fragment {
         super.onAttach(context);
         if(context instanceof Activity){
             activity = (Activity) context;
-            actions = (Actions) activity;
+            actions = (ActionsMqtt) activity;
         }
     }
     @Override

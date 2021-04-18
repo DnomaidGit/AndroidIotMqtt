@@ -19,8 +19,9 @@ public class RelayViewModel extends ViewModel {
     public RelayViewModel(){
         viewState = new RelayViewState();
     }
-    public void updateState() {
-        viewState.setDevice(status);
+    public void updateState(ArrayList<Device> status) {
+        this.status = status;
+        viewState.setDevice(this.status);
         viewMLD.setValue(viewState);
     }
 }

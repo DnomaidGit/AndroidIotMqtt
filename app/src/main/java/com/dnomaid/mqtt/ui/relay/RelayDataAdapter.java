@@ -17,9 +17,9 @@ import java.util.ArrayList;
 
 public class RelayDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<Device> Device;
-    private RecyclerViewClickListener mListener;
+    private RelayRecyclerViClickList mListener;
 
-    public RelayDataAdapter(RecyclerViewClickListener mListener) {
+    public RelayDataAdapter(RelayRecyclerViClickList mListener) {
         this.mListener = mListener;
         Device = new ArrayList<>();
         updateData(Devices.getInst().getRelays());

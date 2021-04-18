@@ -36,7 +36,7 @@ public class TemperatureFragment extends Fragment {
         setupViewModel();
     }
     private void setupView(View view) {
-        recyclerView = view.findViewById(R.id.recyclerViDevice);
+        recyclerView = view.findViewById(R.id.recyclerViTempDevice);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         adapter = new TemperatureDataAdapter();
         recyclerView.setAdapter(adapter);

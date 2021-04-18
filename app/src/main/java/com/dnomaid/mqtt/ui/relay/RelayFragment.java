@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dnomaid.mqtt.R;
-import com.dnomaid.mqtt.client.Actions;
+import com.dnomaid.mqtt.client.ActionsMqtt;
 import com.dnomaid.mqtt.device.Devices;
 
 public class RelayFragment extends Fragment {
@@ -26,8 +26,8 @@ public class RelayFragment extends Fragment {
     private RelayDataAdapter adapter;
     private RecyclerView recyclerView;
     private Activity activity;
-    private Actions actions;
-    private RecyclerViewClickListener listener;
+    private ActionsMqtt actions;
+    private RelayRecyclerViClickList listener;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class RelayFragment extends Fragment {
         super.onAttach(context);
         if(context instanceof Activity){
             activity = (Activity) context;
-            actions = (Actions) activity;
+            actions = (ActionsMqtt) activity;
         }
     }
     @Override
@@ -52,7 +52,7 @@ public class RelayFragment extends Fragment {
         setupViewModel();
     }
     private void setupView(View view) {
-        recyclerView = view.findViewById(R.id.recyclerViDevice);
+        recyclerView = view.findViewById(R.id.recyclerViRelayDevice);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         adapter = new RelayDataAdapter(listener);
         recyclerView.setAdapter(adapter);
@@ -65,7 +65,7 @@ public class RelayFragment extends Fragment {
         });
     }
     private void buttonClickPower(){
-        recyclerView =  view.findViewById(R.id.recyclerViDevice);
+        recyclerView =  view.findViewById(R.id.recyclerViRelayDevice);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);

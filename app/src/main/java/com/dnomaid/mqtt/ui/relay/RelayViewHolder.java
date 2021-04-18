@@ -10,10 +10,10 @@ import com.dnomaid.mqtt.R;
 
 public class RelayViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    private RecyclerViewClickListener mListener;
+    private RelayRecyclerViClickList mListener;
     private TextView name, power;
 
-    public RelayViewHolder(@NonNull View itemView, RecyclerViewClickListener listener) {
+    public RelayViewHolder(@NonNull View itemView, RelayRecyclerViClickList listener) {
         super(itemView);
         mListener = listener;
         name = itemView.findViewById(R.id.textViNameRelay);

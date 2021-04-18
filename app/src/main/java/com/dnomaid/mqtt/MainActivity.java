@@ -1,24 +1,33 @@
 package com.dnomaid.mqtt;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.dnomaid.mqtt.client.Actions;
+import com.dnomaid.mqtt.client.ActionsMqtt;
 import com.dnomaid.mqtt.client.Connection;
 import com.dnomaid.mqtt.client.Mqtt;
+import com.dnomaid.mqtt.device.ActionsDevice;
 import com.dnomaid.mqtt.device.Devices;
 import com.dnomaid.mqtt.global.Constants;
+import com.dnomaid.mqtt.ui.config.ConfigFragment;
 import com.dnomaid.mqtt.ui.config.ConfigViewModel;
 import com.dnomaid.mqtt.ui.connection.ConnectionViewModel;
 import com.dnomaid.mqtt.ui.history.HistoryViewModel;
@@ -29,7 +38,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity
-        implements Actions {
+        implements ActionsMqtt, ActionsDevice {
     public static final long PERIODO = 500; // 60 segundos (6 * 1000 millisegundos)
     private Handler handler;
     private Runnable runnable;
@@ -43,23 +52,29 @@ public class MainActivity extends AppCompatActivity
     private TemperatureViewModel temperatureViewModel;
     private RelayViewModel relayViewModel;
     private ConfigViewModel configViewModel;
+    Toolbar toolbar;
+    FloatingActionButton fab;
+    DrawerLayout drawer;
+    NavigationView navigationView;
+    NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                navController.navigate(R.id.nav_config);
             }
         });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        drawer = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -67,11 +82,20 @@ public class MainActivity extends AppCompatActivity
         )
                 .setDrawerLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        if (devices== null){
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
+                if(destination.getId() == R.id.nav_config) {
+                    fab.show();
+                }else fab.hide();
+            }
+        });
+
+        if (devices == null){
             Devices.getInst().getDevicesConfig().clear();
             devices = Devices.getInst();
             devices.newDevice(Constants.TypeDevice.SonoffS20, "1");
@@ -83,12 +107,11 @@ public class MainActivity extends AppCompatActivity
             devices.newDevice(Constants.TypeDevice.AqaraTemp, "1");
             devices.newDevice(Constants.TypeDevice.TuyaZigBeeSensor, "1");
             devices.newDevice(Constants.TypeDevice.XiaomiZNCZ04LM, "1");
-            }
+        }
 
         setupViewModel();
         if (connection == null) connection = Connection.getInstance(this);
         if (mqtt == null) mqtt = new Mqtt(this);
-
     }
 
     @Override
@@ -123,8 +146,7 @@ public class MainActivity extends AppCompatActivity
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
-    //Interface Actions
+    //Interface ActionsMqtt
     @Override
     public void connection() {
         mqtt.connection();
@@ -145,6 +167,18 @@ public class MainActivity extends AppCompatActivity
     public void publish(String topic, String message) {
         mqtt.publish(topic,message);
     }
+    //Interface ActionsDevice
+    @Override
+    public void newDevice(Constants.TypeDevice typeDevice, String numberDevice) {
+        devices = Devices.getInst();
+        devices.newDevice(typeDevice, numberDevice);
+    }
+    @Override
+    public void deleteDevice(Integer position) {
+        devices = Devices.getInst();
+        devices.deleteDevice(devices.getDevicesConfig().get(position));
+        updateState();
+    }
 
     private void setupViewModel(){
         if (connectionViewModel == null) connectionViewModel = new ViewModelProvider(this).get(ConnectionViewModel.class);
@@ -156,9 +190,8 @@ public class MainActivity extends AppCompatActivity
     private void updateState() {
             connectionViewModel.updateState();
             historyViewModel.updateState();
-            temperatureViewModel.updateState();
-            relayViewModel.updateState();
-            configViewModel.updateState();
+            temperatureViewModel.updateState(devices.getSensorsClimate());
+            relayViewModel.updateState(devices.getRelays());
+            configViewModel.updateState(devices.getDevicesConfig());
     }
-
 }
