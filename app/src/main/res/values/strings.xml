@@ -12,6 +12,7 @@
     <string name="menu_temperature">Temperature</string>
     <string name="menu_history">History</string>
     <string name="menu_config">Config</string>
+    <string name="menu_addDevice">Add Device</string>
 
     <string name="empty"> </string>
     <!-- Fragment -->
@@ -71,4 +72,9 @@
     <string name="subActionFailed">Failed to subscribe to %1$s</string>
     <string name="unSubAction">UnSubscribed to %1$s</string>
     <string name="unSubActionFailed">Failed to unsubscribe to %1$s</string>
+    <!-- New  -->
+    <string name="device">Device</string>
+    <string name="numDeviceText">Number Device</string>
+    <string name="numberDeviceHint">1</string>
+    <string name="typeDeviceText">Type Device</string>
 </resources>

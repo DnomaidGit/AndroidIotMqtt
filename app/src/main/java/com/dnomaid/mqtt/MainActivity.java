@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_connection ,R.id.nav_relay, R.id.nav_temperature, R.id.nav_history, R.id.nav_config
+                R.id.nav_connection ,R.id.nav_relay, R.id.nav_temperature, R.id.nav_history, R.id.nav_config, R.id.nav_addDevice
         )
                 .setDrawerLayout(drawer)
                 .build();
@@ -97,16 +97,18 @@ public class MainActivity extends AppCompatActivity
 
         if (devices == null){
             Devices.getInst().getDevicesConfig().clear();
-            devices = Devices.getInst();
-            devices.newDevice(Constants.TypeDevice.SonoffS20, "1");
-            devices.newDevice(Constants.TypeDevice.SonoffS20, "2");
-            devices.newDevice(Constants.TypeDevice.SonoffS20, "3");
-            devices.newDevice(Constants.TypeDevice.SonoffS20, "4");
-            devices.newDevice(Constants.TypeDevice.SonoffS20, "5");
-            devices.newDevice(Constants.TypeDevice.SonoffSNZB02, "1");
-            devices.newDevice(Constants.TypeDevice.AqaraTemp, "1");
-            devices.newDevice(Constants.TypeDevice.TuyaZigBeeSensor, "1");
-            devices.newDevice(Constants.TypeDevice.XiaomiZNCZ04LM, "1");
+            if(Devices.getInst().getDevicesConfig().isEmpty()) {
+                devices = Devices.getInst();
+                devices.newDevice(Constants.TypeDevice.SonoffS20, "1");
+                devices.newDevice(Constants.TypeDevice.SonoffS20, "2");
+                devices.newDevice(Constants.TypeDevice.SonoffS20, "3");
+                devices.newDevice(Constants.TypeDevice.SonoffS20, "4");
+                devices.newDevice(Constants.TypeDevice.SonoffS20, "5");
+                devices.newDevice(Constants.TypeDevice.SonoffSNZB02, "1");
+                devices.newDevice(Constants.TypeDevice.AqaraTemp, "1");
+                devices.newDevice(Constants.TypeDevice.TuyaZigBeeSensor, "1");
+                devices.newDevice(Constants.TypeDevice.XiaomiZNCZ04LM, "1");
+            }
         }
 
         setupViewModel();

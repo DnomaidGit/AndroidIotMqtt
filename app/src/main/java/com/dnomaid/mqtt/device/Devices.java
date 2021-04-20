@@ -1,10 +1,7 @@
 package com.dnomaid.mqtt.device;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import com.dnomaid.mqtt.global.Constants;
 import com.dnomaid.mqtt.topic.TopicJson;
@@ -16,37 +13,35 @@ public class Devices implements Constants {
     private ArrayList<DeviceConfig> DevicesConfig;
 	private ArrayList<Device> Devices;
 
+	/*
     private static Devices myGlobal = null;
     public  static synchronized Devices getInst() {
         if (myGlobal==null) {
             myGlobal=new Devices();
         }
         return myGlobal;
-    }    
+    }
     Devices(){
     	DevicesConfig  = new ArrayList<>();
 		Devices  = new ArrayList<>();
     }
-    
+	 */
+	private static class DevicesHolder {
+		public static Devices instance = new Devices();
+	}
+	private Devices() {
+		DevicesConfig  = new ArrayList<>();
+		Devices  = new ArrayList<>();
+	}
+	public static Devices getInst() {
+		return DevicesHolder.instance;
+	}
+
     public void newDevice(TypeDevice typeDevice, String numberDevice){
     	DevicesConfig.add(new DeviceConfig(typeDevice, numberDevice));
     	selectDevice(typeDevice, numberDevice);
     }
     public void deleteDevice(DeviceConfig deviceConfig){
-    	/*
-    	IntStream.range(0, (getDevices().size()-1))
-			.forEach(index -> {
-				if (deviceConfig.toString().equals(getDevices().get(index).toString())){
-					getDevices().remove(index);
-				}
-			});
-		IntStream.range(0, (getDevicesConfig().size()-1))
-			.forEach(index -> {
-				if (deviceConfig.toString().equals(getDevicesConfig().get(index).toString())){
-					getDevicesConfig().remove(index);
-				}
-			});
-    	 */
 		for (int i = 0; i < getDevices().size(); ++i) {
 			if (deviceConfig.toString().equals(getDevices().get(i).toString())){
 				getDevices().remove(i);

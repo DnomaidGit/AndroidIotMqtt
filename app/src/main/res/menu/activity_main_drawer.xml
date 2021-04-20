@@ -24,5 +24,9 @@
             android:id="@+id/nav_config"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_config" />
+        <item
+            android:id="@+id/nav_addDevice"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_addDevice" />
     </group>
 </menu>
