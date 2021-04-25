@@ -53,8 +53,8 @@
     <string name="onDowngradeSQLiteDatabase">"onDowngrade SQLiteDatabase"</string>
     <string name="failedPersistConn">"Failed to persist connection"</string>
     <string name="restoreConnection">"Restore connection"</string>
-    <string name="deleteConnection">"Restore connection"</string>
-    <string name="failedPersistRest">"Failed restoring connection"</string>
+    <string name="deleteConnection">"Delete connection"</string>
+    <string name="failedPersistRestConn">"Failed restoring connection"</string>
     <!-- MqttCallback  -->
     <string name="connectionLost">%1$s has lost connection to %2$s</string>
     <string name="messageRecieved">Received message %1$s &lt;br/&gt; &lt;small&gt;Topic: %2$s &lt;/small&gt; </string>
@@ -77,4 +77,9 @@
     <string name="numDeviceText">Number Device</string>
     <string name="numberDeviceHint">1</string>
     <string name="typeDeviceText">Type Device</string>
+    <string name="failedPersistDev">"Failed to persist device"</string>
+    <string name="restoreDevice">"Restore device"</string>
+    <string name="deleteDevice">"Delete device"</string>
+    <string name="failedPersistRestDev">"Failed restoring device"</string>
+
 </resources>

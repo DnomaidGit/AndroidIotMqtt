@@ -1,5 +1,7 @@
 package com.dnomaid.mqtt.ui.addDevice;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Spanned;
 import android.view.LayoutInflater;
@@ -7,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.dnomaid.mqtt.R;
+import com.dnomaid.mqtt.device.ActionsDevice;
 import com.dnomaid.mqtt.global.Constants;
 import com.dnomaid.mqtt.ui.history.HistoryViewModel;
 
@@ -27,17 +31,29 @@ public class AddDeviceFragment extends Fragment {
 
     private View view;
     private TextView textNumberDevice, textTypeDevice;
+    private Button btnAddDevice;
     private Spinner spinnerNumberDevice, spinnerTypeDevice;
+    private Activity activity;
+    private ActionsDevice actions;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_add_device, container, false);
+        setupViewOnclick(view);
         return view;
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setupView(view);
+    }
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if(context instanceof Activity){
+            activity = (Activity) context;
+            actions = (ActionsDevice) activity;
+        }
     }
     private void setupView(View view) {
         textNumberDevice = view.findViewById(R.id.textNumberDevice);
@@ -81,5 +97,16 @@ public class AddDeviceFragment extends Fragment {
     }
     private void setupViewModel() {
 
+    }
+    private void setupViewOnclick(View view) {
+        btnAddDevice = view.findViewById(R.id.btnAddDevice);
+        btnAddDevice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actions.newDevice(Constants.TypeDevice.valueOf(
+                        spinnerTypeDevice.getSelectedItem().toString()),
+                        spinnerNumberDevice.getSelectedItem().toString());
+            }
+        });
     }
 }

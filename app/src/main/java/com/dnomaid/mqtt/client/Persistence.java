@@ -91,8 +91,8 @@ public class Persistence extends SQLiteOpenHelper implements BaseColumns {
     Cursor c = db.query(TABLE_CONNECTION, connectionColumns, null, null, null, null, sort);
     for (int i = 0; i < c.getCount(); i++) {
       if (!c.moveToNext()) { //move to the next item throw persistence exception, if it fails
-        Notify.toast(context,context.getString(R.string.failedPersistRest));
-        throw new PersistenceException(context.getString(R.string.failedPersistRest) + " - count: " + c.getCount() + "loop iteration: " + i);
+        Notify.toast(context,context.getString(R.string.failedPersistRestConn));
+        throw new PersistenceException(context.getString(R.string.failedPersistConn) + " - count: " + c.getCount() + "loop iteration: " + i);
       }
       //get data from cursor
       Long id = c.getLong(c.getColumnIndexOrThrow(_ID));
