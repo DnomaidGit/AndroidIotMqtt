@@ -80,20 +80,14 @@ public class Connection {
   }
   public long persistenceId() {return persistenceId; }
   public void persistConnection() {
-    try {
       persistence.persistConnection();
-    }
-    catch (PersistenceException e)
-    {
-      Notify.toast(context,context.getString(R.string.failedPersistConn));
-    }
   }
   public void restoreConnection() {
     try {
       persistence.restoreConnection(context);
     }
     catch (PersistenceException e) {
-      Notify.toast(context,context.getString(R.string.failedPersistRest));
+      Notify.toast(context,context.getString(R.string.failedPersistRestConn));
     }
   }
   public void removeConnection() {

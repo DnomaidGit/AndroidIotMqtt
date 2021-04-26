@@ -1,6 +1,6 @@
 package com.dnomaid.mqtt;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -11,9 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
@@ -27,7 +24,6 @@ import com.dnomaid.mqtt.client.Mqtt;
 import com.dnomaid.mqtt.device.ActionsDevice;
 import com.dnomaid.mqtt.device.Devices;
 import com.dnomaid.mqtt.global.Constants;
-import com.dnomaid.mqtt.ui.config.ConfigFragment;
 import com.dnomaid.mqtt.ui.config.ConfigViewModel;
 import com.dnomaid.mqtt.ui.connection.ConnectionViewModel;
 import com.dnomaid.mqtt.ui.history.HistoryViewModel;
@@ -95,22 +91,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        if (devices == null){
-            Devices.getInst().getDevicesConfig().clear();
-            if(Devices.getInst().getDevicesConfig().isEmpty()) {
-                devices = Devices.getInst();
-                devices.newDevice(Constants.TypeDevice.SonoffS20, "1");
-                devices.newDevice(Constants.TypeDevice.SonoffS20, "2");
-                devices.newDevice(Constants.TypeDevice.SonoffS20, "3");
-                devices.newDevice(Constants.TypeDevice.SonoffS20, "4");
-                devices.newDevice(Constants.TypeDevice.SonoffS20, "5");
-                devices.newDevice(Constants.TypeDevice.SonoffSNZB02, "1");
-                devices.newDevice(Constants.TypeDevice.AqaraTemp, "1");
-                devices.newDevice(Constants.TypeDevice.TuyaZigBeeSensor, "1");
-                devices.newDevice(Constants.TypeDevice.XiaomiZNCZ04LM, "1");
-            }
-        }
-
+        setupDevice();
         setupViewModel();
         if (connection == null) connection = Connection.getInstance(this);
         if (mqtt == null) mqtt = new Mqtt(this);
@@ -189,11 +170,32 @@ public class MainActivity extends AppCompatActivity
         if (relayViewModel == null) relayViewModel = new ViewModelProvider(this).get(RelayViewModel.class);
         if (configViewModel == null) configViewModel = new ViewModelProvider(this).get(ConfigViewModel.class);
     }
-    private void updateState() {
+    private void updateState(){
             connectionViewModel.updateState();
             historyViewModel.updateState();
             temperatureViewModel.updateState(devices.getSensorsClimate());
             relayViewModel.updateState(devices.getRelays());
             configViewModel.updateState(devices.getDevicesConfig());
+    }
+    private void setupDevice(){
+        if (devices == null){
+            Devices.getInst().getDevicesConfig().clear();
+            if(Devices.getInst().getDevicesConfig().isEmpty()) {
+                devices = Devices.getInst();
+                devices.persistence(this);
+                /*
+                devices.newDevice(Constants.TypeDevice.SonoffS20, "1");
+                devices.newDevice(Constants.TypeDevice.SonoffS20, "2");
+                devices.newDevice(Constants.TypeDevice.SonoffS20, "3");
+                devices.newDevice(Constants.TypeDevice.SonoffS20, "4");
+                devices.newDevice(Constants.TypeDevice.SonoffS20, "5");
+                devices.newDevice(Constants.TypeDevice.SonoffSNZB02, "1");
+                devices.newDevice(Constants.TypeDevice.AqaraTemp, "1");
+                devices.newDevice(Constants.TypeDevice.TuyaZigBeeSensor, "1");
+                devices.newDevice(Constants.TypeDevice.XiaomiZNCZ04LM, "1");
+
+                 */
+            }
+        }
     }
 }

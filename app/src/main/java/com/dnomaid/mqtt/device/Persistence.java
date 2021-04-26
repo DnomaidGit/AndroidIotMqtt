@@ -11,6 +11,8 @@ import com.dnomaid.mqtt.R;
 import com.dnomaid.mqtt.global.Constants;
 import com.dnomaid.mqtt.global.Notify;
 
+import java.util.ArrayList;
+
 public class Persistence extends SQLiteOpenHelper implements BaseColumns {
   private Context context;
   public static final int DATABASE_VERSION = 1;
@@ -19,14 +21,10 @@ public class Persistence extends SQLiteOpenHelper implements BaseColumns {
   public static final String TABLE_DEVICE = "device";
   public static final String COLUMN_TYPEDEVICE = "typeDevice";
   public static final String COLUMN_NUMBERDEVICE = "numberDevice";
-  /** Table column for **/
 
-  //sql lite data types
   private static final String TEXT_TYPE = " TEXT";
-  //private static final String INT_TYPE = " INTEGER";
   private static final String COMMA_SEP = ",";
 
-  /** Create tables query **/
   private static final String SQL_CREATE_ENTRIES =
           "CREATE TABLE " + TABLE_DEVICE +
                   " (" +
@@ -34,8 +32,6 @@ public class Persistence extends SQLiteOpenHelper implements BaseColumns {
                   COLUMN_TYPEDEVICE + TEXT_TYPE + COMMA_SEP +
                   COLUMN_NUMBERDEVICE + TEXT_TYPE +
                   ");";
-
-  /** Delete tables entry **/
   private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TABLE_DEVICE;
   public Persistence(Context context) {
     super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -54,54 +50,57 @@ public class Persistence extends SQLiteOpenHelper implements BaseColumns {
     Notify.toast(context,context.getString(R.string.onDowngradeSQLiteDatabase));
     onUpgrade(db, oldVersion, newVersion);
   }
-  public void persistDevice() throws PersistenceException {
+  public DeviceConfig newDevice(Constants.TypeDevice typeDevice, String numberDevice) throws PersistenceException {
     SQLiteDatabase db = getWritableDatabase();
     ContentValues values = new ContentValues();
-    //put the column values object
-    values.put(COLUMN_TYPEDEVICE, Devices.getInst().getDevicesConfig().get(0).getTypeDevice().toString());
-    values.put(COLUMN_NUMBERDEVICE, Devices.getInst().getDevicesConfig().get(0).getNumberDevice());
-    //delete
-    db.delete(TABLE_DEVICE, null, null);
-    //insert the values into the tables, returns the ID for the row
+    DeviceConfig deviceConfig = new DeviceConfig(typeDevice, numberDevice);
+
+    values.put(COLUMN_TYPEDEVICE, deviceConfig.getTypeDevice().toString());
+    values.put(COLUMN_NUMBERDEVICE, deviceConfig.getNumberDevice());
     long newRowId = db.insert(TABLE_DEVICE, null, values);
-    db.close(); //close the db then deal with the result of the query
+    if (newRowId == -1) {
+      Notify.toast(context,context.getString(R.string.failedPersistDev));
+        throw new PersistenceException("Failed to persist device");
+    }
+    else {
+      deviceConfig.assignPersistenceId(newRowId);
+    }
+    db.close();
+    Notify.toast(context,context.getString(R.string.newDevice));
+    return deviceConfig;
   }
-  public void restoreDevice(Context context) throws PersistenceException {
+  public ArrayList<DeviceConfig> restoreDevice(Context context) throws PersistenceException {
     Notify.toast(context,context.getString(R.string.restoreDevice));
-    //columns to return
     String[] deviceColumns = {
             COLUMN_TYPEDEVICE,
             COLUMN_NUMBERDEVICE,
             _ID
     };
-    Devices.getInst().getDevicesConfig().clear();
-    if(Devices.getInst().getDevicesConfig().isEmpty()) {
-      //how to sort the data being returned
-      String sort = COLUMN_TYPEDEVICE;
-      SQLiteDatabase db = getReadableDatabase();
-      Cursor c = db.query(TABLE_DEVICE, deviceColumns, null, null, null, null, sort);
-      for (int i = 0; i < c.getCount(); i++) {
-        if (!c.moveToNext()) { //move to the next item throw persistence exception, if it fails
-          Notify.toast(context, context.getString(R.string.failedPersistRestDev));
-          throw new PersistenceException(context.getString(R.string.failedPersistRestDev) + " - count: " + c.getCount() + "loop iteration: " + i);
-        }
-        //get data from cursor
-        Long id = c.getLong(c.getColumnIndexOrThrow(_ID));
-        //basic client information
-        String typeDevice = c.getString(c.getColumnIndexOrThrow(COLUMN_TYPEDEVICE));
-        String numberDevice = c.getString(c.getColumnIndexOrThrow(COLUMN_NUMBERDEVICE));
-        Devices.getInst().newDevice(Constants.TypeDevice.valueOf(typeDevice), numberDevice);
-        //get all values that need converting and convert integers to booleans in line using "condition ? trueValue : falseValue"
+    String sort = COLUMN_TYPEDEVICE;
+    SQLiteDatabase db = getReadableDatabase();
+    Cursor c = db.query(TABLE_DEVICE, deviceColumns, null, null, null, null, sort);
+    ArrayList<DeviceConfig> list = new ArrayList<>(c.getCount());
+    for (int i = 0; i < c.getCount(); i++) {
+      if (!c.moveToNext()) {
+        Notify.toast(context,context.getString(R.string.failedPersistRestDev));
+        throw new PersistenceException("Failed restoring connection - count: " + c.getCount() + "loop iteration: " + i);
       }
-      //close the cursor now we are finished with it
-      c.close();
-      db.close();
+      Long id = c.getLong(c.getColumnIndexOrThrow(_ID));
+      String typeDevice = c.getString(c.getColumnIndexOrThrow(COLUMN_TYPEDEVICE));
+      String numberDevice = c.getString(c.getColumnIndexOrThrow(COLUMN_NUMBERDEVICE));
+      //store it in the list
+      DeviceConfig deviceConfig = new DeviceConfig(Constants.TypeDevice.valueOf(typeDevice),numberDevice);
+      deviceConfig.assignPersistenceId(id);
+      list.add(deviceConfig);
     }
+    c.close();
+    db.close();
+    return list;
   }
-  public void deleteDevice(int number) {
+  public void deleteDevice(DeviceConfig deviceConfig) {
     Notify.toast(context,context.getString(R.string.deleteDevice));
     SQLiteDatabase db = getWritableDatabase();
-    db.delete(TABLE_DEVICE, _ID + "=?", new String[]{String.valueOf(number)});
+    db.delete(TABLE_DEVICE, _ID + "=?", new String[]{String.valueOf(deviceConfig.persistenceId())});
     db.close();
   }
 }

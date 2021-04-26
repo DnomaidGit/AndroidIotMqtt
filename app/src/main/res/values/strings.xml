@@ -80,6 +80,7 @@
     <string name="failedPersistDev">"Failed to persist device"</string>
     <string name="restoreDevice">"Restore device"</string>
     <string name="deleteDevice">"Delete device"</string>
+    <string name="newDevice">"New device"</string>
     <string name="failedPersistRestDev">"Failed restoring device"</string>
 
 </resources>

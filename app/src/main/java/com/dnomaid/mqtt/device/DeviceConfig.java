@@ -5,6 +5,7 @@ import com.dnomaid.mqtt.global.Constants.TypeDevice;
 public class DeviceConfig {
 	private TypeDevice typeDevice; 
 	private String numberDevice;
+	private long persistenceId = -1;
 	
 	public DeviceConfig(TypeDevice typeDevice, String numberDevice) {
 		super();
@@ -22,6 +23,13 @@ public class DeviceConfig {
 	}
 	public void setNumberDevice(String numberDevice) {
 		this.numberDevice = numberDevice;
+	}
+
+	public void assignPersistenceId(long id) {
+		persistenceId = id;
+	}
+	public long persistenceId() {
+		return persistenceId;
 	}
 	
 	@Override

@@ -1,9 +1,13 @@
 package com.dnomaid.mqtt.device;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
+import com.dnomaid.mqtt.R;
 import com.dnomaid.mqtt.global.Constants;
+import com.dnomaid.mqtt.global.Notify;
 import com.dnomaid.mqtt.topic.TopicJson;
 import com.dnomaid.mqtt.topic.TopicNoJson;
 import com.dnomaid.mqtt.topic.json.*;
@@ -12,20 +16,9 @@ import com.dnomaid.mqtt.topic.noJson.*;
 public class Devices implements Constants {	
     private ArrayList<DeviceConfig> DevicesConfig;
 	private ArrayList<Device> Devices;
+	private Context context;
+	private static Persistence persistence;
 
-	/*
-    private static Devices myGlobal = null;
-    public  static synchronized Devices getInst() {
-        if (myGlobal==null) {
-            myGlobal=new Devices();
-        }
-        return myGlobal;
-    }
-    Devices(){
-    	DevicesConfig  = new ArrayList<>();
-		Devices  = new ArrayList<>();
-    }
-	 */
 	private static class DevicesHolder {
 		public static Devices instance = new Devices();
 	}
@@ -37,10 +30,11 @@ public class Devices implements Constants {
 		return DevicesHolder.instance;
 	}
 
-    public void newDevice(TypeDevice typeDevice, String numberDevice){
-    	DevicesConfig.add(new DeviceConfig(typeDevice, numberDevice));
+    public void newDevice(TypeDevice typeDevice, String numberDevice) {
+		DeviceConfig deviceConfig = newDevicePersist(typeDevice, numberDevice);
+    	DevicesConfig.add(deviceConfig);
     	selectDevice(typeDevice, numberDevice);
-    }
+	}
     public void deleteDevice(DeviceConfig deviceConfig){
 		for (int i = 0; i < getDevices().size(); ++i) {
 			if (deviceConfig.toString().equals(getDevices().get(i).toString())){
@@ -52,8 +46,19 @@ public class Devices implements Constants {
 				getDevicesConfig().remove(i);
 			}
 		}
+		removeDevicePersist(deviceConfig);
+	}
+	public void restoreDevice() {
+		restoreDevicePersist();
+		for (DeviceConfig devicesConfig:getDevicesConfig()
+		) {
+			selectDevice(devicesConfig.getTypeDevice(), devicesConfig.getNumberDevice());
+		}
 	}
     public ArrayList<DeviceConfig> getDevicesConfig() {return DevicesConfig;}
+	public void setDevicesConfig(ArrayList<DeviceConfig> devicesConfig) {
+		DevicesConfig = devicesConfig;
+	}
 	public ArrayList<Device> getDevices() {return Devices;}
 	public ArrayList<Device> getRelays() {
 		ArrayList<Device> filterList = (ArrayList<Device>) getDevices().stream()
@@ -137,7 +142,7 @@ public class Devices implements Constants {
 		}
 		
 	}
-	
+
 	private Device createDevice(TypeGateway gateway, TypeDevice typeDevice, String numberDevice, GroupList groupList, TopicNoJson topic01, TopicNoJson topic02){
 		Device device = new Device(gateway,typeDevice,numberDevice,groupList);
 		device.addTopic(topic01);
@@ -154,6 +159,33 @@ public class Devices implements Constants {
 		device.addTopic(topic01);
 		device.addTopic(topic02);
 		return device;
-	}	
-	
+	}
+
+	public void persistence(Context context){
+		this.context = context;
+		persistence = new Persistence(this.context);
+		restoreDevice();
+	}
+	private DeviceConfig newDevicePersist(TypeDevice typeDevice, String numberDevice) {
+		DeviceConfig deviceConfig = null;
+		try {
+			deviceConfig = persistence.newDevice(typeDevice,numberDevice);
+		}
+		catch (PersistenceException e)
+		{
+			Notify.toast(context,context.getString(R.string.failedPersistDev));
+		}
+		return deviceConfig;
+	}
+	private void restoreDevicePersist() {
+		try {
+			setDevicesConfig(persistence.restoreDevice(context));
+		}
+		catch (PersistenceException e) {
+			Notify.toast(context,context.getString(R.string.failedPersistRestDev));
+		}
+	}
+	private void removeDevicePersist(DeviceConfig deviceConfig) {
+		persistence.deleteDevice(deviceConfig);
+	}
 }
