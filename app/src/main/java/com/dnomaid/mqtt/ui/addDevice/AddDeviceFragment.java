@@ -36,10 +36,17 @@ public class AddDeviceFragment extends Fragment {
     private Activity activity;
     private ActionsDevice actions;
 
+    private ArrayList<DeviceItem> deviceItems;
+    private DeviceAdapter deviceAdapter;
+    private Spinner deviceSpinner;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_add_device, container, false);
         setupViewOnclick(view);
+        initList();
+        setupClickSpinner();
+
         return view;
     }
     @Override
@@ -56,6 +63,8 @@ public class AddDeviceFragment extends Fragment {
         }
     }
     private void setupView(View view) {
+
+
         textNumberDevice = view.findViewById(R.id.textNumberDevice);
         spinnerNumberDevice = view.findViewById(R.id.spinnerNumberDevice);
         ArrayAdapter<CharSequence> adapater = ArrayAdapter.createFromResource(getContext(),R.array.numberDevice,android.R.layout.simple_spinner_item);
@@ -108,5 +117,32 @@ public class AddDeviceFragment extends Fragment {
                         spinnerNumberDevice.getSelectedItem().toString());
             }
         });
+
+
+    }
+    private void initList(){
+        deviceItems = new ArrayList<>();
+        deviceItems.add(new DeviceItem(Constants.TypeDevice.SonoffS20.toString(),R.drawable.ic_baseline_library_add_24));
+        deviceItems.add(new DeviceItem(Constants.TypeDevice.SonoffSNZB02.toString(),R.drawable.ic_baseline_library_add_24));
+        deviceItems.add(new DeviceItem(Constants.TypeDevice.AqaraTemp.toString(),R.drawable.ic_baseline_library_add_24));
+        deviceItems.add(new DeviceItem(Constants.TypeDevice.TuyaZigBeeSensor.toString(),R.drawable.ic_baseline_library_add_24));
+        deviceItems.add(new DeviceItem(Constants.TypeDevice.XiaomiZNCZ04LM.toString(),R.drawable.ic_baseline_library_add_24));
+    }
+    private void setupClickSpinner(){
+        deviceSpinner = view.findViewById(R.id.deviceSpinner);
+        deviceAdapter = new DeviceAdapter(getContext(), R.layout.device_spinner_row,deviceItems);
+        deviceSpinner.setAdapter(deviceAdapter);
+        deviceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
     }
 }

@@ -79,6 +79,18 @@
                 android:layout_height="wrap_content"
             ></Spinner>
         </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Spinner
+                android:id="@+id/deviceSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+             ></Spinner>
+        </RelativeLayout>
+
         <RelativeLayout
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
@@ -89,8 +101,9 @@
                 android:id="@+id/btnAddDevice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/connectText"/>
+                android:drawableLeft="@drawable/ic_baseline_library_add_24"
+                android:text="@string/addText"/>
         </RelativeLayout>
-    </LinearLayout>
 
+    </LinearLayout>
 </ScrollView>
