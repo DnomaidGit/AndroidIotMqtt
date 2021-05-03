@@ -83,5 +83,9 @@
     <string name="newDevice">"New device"</string>
     <string name="failedPersistRestDev">"Failed restoring device"</string>
     <string name="addText">Add</string>
+    <string name="numberDevice">Number Device</string>
+    <string name="typeDevice">Type Device</string>
+    <string name="listDeviceText">List Device</string>
+    <string name="addDevice">Add Device</string>
 
 </resources>

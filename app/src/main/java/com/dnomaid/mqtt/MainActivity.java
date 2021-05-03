@@ -1,10 +1,10 @@
 package com.dnomaid.mqtt;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,6 +24,7 @@ import com.dnomaid.mqtt.client.Mqtt;
 import com.dnomaid.mqtt.device.ActionsDevice;
 import com.dnomaid.mqtt.device.Devices;
 import com.dnomaid.mqtt.global.Constants;
+import com.dnomaid.mqtt.global.Status;
 import com.dnomaid.mqtt.ui.config.ConfigViewModel;
 import com.dnomaid.mqtt.ui.connection.ConnectionViewModel;
 import com.dnomaid.mqtt.ui.history.HistoryViewModel;
@@ -31,10 +32,9 @@ import com.dnomaid.mqtt.ui.relay.RelayViewModel;
 import com.dnomaid.mqtt.ui.temperature.TemperatureViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity
-        implements ActionsMqtt, ActionsDevice {
+        implements ActionsMqtt, ActionsDevice, View.OnClickListener {
     public static final long PERIODO = 500; // 60 segundos (6 * 1000 millisegundos)
     private Handler handler;
     private Runnable runnable;
@@ -49,10 +49,14 @@ public class MainActivity extends AppCompatActivity
     private RelayViewModel relayViewModel;
     private ConfigViewModel configViewModel;
     Toolbar toolbar;
-    FloatingActionButton fab;
+    FloatingActionButton fab,fab1,fab2;
     DrawerLayout drawer;
     NavigationView navigationView;
     NavController navController;
+
+    Float translationY = 100f;
+    OvershootInterpolator interpolator = new OvershootInterpolator();
+    Boolean isMenuOpen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,19 +64,9 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                navController.navigate(R.id.nav_config);
-            }
-        });
+        initFabMenu();
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_connection ,R.id.nav_relay, R.id.nav_temperature, R.id.nav_history, R.id.nav_config, R.id.nav_addDevice
         )
@@ -81,22 +75,67 @@ public class MainActivity extends AppCompatActivity
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                if(destination.getId() == R.id.nav_config) {
+            //    if(destination.getId() == R.id.nav_connection) {
                     fab.show();
-                }else fab.hide();
+                    fab1.show();
+                    fab2.show();
+            //    }else {
+            //        fab.hide();
+            //        fab1.hide();
+            //        fab2.hide();
+            //    }
             }
         });
-
         setupDevice();
         setupViewModel();
         if (connection == null) connection = Connection.getInstance(this);
         if (mqtt == null) mqtt = new Mqtt(this);
     }
-
+    private void initFabMenu() {
+        fab = findViewById(R.id.fabMain);
+        fab1 = findViewById(R.id.fab1);
+        fab2 = findViewById(R.id.fab2);
+        fab1.setAlpha(0f);
+        fab2.setAlpha(0f);
+        fab1.setTranslationY(translationY);
+        fab2.setTranslationY(translationY);
+        fab.setOnClickListener(this);
+        fab1.setOnClickListener(this);
+        fab2.setOnClickListener(this);
+    }
+    private void openMenu() {
+        isMenuOpen = !isMenuOpen;
+        fab.animate().setInterpolator(interpolator).rotation(45f).setDuration(300).start();
+        fab1.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
+        fab2.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
+    }
+    private void closeMenu() {
+        isMenuOpen = !isMenuOpen;
+        fab.animate().setInterpolator(interpolator).rotation(0f).setDuration(300).start();
+        fab1.animate().translationY(translationY).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
+        fab2.animate().translationY(translationY).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
+    }
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.fabMain:
+                if (isMenuOpen) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+                break;
+            case R.id.fab1:
+                connection();
+                break;
+            case R.id.fab2:
+                disconnection();
+                break;
+        }
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -106,6 +145,7 @@ public class MainActivity extends AppCompatActivity
             public void run() {
                 handler.postDelayed(this, PERIODO);
                 updateState();
+                if (Status.getInst().isConnected())subscribe();
             }
         };
         handler.postDelayed(runnable, PERIODO);

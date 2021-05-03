@@ -1,19 +1,21 @@
 package com.dnomaid.mqtt.ui.addDevice;
 
+import com.dnomaid.mqtt.global.Constants.TypeDevice;
+
 public class DeviceItem {
-    private String name;
+    private TypeDevice type;
     private int image;
 
-    public DeviceItem(String name, int image) {
-        this.name = name;
+    public DeviceItem(TypeDevice type, int image) {
+        this.type = type;
         this.image = image;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getImage() {
         return image;
+    }
+
+    public TypeDevice getType() {
+        return type;
     }
 }

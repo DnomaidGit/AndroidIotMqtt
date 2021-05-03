@@ -34,8 +34,8 @@ public class DeviceAdapter extends ArrayAdapter <DeviceItem> {
             textView = rowView.findViewById(R.id.textViDeviceSpinner);
             imageView = rowView.findViewById(R.id.imageDeviceSpinner);
             if (deviceItem != null) {
-                textView.setText(deviceItem.getName());
                 imageView.setImageResource(deviceItem.getImage());
+                textView.setText(deviceItem.getType().name());
             }
         }
         return rowView;
@@ -50,7 +50,7 @@ public class DeviceAdapter extends ArrayAdapter <DeviceItem> {
         deviceItem = getItem(position);
         if(deviceItem != null) {
             imageView.setImageResource(deviceItem.getImage());
-            textView.setText(deviceItem.getName());
+            textView.setText(deviceItem.getType().name());
         }
         return convertView;
     }
