@@ -49,7 +49,9 @@ public class Devices implements Constants {
 		removeDevicePersist(deviceConfig);
 	}
 	public void restoreDevice() {
+		DevicesConfig  = new ArrayList<>();
 		restoreDevicePersist();
+		Devices  = new ArrayList<>();
 		for (DeviceConfig devicesConfig:getDevicesConfig()
 		) {
 			selectDevice(devicesConfig.getTypeDevice(), devicesConfig.getNumberDevice());
