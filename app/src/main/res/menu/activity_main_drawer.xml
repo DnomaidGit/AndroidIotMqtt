@@ -7,11 +7,11 @@
             <menu>
                 <item
                     android:id="@+id/nav_connection"
-                    android:icon="@drawable/ic_menu_slideshow"
+                    android:icon="@drawable/ic_baseline_tap_and_play_24"
                     android:title="@string/menu_connection" />
                 <item
                     android:id="@+id/nav_addDevice"
-                    android:icon="@drawable/ic_menu_slideshow"
+                    android:icon="@drawable/ic_device"
                     android:title="@string/menu_addDevice" />
             </menu>
         </item>
@@ -19,11 +19,11 @@
             <menu>
                 <item
                     android:id="@+id/nav_relay"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_interrupt"
                     android:title="@string/menu_relay" />
                 <item
                     android:id="@+id/nav_temperature"
-                    android:icon="@drawable/ic_menu_gallery"
+                    android:icon="@drawable/ic_temperature"
                     android:title="@string/menu_temperature" />
             </menu>
         </item>
@@ -31,11 +31,11 @@
             <menu>
             <item
                 android:id="@+id/nav_history"
-                android:icon="@drawable/ic_menu_slideshow"
+                android:icon="@drawable/ic_terminal_cmd"
                 android:title="@string/menu_history" />
             <item
                 android:id="@+id/nav_config"
-                android:icon="@drawable/ic_menu_slideshow"
+                android:icon="@drawable/ic_connection_setting"
                 android:title="@string/menu_config" />
             </menu>
         </item>

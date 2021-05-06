@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity
             public void run() {
                 handler.postDelayed(this, PERIODO);
                 updateState();
-                if (Status.getInst().isConnected())subscribe();
+                if (Status.getInst().isConnected()&(Status.getInst().getTopicStatus().equals(Status.TopicStatus.NONE.name())))subscribe();
             }
         };
         handler.postDelayed(runnable, PERIODO);

@@ -60,7 +60,7 @@ public class Persistence extends SQLiteOpenHelper implements BaseColumns {
     long newRowId = db.insert(TABLE_DEVICE, null, values);
     if (newRowId == -1) {
       Notify.toast(context,context.getString(R.string.failedPersistDev));
-        throw new PersistenceException("Failed to persist device");
+        throw new PersistenceException("Failed to persist ic_device");
     }
     else {
       deviceConfig.assignPersistenceId(newRowId);

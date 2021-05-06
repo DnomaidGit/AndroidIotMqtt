@@ -21,6 +21,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static com.dnomaid.mqtt.global.Constants.STAT_PREFIX;
+
 public class Connection {
   private static Connection instance = null;
   private MqttAndroidClient client;
