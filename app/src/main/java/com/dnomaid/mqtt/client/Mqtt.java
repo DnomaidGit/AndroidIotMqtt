@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.dnomaid.mqtt.R;
 import com.dnomaid.mqtt.global.ConnectionConstants;
+import com.dnomaid.mqtt.global.Constants;
 import com.dnomaid.mqtt.global.Notify;
 import com.dnomaid.mqtt.global.Status;
 
@@ -16,6 +17,7 @@ import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 import static com.dnomaid.mqtt.global.Constants.CMND_PREFIX;
 import static com.dnomaid.mqtt.global.Constants.MIX_PREFIX;
 import static com.dnomaid.mqtt.global.Constants.STAT_PREFIX;
+import static com.dnomaid.mqtt.global.Constants.SubscribeTopicList;
 
 public class Mqtt implements ActionsMqtt {
     private Connection connection;
@@ -38,8 +40,8 @@ public class Mqtt implements ActionsMqtt {
                 Notify.toast(this.context,context.getString(R.string.connecting___));
             }
         }
-        conOpt = Connection.getInstance(this.context).createConnectionOptions();
-        client = Connection.getInstance(this.context).createClient();
+        //conOpt = Connection.getInstance(this.context).createConnectionOptions();
+        //client = Connection.getInstance(this.context).createClient();
         // connect client
         String[] actionArgs = new String[1];
         actionArgs[0] = ConnectionConstants.getInst().getClientId();
@@ -101,70 +103,28 @@ public class Mqtt implements ActionsMqtt {
             Notify.toast(this.context,context.getString(R.string.notConnecting));
             return;
         }
-        ConnectionConstants.getInst().setSubscribeTopic(STAT_PREFIX+"/#");
-        connection.createSubscribeTopic();
-        if (Status.getInst().isConnectedOrConnecting()) {
-            if (!Status.getInst().isConnected()) {
-                return;
-            }else {
-                try {
-                    String[] topics = new String[1];
-                    topics[0] = ConnectionConstants.getInst().getSubscribeTopic();
-                    connection.getClient().subscribe(ConnectionConstants.getInst().getSubscribeTopic(), ConnectionConstants.getInst().getSubscribeQos(), null,
-                            new ActionListener(this.context, ActionListener.Action.SUBSCRIBE, topics));
-                }
-                catch (MqttSecurityException e) {
-                    Log.e(this.getClass().getCanonicalName(), "Failed to subscribe to" + ConnectionConstants.getInst().getSubscribeTopic(), e);
-                }
-                catch (MqttException e) {
-                    Log.e(this.getClass().getCanonicalName(), "Failed to subscribe to" + ConnectionConstants.getInst().getSubscribeTopic(), e);
-                }
-            }
-        }
-
-        ConnectionConstants.getInst().setSubscribeTopic(MIX_PREFIX+"/#");
-        connection.createSubscribeTopic();
-        if (Status.getInst().isConnectedOrConnecting()) {
-            if (!Status.getInst().isConnected()) {
-                return;
-            }else {
-                try {
-                    String[] topics = new String[1];
-                    topics[0] = ConnectionConstants.getInst().getSubscribeTopic();
-                    connection.getClient().subscribe(ConnectionConstants.getInst().getSubscribeTopic(), ConnectionConstants.getInst().getSubscribeQos(), null,
-                            new ActionListener(this.context, ActionListener.Action.SUBSCRIBE, topics));
-                }
-                catch (MqttSecurityException e) {
-                    Log.e(this.getClass().getCanonicalName(), "Failed to subscribe to" + ConnectionConstants.getInst().getSubscribeTopic(), e);
-                }
-                catch (MqttException e) {
-                    Log.e(this.getClass().getCanonicalName(), "Failed to subscribe to" + ConnectionConstants.getInst().getSubscribeTopic(), e);
+        for (int i = 0;i<SubscribeTopicList.length;i++){
+            ConnectionConstants.getInst().setSubscribeTopic(SubscribeTopicList[i]);
+            connection.createSubscribeTopic();
+            if (Status.getInst().isConnectedOrConnecting()) {
+                if (!Status.getInst().isConnected()) {
+                    return;
+                }else {
+                    try {
+                        String[] topics = new String[1];
+                        topics[0] = ConnectionConstants.getInst().getSubscribeTopic();
+                        connection.getClient().subscribe(ConnectionConstants.getInst().getSubscribeTopic(), ConnectionConstants.getInst().getSubscribeQos(), null,
+                                new ActionListener(this.context, ActionListener.Action.SUBSCRIBE, topics));
+                    }
+                    catch (MqttSecurityException e) {
+                        Log.e(this.getClass().getCanonicalName(), "Failed to subscribe to" + ConnectionConstants.getInst().getSubscribeTopic(), e);
+                    }
+                    catch (MqttException e) {
+                        Log.e(this.getClass().getCanonicalName(), "Failed to subscribe to" + ConnectionConstants.getInst().getSubscribeTopic(), e);
+                    }
                 }
             }
         }
-
-        ConnectionConstants.getInst().setSubscribeTopic(CMND_PREFIX+"/#");
-        connection.createSubscribeTopic();
-        if (Status.getInst().isConnectedOrConnecting()) {
-            if (!Status.getInst().isConnected()) {
-                return;
-            }else {
-                try {
-                    String[] topics = new String[1];
-                    topics[0] = ConnectionConstants.getInst().getSubscribeTopic();
-                    connection.getClient().subscribe(ConnectionConstants.getInst().getSubscribeTopic(), ConnectionConstants.getInst().getSubscribeQos(), null,
-                            new ActionListener(this.context, ActionListener.Action.SUBSCRIBE, topics));
-                }
-                catch (MqttSecurityException e) {
-                    Log.e(this.getClass().getCanonicalName(), "Failed to subscribe to" + ConnectionConstants.getInst().getSubscribeTopic(), e);
-                }
-                catch (MqttException e) {
-                    Log.e(this.getClass().getCanonicalName(), "Failed to subscribe to" + ConnectionConstants.getInst().getSubscribeTopic(), e);
-                }
-            }
-        }
-
-
     }
     @Override
     public void unsubscribe() {

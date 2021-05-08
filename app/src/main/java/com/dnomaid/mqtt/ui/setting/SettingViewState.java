@@ -1,17 +1,17 @@
-package com.dnomaid.mqtt.ui.config;
+package com.dnomaid.mqtt.ui.setting;
 
 import com.dnomaid.mqtt.device.DeviceConfig;
 
 import java.util.ArrayList;
 
-public class ConfigViewState {
+public class SettingViewState {
     private String server;
     private String port;
     private String clientId;
     private String cleanSession;
     private ArrayList<DeviceConfig> DeviceConfig;
 
-    public ConfigViewState() {
+    public SettingViewState() {
 
     }
 

@@ -1,4 +1,4 @@
-package com.dnomaid.mqtt.ui.config;
+package com.dnomaid.mqtt.ui.setting;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,11 +14,11 @@ import com.dnomaid.mqtt.device.Devices;
 
 import java.util.ArrayList;
 
-public class ConfigDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class SettingDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<DeviceConfig> DeviceConfig;
-    private ConfigRecyclerViClickList mListener;
+    private SettingRecyclerViClickList mListener;
 
-    public ConfigDataAdapter(ConfigRecyclerViClickList mListener) {
+    public SettingDataAdapter(SettingRecyclerViClickList mListener) {
         this.mListener = mListener;
         DeviceConfig = new ArrayList<>();
         updateData(Devices.getInst().getDevicesConfig());
@@ -33,12 +33,12 @@ public class ConfigDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         View v = LayoutInflater.from(context).inflate(R.layout.device_list, null, false);
-        return new ConfigViewHolder(v, mListener);
+        return new SettingViewHolder(v, mListener);
     }
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof ConfigViewHolder) {
-            ConfigViewHolder configHolder = (ConfigViewHolder) holder;
+        if (holder instanceof SettingViewHolder) {
+            SettingViewHolder configHolder = (SettingViewHolder) holder;
             configHolder.setNameDevice(DeviceConfig.get(position).toString());
         }
     }

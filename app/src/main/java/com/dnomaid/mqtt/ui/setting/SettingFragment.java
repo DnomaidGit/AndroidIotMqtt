@@ -1,4 +1,4 @@
-package com.dnomaid.mqtt.ui.config;
+package com.dnomaid.mqtt.ui.setting;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -22,22 +22,22 @@ import com.dnomaid.mqtt.R;
 import com.dnomaid.mqtt.device.ActionsDevice;
 import com.dnomaid.mqtt.device.Devices;
 
-public class ConfigFragment extends Fragment {
+public class SettingFragment extends Fragment {
 
     private View view;
-    private ConfigViewModel configViewModel;
-    private ConfigDataAdapter adapter;
+    private SettingViewModel configViewModel;
+    private SettingDataAdapter adapter;
     private TextView textViServer,textViPort,textViClientId,textViCleanSession;
     private RecyclerView recyclerView;
     private Activity activity;
     private ActionsDevice actions;
-    private ConfigRecyclerViClickList listener;
+    private SettingRecyclerViClickList listener;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         configViewModel =
-                ViewModelProviders.of(this).get(ConfigViewModel.class);
-        view = inflater.inflate(R.layout.fragment_config, container, false);
+                ViewModelProviders.of(this).get(SettingViewModel.class);
+        view = inflater.inflate(R.layout.fragment_setting, container, false);
         buttonClickDevice();
         return view;
     }
@@ -63,11 +63,11 @@ public class ConfigFragment extends Fragment {
         textViCleanSession = view.findViewById(R.id.textViCleanSession);
         recyclerView = view.findViewById(R.id.recyclerViConfigDevice);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
-        adapter = new ConfigDataAdapter(listener) ;
+        adapter = new SettingDataAdapter(listener) ;
         recyclerView.setAdapter(adapter);
     }
     private void setupViewModel() {
-        configViewModel = new ViewModelProvider(requireActivity()).get(ConfigViewModel.class);
+        configViewModel = new ViewModelProvider(requireActivity()).get(SettingViewModel.class);
         configViewModel.viewLD.observe(getViewLifecycleOwner(), item -> {
             textViServer.setText(item.getServer());
             textViPort.setText(item.getPort());
@@ -109,7 +109,7 @@ public class ConfigFragment extends Fragment {
                     break;
             }
         };
-        adapter = new ConfigDataAdapter(listener);
+        adapter = new SettingDataAdapter(listener);
         recyclerView.setAdapter(adapter);
     }
 }

@@ -25,7 +25,7 @@ import com.dnomaid.mqtt.device.ActionsDevice;
 import com.dnomaid.mqtt.device.Devices;
 import com.dnomaid.mqtt.global.Constants;
 import com.dnomaid.mqtt.global.Status;
-import com.dnomaid.mqtt.ui.config.ConfigViewModel;
+import com.dnomaid.mqtt.ui.setting.SettingViewModel;
 import com.dnomaid.mqtt.ui.connection.ConnectionViewModel;
 import com.dnomaid.mqtt.ui.history.HistoryViewModel;
 import com.dnomaid.mqtt.ui.relay.RelayViewModel;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity
     private HistoryViewModel historyViewModel;
     private TemperatureViewModel temperatureViewModel;
     private RelayViewModel relayViewModel;
-    private ConfigViewModel configViewModel;
+    private SettingViewModel configViewModel;
     Toolbar toolbar;
     FloatingActionButton fab,fab1,fab2;
     DrawerLayout drawer;
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity
         if (historyViewModel == null) historyViewModel = new ViewModelProvider(this).get(HistoryViewModel.class);
         if (temperatureViewModel == null) temperatureViewModel = new ViewModelProvider(this).get(TemperatureViewModel.class);
         if (relayViewModel == null) relayViewModel = new ViewModelProvider(this).get(RelayViewModel.class);
-        if (configViewModel == null) configViewModel = new ViewModelProvider(this).get(ConfigViewModel.class);
+        if (configViewModel == null) configViewModel = new ViewModelProvider(this).get(SettingViewModel.class);
     }
     private void updateState(){
             connectionViewModel.updateState();

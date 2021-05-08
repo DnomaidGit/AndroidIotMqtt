@@ -1,4 +1,4 @@
-package com.dnomaid.mqtt.ui.config;
+package com.dnomaid.mqtt.ui.setting;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,16 +10,16 @@ import com.dnomaid.mqtt.global.ConnectionConstants;
 
 import java.util.ArrayList;
 
-public class ConfigViewModel extends ViewModel {
+public class SettingViewModel extends ViewModel {
 
-    private ConfigViewState viewState;
+    private SettingViewState viewState;
     private ConnectionConstants status1 = ConnectionConstants.getInst();
     private ArrayList<DeviceConfig> status2 = Devices.getInst().getDevicesConfig();
-    private  MutableLiveData<ConfigViewState> viewMLD = new MutableLiveData<>();
-    LiveData<ConfigViewState> viewLD = viewMLD;
+    private  MutableLiveData<SettingViewState> viewMLD = new MutableLiveData<>();
+    LiveData<SettingViewState> viewLD = viewMLD;
 
-    public ConfigViewModel(){
-        viewState = new ConfigViewState();
+    public SettingViewModel(){
+        viewState = new SettingViewState();
     }
 
     public void updateState(ArrayList<DeviceConfig> status2) {
