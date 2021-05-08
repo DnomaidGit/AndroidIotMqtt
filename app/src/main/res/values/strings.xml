@@ -87,5 +87,6 @@
     <string name="typeDevice">Type Device</string>
     <string name="listDeviceText">List Device</string>
     <string name="addDevice">Add Device</string>
+    <string name="lastConnectionText">Last connection</string>
 
 </resources>

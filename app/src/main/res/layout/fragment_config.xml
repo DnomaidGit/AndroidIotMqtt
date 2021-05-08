@@ -22,7 +22,7 @@
                 android:gravity="center"
                 android:background="@color/colorConfig"
                 android:textColor="@color/colorText"
-                android:text="@string/connectionText">
+                android:text="@string/lastConnectionText">
             </TextView>
         </RelativeLayout>
         <RelativeLayout

@@ -2,25 +2,43 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp">
+
         <Button
             android:id="@+id/btnDeleteDevice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="Delete" />
+            android:drawableBottom="@android:drawable/ic_delete"
+            android:gravity="center_horizontal|top"
+            android:minWidth="10dp"
+            android:minHeight="10dp" />
+
+        <Button
+            android:id="@+id/btnInfoDevice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/btnDeleteDevice"
+            android:layout_toRightOf="@+id/btnDeleteDevice"
+            android:drawableBottom="@android:drawable/ic_dialog_info"
+            android:gravity="center_horizontal|top"
+            android:minWidth="10dp"
+            android:minHeight="10dp" />
+
         <TextView
             android:id="@+id/textViNameDevice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/btnDeleteDevice"
-            android:layout_toRightOf="@+id/btnDeleteDevice"
+            android:layout_marginLeft="20dp"
+            android:layout_toEndOf="@+id/btnInfoDevice"
+            android:layout_toRightOf="@+id/btnInfoDevice"
             android:text="Data" />
     </RelativeLayout>
 </RelativeLayout>

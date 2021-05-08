@@ -1,7 +1,9 @@
 package com.dnomaid.mqtt.ui.config;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dnomaid.mqtt.R;
 import com.dnomaid.mqtt.device.ActionsDevice;
+import com.dnomaid.mqtt.device.Devices;
 
 public class ConfigFragment extends Fragment {
 
@@ -62,7 +65,6 @@ public class ConfigFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         adapter = new ConfigDataAdapter(listener) ;
         recyclerView.setAdapter(adapter);
-
     }
     private void setupViewModel() {
         configViewModel = new ViewModelProvider(requireActivity()).get(ConfigViewModel.class);
@@ -84,6 +86,24 @@ public class ConfigFragment extends Fragment {
             switch (view.getId()) {
                 case R.id.btnDeleteDevice:
                     actions.deleteDevice(position);
+                    break;
+                case R.id.btnInfoDevice:
+                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(this.getContext());
+                    alertDialog.setTitle("Setting Topic");
+                    String topic = "";
+                    for (int i = 0; i < Devices.getInst().getDevices().get(position).getTopics().size() ; i++) {
+                        topic = topic + "Topic " +i+": \n";
+                        topic = topic + Devices.getInst().getDevices().get(position).getTopics().get(i).getName()+"\n";
+                    }
+                    alertDialog.setMessage(topic);
+                    alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog dialog = alertDialog.create();
+                    dialog.show();
                     break;
                 default:
                     break;

@@ -18,6 +18,7 @@ public class ConfigViewHolder extends RecyclerView.ViewHolder implements View.On
         mListener = listener;
         device = itemView.findViewById(R.id.textViNameDevice);
         itemView.findViewById(R.id.btnDeleteDevice).setOnClickListener(this);
+        itemView.findViewById(R.id.btnInfoDevice).setOnClickListener(this);
     }
     @Override
     public void onClick(View view) {
