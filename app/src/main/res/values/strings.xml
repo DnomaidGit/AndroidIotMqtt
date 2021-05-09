@@ -34,8 +34,8 @@
     <string name="TemperatureText">Temperature</string>
     <string name="HumidityText">Humidity</string>
     <!-- Hints -->
-    <string name="serverURIHint">192.168.1.39</string>
-    <string name="portHint">1883</string>
+    <string name="serverURIHint">0.0.0.0</string>
+    <string name="portHint">0000</string>
     <string name="clientIdHint">ClientIdAndroidDnomaid</string>
     <!-- ContentDescription -->
     <string name="contentDescriptionCleanSession">Clean Session</string>

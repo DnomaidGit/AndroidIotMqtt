@@ -1,8 +1,6 @@
 package com.dnomaid.mqtt.client;
 
 import android.content.Context;
-import android.text.Html;
-import android.text.Spanned;
 import android.util.Log;
 
 import com.dnomaid.mqtt.R;
@@ -20,8 +18,6 @@ import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
-import static com.dnomaid.mqtt.global.Constants.STAT_PREFIX;
 
 public class Connection {
   private static Connection instance = null;
@@ -69,17 +65,6 @@ public class Connection {
     return instance;
   }
   //Methods
-  public Spanned[] history() {
-    int i = 0;
-    Spanned[] array = new Spanned[history.size()];
-    for (String s : history) {
-      if (s != null) {
-        array[i] = Html.fromHtml(s);
-        i++;
-      }
-    }
-    return array;
-  }
   public long persistenceId() {return persistenceId; }
   public void persistConnection() {
       persistence.persistConnection();

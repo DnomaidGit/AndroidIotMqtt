@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.dnomaid.mqtt.R;
 import com.dnomaid.mqtt.global.ConnectionConstants;
-import com.dnomaid.mqtt.global.Constants;
 import com.dnomaid.mqtt.global.Notify;
 import com.dnomaid.mqtt.global.Status;
 
@@ -14,9 +13,6 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 
-import static com.dnomaid.mqtt.global.Constants.CMND_PREFIX;
-import static com.dnomaid.mqtt.global.Constants.MIX_PREFIX;
-import static com.dnomaid.mqtt.global.Constants.STAT_PREFIX;
 import static com.dnomaid.mqtt.global.Constants.SubscribeTopicList;
 
 public class Mqtt implements ActionsMqtt {
@@ -40,8 +36,6 @@ public class Mqtt implements ActionsMqtt {
                 Notify.toast(this.context,context.getString(R.string.connecting___));
             }
         }
-        //conOpt = Connection.getInstance(this.context).createConnectionOptions();
-        //client = Connection.getInstance(this.context).createClient();
         // connect client
         String[] actionArgs = new String[1];
         actionArgs[0] = ConnectionConstants.getInst().getClientId();

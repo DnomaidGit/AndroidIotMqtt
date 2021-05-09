@@ -42,6 +42,10 @@ public class ConnectionViewModel extends ViewModel {
         viewState.setConnectionStatus(status.getConnectionStatus());
         viewState.setSubscribeStatus(status.getTopicStatus());
         viewState.setMessageArrived(status.getMessageArrived());
+        viewState.setServer(ConnectionConstants.getInst().getServer());
+        viewState.setPort(String.valueOf(ConnectionConstants.getInst().getPort()));
+        viewState.setClientId(ConnectionConstants.getInst().getClientId());
+        viewState.setCleanSession(ConnectionConstants.getInst().isCleanSession() ? "True" : "False");
         viewMLD.setValue(viewState);
     }
 
