@@ -23,16 +23,18 @@ public class ConnectionViewModel extends ViewModel {
         viewState = new ConnectionViewState();
         this.viewValueUser = viewValueUser;
     }
-
     public boolean uploadValueUser(ConnectionViewValueUser viewValueUser) {
         boolean aux = false;
         this.viewValueUser = viewValueUser;
         if (this.viewValueUser!=null) {
-            if (!this.viewValueUser.getServer().equals(Status.EMPTY))
-                ConnectionConstants.getInst().setServer(this.viewValueUser.getServer());
-            if(this.viewValueUser.getPort()!=0 ){ConnectionConstants.getInst().setPort(this.viewValueUser.getPort());}
-            if (!this.viewValueUser.getClientId().equals(Status.EMPTY))
-                ConnectionConstants.getInst().setClientId(this.viewValueUser.getClientId());
+            if ((!this.viewValueUser.getServer().equals(Status.EMPTY))&&(this.viewValueUser.getServer()!=null))
+            {ConnectionConstants.getInst().setServer(this.viewValueUser.getServer());}
+
+            ConnectionConstants.getInst().setPort(this.viewValueUser.getPort());
+
+            if ((!this.viewValueUser.getClientId().equals(Status.EMPTY))&&(this.viewValueUser.getClientId()!=null))
+            {ConnectionConstants.getInst().setClientId(this.viewValueUser.getClientId());}
+
             ConnectionConstants.getInst().setCleanSession(this.viewValueUser.isCleanSession());
             aux = true;
         }
