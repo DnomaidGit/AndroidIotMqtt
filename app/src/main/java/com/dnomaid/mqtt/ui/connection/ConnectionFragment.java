@@ -3,15 +3,10 @@ package com.dnomaid.mqtt.ui.connection;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,8 +24,6 @@ public class ConnectionFragment extends Fragment {
     private View view;
     private ConnectionViewModel connectionViewModel;
     private ConnectionViewValueUser viewValueUser;
-    private EditText server,port,clientId;
-    private CheckBox cleanSessionCheckBox;
     private TextView serverUser,portUser,clientIdUser,cleanSessionUser;
     private TextView textViConnect,textViSubscribe,textViMessageArrived;
     private Button btnConnect,btnDisconnect,btnSubscribe,btnUnsubscribe;
@@ -44,8 +37,6 @@ public class ConnectionFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_connection, container, false);
         setupViewValueUser();
         setupViewOnclick(view);
-        setupEditTextChange();
-        setupCheckedChanged();
         return view;
     }
     @Override
@@ -122,88 +113,5 @@ public class ConnectionFragment extends Fragment {
             }
         });
     }
-    private void setupEditTextChange(){
-        server = view.findViewById(R.id.server);
-        server.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
-            @Override
-            public void afterTextChanged(Editable editable) {
-                try {
-                    if(server.getText().toString().equals("")){
-                        viewValueUser.setServer("0.0.0.0");
-                    }
-                    else{
-                        viewValueUser.setServer(server.getText().toString());
-                    }
-                    connectionViewModel.uploadValueUser(viewValueUser);
-                }catch (Exception e){
-                    System.err.println("error text Server: "+ e);
-                    e.printStackTrace();
-                }
-            }
-        });
-        port = view.findViewById(R.id.port);
-        port.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
-            @Override
-            public void afterTextChanged(Editable editable) {
-                try {
-                    if(port.getText().toString().equals("")){
-                        viewValueUser.setPort(Integer.parseInt("0"));
-                    }else{
-                        viewValueUser.setPort(Integer.parseInt(port.getText().toString()));
-                    }
-                    connectionViewModel.uploadValueUser(viewValueUser);
-                }catch (Exception e){
-                    System.err.println("error text Port: "+ e);
-                    e.printStackTrace();
-                }
-            }
-        });
-        clientId = view.findViewById(R.id.clientId);
-        clientId.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
-            @Override
-            public void afterTextChanged(Editable editable) {
-                try {
-                    if(clientId.getText().toString().equals("")) {
-                        viewValueUser.setClientId("clientId..??");
-                    }
-                    else{
-                        viewValueUser.setClientId(clientId.getText().toString());
-                    }
-                    connectionViewModel.uploadValueUser(viewValueUser);
-                }catch (Exception e){
-                    System.err.println("error text ClientId: "+ e);
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-    private void setupCheckedChanged(){
-        cleanSessionCheckBox = view.findViewById(R.id.cleanSessionCheckBox);
-        cleanSessionCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                try {
-                    viewValueUser.setCleanSession(cleanSessionCheckBox.isChecked());
-                    connectionViewModel.uploadValueUser(viewValueUser);
-                }catch (Exception e){
-                    System.err.println("error text cleanSession: "+ e);
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
 }
 

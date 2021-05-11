@@ -29,6 +29,7 @@ import com.dnomaid.mqtt.ui.setting.SettingViewModel;
 import com.dnomaid.mqtt.ui.connection.ConnectionViewModel;
 import com.dnomaid.mqtt.ui.history.HistoryViewModel;
 import com.dnomaid.mqtt.ui.relay.RelayViewModel;
+import com.dnomaid.mqtt.ui.settingConnection.SettingConnectionViewModel;
 import com.dnomaid.mqtt.ui.temperature.TemperatureViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity
     private TemperatureViewModel temperatureViewModel;
     private RelayViewModel relayViewModel;
     private SettingViewModel configViewModel;
+    private SettingConnectionViewModel settingConnectionViewModel;
     Toolbar toolbar;
     FloatingActionButton fab,fab1,fab2;
     DrawerLayout drawer;
@@ -68,7 +70,8 @@ public class MainActivity extends AppCompatActivity
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_connection ,R.id.nav_relay, R.id.nav_temperature, R.id.nav_history, R.id.nav_config, R.id.nav_addDevice
+                R.id.nav_connection, R.id.nav_addDevice ,R.id.nav_relay, R.id.nav_temperature
+                , R.id.nav_history, R.id.nav_config, R.id.nav_setting_connection
         )
                 .setDrawerLayout(drawer)
                 .build();
@@ -209,6 +212,7 @@ public class MainActivity extends AppCompatActivity
         if (temperatureViewModel == null) temperatureViewModel = new ViewModelProvider(this).get(TemperatureViewModel.class);
         if (relayViewModel == null) relayViewModel = new ViewModelProvider(this).get(RelayViewModel.class);
         if (configViewModel == null) configViewModel = new ViewModelProvider(this).get(SettingViewModel.class);
+        if (settingConnectionViewModel == null) settingConnectionViewModel = new ViewModelProvider(this).get(SettingConnectionViewModel.class);
     }
     private void updateState(){
             connectionViewModel.updateState();
@@ -216,6 +220,7 @@ public class MainActivity extends AppCompatActivity
             temperatureViewModel.updateState(devices.getSensorsClimate());
             relayViewModel.updateState(devices.getRelays());
             configViewModel.updateState(devices.getDevicesConfig());
+            settingConnectionViewModel.updateState();
     }
     private void setupDevice(){
         if (devices == null){

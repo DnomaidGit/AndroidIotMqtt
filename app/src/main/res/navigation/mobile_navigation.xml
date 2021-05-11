@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_connection" />
 
     <fragment
+        android:id="@+id/nav_addDevice"
+        android:name="com.dnomaid.mqtt.ui.addDevice.AddDeviceFragment"
+        android:label="@string/menu_addDevice"
+        tools:layout="@layout/fragment_add_device" />
+
+    <fragment
         android:id="@+id/nav_relay"
         android:name="com.dnomaid.mqtt.ui.relay.RelayFragment"
         android:label="@string/menu_relay"
@@ -28,14 +34,17 @@
         android:name="com.dnomaid.mqtt.ui.history.HistoryFragment"
         android:label="@string/menu_history"
         tools:layout="@layout/fragment_history" />
+
     <fragment
         android:id="@+id/nav_config"
         android:name="com.dnomaid.mqtt.ui.setting.SettingFragment"
-        android:label="@string/menu_setting" />
+        android:label="@string/menu_setting"
+        tools:layout="@layout/fragment_setting" />
+
     <fragment
-        android:id="@+id/nav_addDevice"
-        android:name="com.dnomaid.mqtt.ui.addDevice.AddDeviceFragment"
-        android:label="@string/menu_addDevice"
-        tools:layout="@layout/fragment_add_device" />
+        android:id="@+id/nav_setting_connection"
+        android:name="com.dnomaid.mqtt.ui.settingConnection.SettingConnectionFragment"
+        android:label="@string/menu_setting_connection"
+        tools:layout="@layout/fragment_setting_connection" />
 
 </navigation>

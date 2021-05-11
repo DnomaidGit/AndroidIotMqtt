@@ -12,6 +12,7 @@
     <string name="menu_temperature">Temperature</string>
     <string name="menu_history">History</string>
     <string name="menu_setting">Setting</string>
+    <string name="menu_settingConnection">Setting Conection</string>
     <string name="menu_addDevice">Add Device</string>
 
     <string name="empty"> </string>
@@ -88,5 +89,6 @@
     <string name="listDeviceText">List Device</string>
     <string name="addDevice">Add Device</string>
     <string name="lastConnectionText">Last connection</string>
+    <string name="menu_setting_connection">Setting connection</string>
 
 </resources>
