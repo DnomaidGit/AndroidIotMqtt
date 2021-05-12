@@ -25,107 +25,104 @@
                 android:text="@string/connectionText">
             </TextView>
         </RelativeLayout>
-        <LinearLayout
-            android:id="@+id/serverGroup"
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp">
             <TextView
-                android:id="@+id/serverTextView"
+                android:id="@+id/textViServ"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_marginLeft="5dip"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"
+                android:textSize="16dp"
+                android:text="@string/serverText" />
+
+            <TextView
+                android:id="@+id/textViServer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/textViServ"
+                android:layout_toRightOf="@+id/textViServ"
+                android:text="0.0.0.0"
+                android:textColor="@color/colorConfig"
+                android:textSize="20dp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:id="@+id/textViPor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="42dip"
+                android:textSize="16dp"
+                android:text="@string/portText"/>
+            <TextView
+                android:id="@+id/textViPort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/textViPor"
+                android:layout_toRightOf="@+id/textViPor"
+                android:textSize="20dp"
+                android:textColor="@color/colorConfig"
+                android:text="1000" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:id="@+id/textViClientI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_marginRight="17dip"
-                android:text="@string/serverText"
-                android:textSize="16dp" />
-            <RelativeLayout
+                android:textSize="16dp"
+                android:text="@string/clientIdText" />
+            <TextView
+                android:id="@+id/textViClientId"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <TextView
-                    android:id="@+id/serverUser"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:text="@string/serverURIHint" />
-            </RelativeLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/portGroup"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/textViClientI"
+                android:layout_toRightOf="@+id/textViClientI"
+                android:textSize="20dp"
+                android:textColor="@color/colorConfig"
+                android:text="Client" />
+        </RelativeLayout>
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/serverGroup" >
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp">
             <TextView
-                android:id="@+id/portTextView"
+                android:id="@+id/textViCleanSessio"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="17dip"
                 android:textSize="16dp"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="32dip"
-                android:text="@string/portText" />
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <TextView
-                    android:id="@+id/portUser"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:text="@string/portHint" />
-            </RelativeLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/clientIdGroup"
-            android:layout_width="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content" >
-            <TextView
-                android:id="@+id/clientIDTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="5dip"
-                android:text="@string/clientIdText"
-                android:textSize="16dp" />
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <TextView
-                    android:id="@+id/clientIdUser"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:text="@string/clientIdHint" />
-            </RelativeLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/cleanSessionGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/portGroup" >
-            <TextView
-                android:id="@+id/cleanSessionTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:textSize="16dp"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="30dip"
                 android:text="@string/cleanSessionText" />
-            <RelativeLayout
+            <TextView
+                android:id="@+id/textViCleanSession"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <TextView
-                    android:id="@+id/cleanSessionUser"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:text="@string/empty" />
-                </RelativeLayout>
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/textViCleanSessio"
+                android:layout_toRightOf="@+id/textViCleanSessio"
+                android:textSize="20dp"
+                android:textColor="@color/colorConfig"
+                android:text="False" />
+        </RelativeLayout>
+
         <RelativeLayout
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"

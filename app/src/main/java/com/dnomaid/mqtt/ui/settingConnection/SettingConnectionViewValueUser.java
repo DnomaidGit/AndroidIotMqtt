@@ -2,7 +2,7 @@ package com.dnomaid.mqtt.ui.settingConnection;
 
 public class SettingConnectionViewValueUser {
     private String server;
-    private int port=0;
+    private int port;
     private String clientId;
     private boolean cleanSession;
 

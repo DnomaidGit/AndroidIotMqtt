@@ -9,10 +9,6 @@
                     android:id="@+id/nav_connection"
                     android:icon="@drawable/ic_baseline_tap_and_play_24"
                     android:title="@string/menu_connection" />
-                <item
-                    android:id="@+id/nav_addDevice"
-                    android:icon="@drawable/ic_device"
-                    android:title="@string/menu_addDevice" />
             </menu>
         </item>
         <item android:title="Dashboard">
@@ -27,20 +23,28 @@
                     android:title="@string/menu_temperature" />
             </menu>
         </item>
+        <item android:title="Settings">
+        <menu>
+            <item
+                android:id="@+id/nav_setting_device"
+                android:icon="@drawable/ic_baseline_settings_24"
+                android:title="@string/menu_setting_device" />
+            <item
+                android:id="@+id/nav_setting_connection"
+                android:icon="@drawable/ic_connection_setting"
+                android:title="@string/menu_setting_connection" />
+            <item
+                android:id="@+id/nav_addDevice"
+                android:icon="@drawable/ic_device"
+                android:title="@string/menu_addDevice" />
+        </menu>
+    </item>
         <item android:title="System">
             <menu>
             <item
                 android:id="@+id/nav_history"
                 android:icon="@drawable/ic_terminal_cmd"
                 android:title="@string/menu_history" />
-            <item
-                android:id="@+id/nav_config"
-                android:icon="@drawable/ic_connection_setting"
-                android:title="@string/menu_setting" />
-             <item
-                android:id="@+id/nav_setting_connection"
-                android:icon="@drawable/ic_connection_setting"
-                android:title="@string/menu_setting_connection" />
             </menu>
         </item>
 </menu>

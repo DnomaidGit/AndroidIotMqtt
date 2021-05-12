@@ -8,7 +8,6 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -29,9 +28,9 @@ public class SettingConnectionFragment extends Fragment {
     private View view;
     private SettingConnectionViewModel connectionViewModel;
     private SettingConnectionViewValueUser viewValueUser;
-    private EditText server,port,clientId;
-    private CheckBox cleanSessionCheckBox;
-    private TextView serverUser,portUser,clientIdUser,cleanSessionUser;
+    private EditText serverUser, portUser, clientIdUser;
+    private CheckBox cleanSessionCheckBoxUser;
+    private TextView serverSetting, portSetting, clientIdSetting, cleanSessionSetting;
     private Activity activity;
     private ActionsMqtt actions;
 
@@ -61,19 +60,19 @@ public class SettingConnectionFragment extends Fragment {
     }
 
     private void setupView(View view) {
-        serverUser = view.findViewById(R.id.serverUser);
-        portUser = view.findViewById(R.id.portUser);
-        clientIdUser = view.findViewById(R.id.clientIdUser);
-        cleanSessionUser = view.findViewById(R.id.cleanSessionUser);
+        serverSetting = view.findViewById(R.id.serverSetting);
+        portSetting = view.findViewById(R.id.portSetting);
+        clientIdSetting = view.findViewById(R.id.clientIdSetting);
+        cleanSessionSetting = view.findViewById(R.id.cleanSessionSetting);
     }
     private void setupViewModel() {
         SettingConnectionVMFactory connectionVMFactory = new SettingConnectionVMFactory(viewValueUser);
         connectionViewModel = new ViewModelProvider(requireActivity(),connectionVMFactory).get(SettingConnectionViewModel.class);
         connectionViewModel.viewLD.observe(getViewLifecycleOwner(), item -> {
-            serverUser.setText(item.getServer());
-            portUser.setText(item.getPort());
-            clientIdUser.setText(item.getClientId());
-            cleanSessionUser.setText(item.getCleanSession());
+            serverSetting.setText(item.getServer());
+            portSetting.setText(item.getPort());
+            clientIdSetting.setText(item.getClientId());
+            cleanSessionSetting.setText(item.getCleanSession());
         });
     }
     private void setupViewValueUser() {
@@ -84,8 +83,8 @@ public class SettingConnectionFragment extends Fragment {
         viewValueUser.setCleanSession(ConnectionConstants.getInst().isCleanSession());
     }
     private void setupEditTextChange(){
-        server = view.findViewById(R.id.server);
-        server.addTextChangedListener(new TextWatcher() {
+        serverUser = view.findViewById(R.id.serverUser);
+        serverUser.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
             @Override
@@ -93,11 +92,11 @@ public class SettingConnectionFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable editable) {
                 try {
-                    if(server.getText().toString().equals("")){
+                    if(serverUser.getText().toString().equals("")){
                         viewValueUser.setServer("0.0.0.0");
                     }
                     else{
-                        viewValueUser.setServer(server.getText().toString());
+                        viewValueUser.setServer(serverUser.getText().toString());
                     }
                     connectionViewModel.uploadValueUser(viewValueUser);
                 }catch (Exception e){
@@ -106,8 +105,8 @@ public class SettingConnectionFragment extends Fragment {
                 }
             }
         });
-        port = view.findViewById(R.id.port);
-        port.addTextChangedListener(new TextWatcher() {
+        portUser = view.findViewById(R.id.portUser);
+        portUser.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
             @Override
@@ -115,10 +114,10 @@ public class SettingConnectionFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable editable) {
                 try {
-                    if(port.getText().toString().equals("")){
+                    if(portUser.getText().toString().equals("")){
                         viewValueUser.setPort(Integer.parseInt("0"));
                     }else{
-                        viewValueUser.setPort(Integer.parseInt(port.getText().toString()));
+                        viewValueUser.setPort(Integer.parseInt(portUser.getText().toString()));
                     }
                     connectionViewModel.uploadValueUser(viewValueUser);
                 }catch (Exception e){
@@ -127,8 +126,8 @@ public class SettingConnectionFragment extends Fragment {
                 }
             }
         });
-        clientId = view.findViewById(R.id.clientId);
-        clientId.addTextChangedListener(new TextWatcher() {
+        clientIdUser = view.findViewById(R.id.clientIdUser);
+        clientIdUser.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
             @Override
@@ -136,11 +135,11 @@ public class SettingConnectionFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable editable) {
                 try {
-                    if(clientId.getText().toString().equals("")) {
+                    if(clientIdUser.getText().toString().equals("")) {
                         viewValueUser.setClientId("clientId..??");
                     }
                     else{
-                        viewValueUser.setClientId(clientId.getText().toString());
+                        viewValueUser.setClientId(clientIdUser.getText().toString());
                     }
                     connectionViewModel.uploadValueUser(viewValueUser);
                 }catch (Exception e){
@@ -151,12 +150,12 @@ public class SettingConnectionFragment extends Fragment {
         });
     }
     private void setupCheckedChanged(){
-        cleanSessionCheckBox = view.findViewById(R.id.cleanSessionCheckBox);
-        cleanSessionCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        cleanSessionCheckBoxUser = view.findViewById(R.id.cleanSessionCheckBoxUser);
+        cleanSessionCheckBoxUser.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 try {
-                    viewValueUser.setCleanSession(cleanSessionCheckBox.isChecked());
+                    viewValueUser.setCleanSession(cleanSessionCheckBoxUser.isChecked());
                     connectionViewModel.uploadValueUser(viewValueUser);
                 }catch (Exception e){
                     System.err.println("error text cleanSession: "+ e);

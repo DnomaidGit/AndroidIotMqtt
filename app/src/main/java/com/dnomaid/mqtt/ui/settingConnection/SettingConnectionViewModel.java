@@ -11,7 +11,7 @@ public class SettingConnectionViewModel extends ViewModel {
 
     private SettingConnectionViewState viewState;
     private SettingConnectionViewValueUser viewValueUser;
-    private Status status = Status.getInst();
+    //private Status status = Status.getInst();
     private  MutableLiveData<SettingConnectionViewState> viewMLD = new MutableLiveData<>();
     LiveData<SettingConnectionViewState> viewLD = viewMLD;
 

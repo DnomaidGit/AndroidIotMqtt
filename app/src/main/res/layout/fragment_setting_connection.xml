@@ -42,7 +42,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
                 <EditText
-                    android:id="@+id/server"
+                    android:id="@+id/serverUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.22"
@@ -50,10 +50,10 @@
                     android:hint="@string/serverURIHint"
                     android:inputType="text" />
                 <TextView
-                    android:id="@+id/serverUser"
+                    android:id="@+id/serverSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/server"
+                    android:layout_below="@+id/serverUser"
                     android:textSize="16dp"
                     android:text="@string/serverURIHint" />
             </RelativeLayout>
@@ -77,7 +77,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
                 <EditText
-                    android:id="@+id/port"
+                    android:id="@+id/portUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.22"
@@ -86,10 +86,10 @@
                     android:hint="@string/portHint"
                     android:inputType="number" />
                 <TextView
-                    android:id="@+id/portUser"
+                    android:id="@+id/portSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/port"
+                    android:layout_below="@+id/portUser"
                     android:textSize="16dp"
                     android:text="@string/portHint" />
             </RelativeLayout>
@@ -112,7 +112,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
                 <EditText
-                    android:id="@+id/clientId"
+                    android:id="@+id/clientIdUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.22"
@@ -120,10 +120,10 @@
                     android:hint="@string/clientIdHint"
                     android:inputType="text" />
                 <TextView
-                    android:id="@+id/clientIdUser"
+                    android:id="@+id/clientIdSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/clientId"
+                    android:layout_below="@+id/clientIdUser"
                     android:textSize="16dp"
                     android:text="@string/clientIdHint" />
             </RelativeLayout>
@@ -147,16 +147,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
                 <CheckBox
-                    android:id="@+id/cleanSessionCheckBox"
+                    android:id="@+id/cleanSessionCheckBoxUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/contentDescriptionCleanSession"
                     android:text="@string/empty" />
                 <TextView
-                    android:id="@+id/cleanSessionUser"
+                    android:id="@+id/cleanSessionSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/cleanSessionCheckBox"
+                    android:layout_below="@+id/cleanSessionCheckBoxUser"
                     android:textSize="16dp"
                     android:text="@string/empty" />
                 </RelativeLayout>

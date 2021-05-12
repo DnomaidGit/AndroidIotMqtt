@@ -1,4 +1,4 @@
-package com.dnomaid.mqtt.ui.setting;
+package com.dnomaid.mqtt.ui.settingDevice;
 
 import android.view.View;
 import android.widget.TextView;
@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dnomaid.mqtt.R;
 
-public class SettingViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class SettingDeviceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    private SettingRecyclerViClickList mListener;
+    private SettingDeviceRecyclerViClickList mListener;
     private TextView device;
 
-    public SettingViewHolder(@NonNull View itemView, SettingRecyclerViClickList listener) {
+    public SettingDeviceViewHolder(@NonNull View itemView, SettingDeviceRecyclerViClickList listener) {
         super(itemView);
         mListener = listener;
         device = itemView.findViewById(R.id.textViNameDevice);

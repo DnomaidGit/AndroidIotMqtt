@@ -1,4 +1,4 @@
-package com.dnomaid.mqtt.ui.setting;
+package com.dnomaid.mqtt.ui.settingDevice;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -22,21 +22,20 @@ import com.dnomaid.mqtt.R;
 import com.dnomaid.mqtt.device.ActionsDevice;
 import com.dnomaid.mqtt.device.Devices;
 
-public class SettingFragment extends Fragment {
+public class SettingDeviceFragment extends Fragment {
 
     private View view;
-    private SettingViewModel configViewModel;
-    private SettingDataAdapter adapter;
-    private TextView textViServer,textViPort,textViClientId,textViCleanSession;
+    private SettingDeviceViewModel configViewModel;
+    private SettingDeviceDataAdapter adapter;
     private RecyclerView recyclerView;
     private Activity activity;
     private ActionsDevice actions;
-    private SettingRecyclerViClickList listener;
+    private SettingDeviceRecyclerViClickList listener;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         configViewModel =
-                ViewModelProviders.of(this).get(SettingViewModel.class);
+                ViewModelProviders.of(this).get(SettingDeviceViewModel.class);
         view = inflater.inflate(R.layout.fragment_setting, container, false);
         buttonClickDevice();
         return view;
@@ -57,22 +56,14 @@ public class SettingFragment extends Fragment {
     }
 
     private void setupView(View view) {
-        textViServer = view.findViewById(R.id.textViServer);
-        textViPort = view.findViewById(R.id.textViPort);
-        textViClientId = view.findViewById(R.id.textViClientId);
-        textViCleanSession = view.findViewById(R.id.textViCleanSession);
         recyclerView = view.findViewById(R.id.recyclerViConfigDevice);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
-        adapter = new SettingDataAdapter(listener) ;
+        adapter = new SettingDeviceDataAdapter(listener) ;
         recyclerView.setAdapter(adapter);
     }
     private void setupViewModel() {
-        configViewModel = new ViewModelProvider(requireActivity()).get(SettingViewModel.class);
+        configViewModel = new ViewModelProvider(requireActivity()).get(SettingDeviceViewModel.class);
         configViewModel.viewLD.observe(getViewLifecycleOwner(), item -> {
-            textViServer.setText(item.getServer());
-            textViPort.setText(item.getPort());
-            textViClientId.setText(item.getClientId());
-            textViCleanSession.setText(item.getCleanSession());
             adapter.updateData(item.getDeviceConfig());
             recyclerView.setAdapter(adapter);
         });
@@ -109,7 +100,7 @@ public class SettingFragment extends Fragment {
                     break;
             }
         };
-        adapter = new SettingDataAdapter(listener);
+        adapter = new SettingDeviceDataAdapter(listener);
         recyclerView.setAdapter(adapter);
     }
 }

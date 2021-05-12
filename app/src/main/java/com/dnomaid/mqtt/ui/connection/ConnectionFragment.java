@@ -24,7 +24,7 @@ public class ConnectionFragment extends Fragment {
     private View view;
     private ConnectionViewModel connectionViewModel;
     private ConnectionViewValueUser viewValueUser;
-    private TextView serverUser,portUser,clientIdUser,cleanSessionUser;
+    private TextView serverInfo, portInfo, clientIdInfo, cleanSessionInfo;
     private TextView textViConnect,textViSubscribe,textViMessageArrived;
     private Button btnConnect,btnDisconnect,btnSubscribe,btnUnsubscribe;
     private Activity activity;
@@ -55,10 +55,10 @@ public class ConnectionFragment extends Fragment {
     }
 
     private void setupView(View view) {
-        serverUser = view.findViewById(R.id.serverUser);
-        portUser = view.findViewById(R.id.portUser);
-        clientIdUser = view.findViewById(R.id.clientIdUser);
-        cleanSessionUser = view.findViewById(R.id.cleanSessionUser);
+        serverInfo = view.findViewById(R.id.textViServer);
+        portInfo = view.findViewById(R.id.textViPort);
+        clientIdInfo = view.findViewById(R.id.textViClientId);
+        cleanSessionInfo = view.findViewById(R.id.textViCleanSession);
         textViConnect = view.findViewById(R.id.textViConnect);
         textViSubscribe = view.findViewById(R.id.textViSubscribe);
         textViMessageArrived = view.findViewById(R.id.textViMessageArrived);
@@ -70,10 +70,10 @@ public class ConnectionFragment extends Fragment {
             textViConnect.setText(item.getConnectionStatus());
             textViSubscribe.setText(item.getSubscribeStatus());
             textViMessageArrived.setText(item.getMessageArrived());
-            serverUser.setText(item.getServer());
-            portUser.setText(item.getPort());
-            clientIdUser.setText(item.getClientId());
-            cleanSessionUser.setText(item.getCleanSession());
+            serverInfo.setText(item.getServer());
+            portInfo.setText(item.getPort());
+            clientIdInfo.setText(item.getClientId());
+            cleanSessionInfo.setText(item.getCleanSession());
         });
     }
     private void setupViewValueUser() {

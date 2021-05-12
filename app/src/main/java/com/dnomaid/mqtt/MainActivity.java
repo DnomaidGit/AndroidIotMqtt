@@ -25,7 +25,7 @@ import com.dnomaid.mqtt.device.ActionsDevice;
 import com.dnomaid.mqtt.device.Devices;
 import com.dnomaid.mqtt.global.Constants;
 import com.dnomaid.mqtt.global.Status;
-import com.dnomaid.mqtt.ui.setting.SettingViewModel;
+import com.dnomaid.mqtt.ui.settingDevice.SettingDeviceViewModel;
 import com.dnomaid.mqtt.ui.connection.ConnectionViewModel;
 import com.dnomaid.mqtt.ui.history.HistoryViewModel;
 import com.dnomaid.mqtt.ui.relay.RelayViewModel;
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity
     private HistoryViewModel historyViewModel;
     private TemperatureViewModel temperatureViewModel;
     private RelayViewModel relayViewModel;
-    private SettingViewModel configViewModel;
+    private SettingDeviceViewModel configViewModel;
     private SettingConnectionViewModel settingConnectionViewModel;
     Toolbar toolbar;
     FloatingActionButton fab,fab1,fab2;
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity
         navigationView = findViewById(R.id.nav_view);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_connection, R.id.nav_addDevice ,R.id.nav_relay, R.id.nav_temperature
-                , R.id.nav_history, R.id.nav_config, R.id.nav_setting_connection
+                , R.id.nav_history, R.id.nav_setting_device, R.id.nav_setting_connection
         )
                 .setDrawerLayout(drawer)
                 .build();
@@ -211,7 +211,7 @@ public class MainActivity extends AppCompatActivity
         if (historyViewModel == null) historyViewModel = new ViewModelProvider(this).get(HistoryViewModel.class);
         if (temperatureViewModel == null) temperatureViewModel = new ViewModelProvider(this).get(TemperatureViewModel.class);
         if (relayViewModel == null) relayViewModel = new ViewModelProvider(this).get(RelayViewModel.class);
-        if (configViewModel == null) configViewModel = new ViewModelProvider(this).get(SettingViewModel.class);
+        if (configViewModel == null) configViewModel = new ViewModelProvider(this).get(SettingDeviceViewModel.class);
         if (settingConnectionViewModel == null) settingConnectionViewModel = new ViewModelProvider(this).get(SettingConnectionViewModel.class);
     }
     private void updateState(){
