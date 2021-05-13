@@ -1,8 +1,10 @@
 package com.dnomaid.mqtt;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 
@@ -82,14 +84,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
             //    if(destination.getId() == R.id.nav_connection) {
-                    fab.show();
-                    fab1.show();
-                    fab2.show();
-            //    }else {
-            //        fab.hide();
-            //        fab1.hide();
-            //        fab2.hide();
-            //    }
+                showFloatingIcons();
             }
         });
         setupDevice();
@@ -149,6 +144,7 @@ public class MainActivity extends AppCompatActivity
                 handler.postDelayed(this, PERIODO);
                 updateState();
                 if (Status.getInst().isConnected()&(Status.getInst().getTopicStatus().equals(Status.TopicStatus.NONE.name())))subscribe();
+                showFloatingIcons();
             }
         };
         handler.postDelayed(runnable, PERIODO);
@@ -162,9 +158,23 @@ public class MainActivity extends AppCompatActivity
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_setting_device:
+                navController.navigate(R.id.nav_setting_device);
+                return true;
+            case R.id.action_setting_connection:
+                navController.navigate(R.id.nav_setting_connection);
+                return true;
+            case R.id.action_addDevice:
+                navController.navigate(R.id.nav_addDevice);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
     @Override
     public boolean onSupportNavigateUp() {
@@ -205,7 +215,25 @@ public class MainActivity extends AppCompatActivity
         devices.deleteDevice(devices.getDevicesConfig().get(position));
         updateState();
     }
+    private void showFloatingIcons(){
+        fab.show();
+        fab2.show();
+        if (Status.getInst().isConnected())
+            {
+            fab1.hide();
+            }
+        else{
+            fab1.show();
+        }
+        if (Status.getInst().isConnectedOrConnecting())
+        {
+            fab2.show();
+        }
+        else{
+            fab2.hide();
+        }
 
+    }
     private void setupViewModel(){
         if (connectionViewModel == null) connectionViewModel = new ViewModelProvider(this).get(ConnectionViewModel.class);
         if (historyViewModel == null) historyViewModel = new ViewModelProvider(this).get(HistoryViewModel.class);

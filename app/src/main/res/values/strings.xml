@@ -5,14 +5,14 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_setting_device">Setting Device</string>
 
     <string name="menu_connection">Connection</string>
     <string name="menu_relay">Relay</string>
     <string name="menu_temperature">Temperature</string>
     <string name="menu_history">History</string>
     <string name="menu_setting">Setting</string>
-    <string name="menu_settingConnection">Setting Conection</string>
+    <string name="menu_settingConnection">Setting Connection</string>
     <string name="menu_addDevice">Add Device</string>
 
     <string name="empty"> </string>
@@ -91,5 +91,7 @@
     <string name="lastConnectionText">Last connection</string>
     <string name="menu_setting_connection">Connection</string>
     <string name="menu_setting_device">Device</string>
+    <string name="action_setting_connection">Setting Connection</string>
+    <string name="action_addDevice">Add Device</string>
 
 </resources>
