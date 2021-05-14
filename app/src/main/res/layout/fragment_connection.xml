@@ -133,11 +133,13 @@
                 android:id="@+id/btnConnect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_baseline_tap_and_play_24"
                 android:text="@string/connectText"/>
             <Button
                 android:id="@+id/btnDisconnect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_baseline_stop_24"
                 android:layout_toRightOf="@+id/btnConnect"
                 android:layout_toEndOf="@+id/btnConnect"
                 android:text="@string/disconnectText"/>
@@ -153,7 +155,6 @@
                 android:autoSizeTextType="uniform"
                 android:text="ConnectStatus" />
         </RelativeLayout>
-
         <!--Topic-->
         <RelativeLayout
             android:layout_width="match_parent"
@@ -179,11 +180,13 @@
                 android:id="@+id/btnSubscribe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_baseline_subscriptions_24"
                 android:text="@string/subscribeText"/>
             <Button
                 android:id="@+id/btnUnsubscribe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_baseline_unsubscribe_24"
                 android:layout_toEndOf="@+id/btnSubscribe"
                 android:layout_toRightOf="@+id/btnSubscribe"
                 android:text="@string/unsubscribeText"/>
