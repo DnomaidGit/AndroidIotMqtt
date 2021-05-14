@@ -41,7 +41,7 @@ public class RelayDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if (holder instanceof RelayViewHolder) {
             RelayViewHolder relayHolder = (RelayViewHolder) holder;
             relayHolder.setNameRelay(Device.get(position).getNameDevice());
-            relayHolder.setDataPower(Device.get(position).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Power));
+            relayHolder.setTextColorButton(Device.get(position).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Power));
         }
     }
     @Override

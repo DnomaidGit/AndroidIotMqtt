@@ -1,6 +1,5 @@
 package com.dnomaid.mqtt;
 
-import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -232,7 +231,6 @@ public class MainActivity extends AppCompatActivity
         else{
             fab2.hide();
         }
-
     }
     private void setupViewModel(){
         if (connectionViewModel == null) connectionViewModel = new ViewModelProvider(this).get(ConnectionViewModel.class);

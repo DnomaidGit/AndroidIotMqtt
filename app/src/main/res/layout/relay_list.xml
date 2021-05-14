@@ -24,7 +24,6 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
         android:gravity="center">
-
         <Button
             android:id="@+id/btnRelayON"
             android:layout_width="wrap_content"
@@ -39,16 +38,5 @@
             android:layout_toEndOf="@+id/btnRelayON"
             android:layout_toRightOf="@+id/btnRelayON"
             android:text="@string/offText"/>
-        <TextView
-            android:id="@+id/textViRelayONOFF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/btnRelayOFF"
-            android:layout_toRightOf="@+id/btnRelayOFF"
-            android:textColor="@color/colorTextStatus"
-            android:text="@string/statusText" />
     </RelativeLayout>
-
-
 </RelativeLayout>
