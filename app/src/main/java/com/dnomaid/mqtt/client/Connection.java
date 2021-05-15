@@ -106,7 +106,7 @@ public class Connection {
     publishTopic = ConnectionConstants.getInst().getPublishTopic();
     publishQos = ConnectionConstants.getInst().getPublishQos();
     retained = ConnectionConstants.getInst().isRetained();
-    conOpt = ConnectionConstants.getInst().getConOpt();
+    conOpt = ConnectionConstants.getInst().updateConOpt();
     String SslPassword = ConnectionConstants.getInst().getSslPassword();
     // last will message
     if ((!messageLWT.equals(Status.EMPTY)) || (!publishTopic.equals(Status.EMPTY))) {

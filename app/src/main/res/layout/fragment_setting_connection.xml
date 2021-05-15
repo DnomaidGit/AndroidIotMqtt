@@ -25,6 +25,7 @@
                 android:text="@string/connectionText">
             </TextView>
         </RelativeLayout>
+        <!--Server-->
         <LinearLayout
             android:id="@+id/serverGroup"
             android:layout_width="match_parent"
@@ -58,12 +59,13 @@
                     android:text="@string/serverURIHint" />
             </RelativeLayout>
         </LinearLayout>
+        <!--Port-->
         <LinearLayout
             android:id="@+id/portGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_below="@id/serverGroup" >
+            android:layout_below="@id/serverGroup">
             <TextView
                 android:id="@+id/portTextView"
                 android:layout_width="wrap_content"
@@ -94,11 +96,13 @@
                     android:text="@string/portHint" />
             </RelativeLayout>
         </LinearLayout>
+        <!--Client ID-->
         <LinearLayout
             android:id="@+id/clientIdGroup"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_height="wrap_content" >
+            android:layout_below="@id/portGroup">
             <TextView
                 android:id="@+id/clientIDTextView"
                 android:layout_width="wrap_content"
@@ -128,12 +132,13 @@
                     android:text="@string/clientIdHint" />
             </RelativeLayout>
         </LinearLayout>
+        <!--Clean Session-->
         <LinearLayout
             android:id="@+id/cleanSessionGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_below="@id/portGroup" >
+            android:layout_below="@id/clientIdGroup" >
             <TextView
                 android:id="@+id/cleanSessionTextView"
                 android:layout_width="wrap_content"
@@ -161,5 +166,152 @@
                     android:text="@string/empty" />
                 </RelativeLayout>
         </LinearLayout>
+        <!--Time Out-->
+        <LinearLayout
+            android:id="@+id/timeOutGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/cleanSessionGroup" >
+            <TextView
+                android:id="@+id/timeOutTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="71dp"
+                android:textSize="16dp"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="32dip"
+                android:text="@string/timeOutText" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <EditText
+                    android:id="@+id/timeOutUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.22"
+                    android:ems="10"
+                    android:maxLength="4"
+                    android:hint="@string/timeOutHint"
+                    android:inputType="number" />
+                <TextView
+                    android:id="@+id/timeOutSetting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/timeOutUser"
+                    android:textSize="16dp"
+                    android:text="@string/timeOutHint" />
+            </RelativeLayout>
+        </LinearLayout>
+        <!--KeepAlive-->
+        <LinearLayout
+            android:id="@+id/keepAliveGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/timeOutGroup" >
+            <TextView
+                android:id="@+id/keepAliveTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="71dp"
+                android:textSize="16dp"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="32dip"
+                android:text="@string/keepAliveText" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <EditText
+                    android:id="@+id/keepAliveUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.22"
+                    android:ems="10"
+                    android:maxLength="4"
+                    android:hint="@string/keepAliveHint"
+                    android:inputType="number" />
+                <TextView
+                    android:id="@+id/keepAliveSetting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/keepAliveUser"
+                    android:textSize="16dp"
+                    android:text="@string/keepAliveHint" />
+            </RelativeLayout>
+        </LinearLayout>
+        <!--Username-->
+        <LinearLayout
+            android:id="@+id/usernameGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/keepAliveGroup" >
+            <TextView
+                android:id="@+id/usernameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="71dp"
+                android:textSize="16dp"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="32dip"
+                android:text="@string/usernameText" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <EditText
+                    android:id="@+id/usernameUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.22"
+                    android:ems="10"
+                    android:hint="@string/usernameHint"
+                    android:inputType="text"/>
+                <TextView
+                    android:id="@+id/usernameSetting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/usernameUser"
+                    android:textSize="16dp"
+                    android:text="@string/usernameHint" />
+            </RelativeLayout>
+        </LinearLayout>
+        <!--Password-->
+        <LinearLayout
+            android:id="@+id/passwordGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/usernameGroup" >
+            <TextView
+                android:id="@+id/passwordTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="71dp"
+                android:textSize="16dp"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="32dip"
+                android:text="@string/passwordText" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <EditText
+                    android:id="@+id/passwordUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.22"
+                    android:ems="10"
+                    android:hint="@string/passwordHint"
+                    android:inputType="text"/>
+                <TextView
+                    android:id="@+id/passwordSetting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/passwordUser"
+                    android:textSize="16dp"
+                    android:text="@string/passwordHint" />
+            </RelativeLayout>
+        </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

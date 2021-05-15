@@ -5,11 +5,14 @@ public class SettingConnectionViewValueUser {
     private int port;
     private String clientId;
     private boolean cleanSession;
+    private int timeOut;
+    private int keepAlive;
+    private String username;
+    private String password;
 
     public String getServer() {
         return server;
     }
-
     public void setServer(String server) {
         this.server = server;
     }
@@ -17,7 +20,6 @@ public class SettingConnectionViewValueUser {
     public int getPort() {
         return port;
     }
-
     public void setPort(int port) {
         this.port = port;
     }
@@ -25,7 +27,6 @@ public class SettingConnectionViewValueUser {
     public String getClientId() {
         return clientId;
     }
-
     public void setClientId(String clientId) {
         this.clientId = clientId;
     }
@@ -33,8 +34,35 @@ public class SettingConnectionViewValueUser {
     public boolean isCleanSession() {
         return cleanSession;
     }
-
     public void setCleanSession(boolean cleanSession) {
         this.cleanSession = cleanSession;
+    }
+
+    public int getTimeOut() {
+        return timeOut;
+    }
+    public void setTimeOut(int timeOut) {
+        this.timeOut = timeOut;
+    }
+
+    public int getKeepAlive() {
+        return keepAlive;
+    }
+    public void setKeepAlive(int keepAlive) {
+        this.keepAlive = keepAlive;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

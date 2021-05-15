@@ -28,11 +28,11 @@ public class SettingConnectionFragment extends Fragment {
     private View view;
     private SettingConnectionViewModel connectionViewModel;
     private SettingConnectionViewValueUser viewValueUser;
-    private EditText serverUser, portUser, clientIdUser;
+    private EditText serverUser, portUser, clientIdUser, timeOutUser, keepAliveUser, usernameUser, passwordUser;
     private CheckBox cleanSessionCheckBoxUser;
-    private TextView serverSetting, portSetting, clientIdSetting, cleanSessionSetting;
-    private Activity activity;
-    private ActionsMqtt actions;
+    private TextView serverSetting, portSetting, clientIdSetting, cleanSessionSetting,
+            timeOutSetting, keepAliveSetting, usernameSetting, passwordSetting;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,14 +44,7 @@ public class SettingConnectionFragment extends Fragment {
         setupCheckedChanged();
         return view;
     }
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if(context instanceof Activity){
-            activity = (Activity) context;
-            actions = (ActionsMqtt) activity;
-        }
-    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -64,6 +57,10 @@ public class SettingConnectionFragment extends Fragment {
         portSetting = view.findViewById(R.id.portSetting);
         clientIdSetting = view.findViewById(R.id.clientIdSetting);
         cleanSessionSetting = view.findViewById(R.id.cleanSessionSetting);
+        timeOutSetting = view.findViewById(R.id.timeOutSetting);
+        keepAliveSetting = view.findViewById(R.id.keepAliveSetting);
+        usernameSetting = view.findViewById(R.id.usernameSetting);
+        passwordSetting = view.findViewById(R.id.passwordSetting);
     }
     private void setupViewModel() {
         SettingConnectionVMFactory connectionVMFactory = new SettingConnectionVMFactory(viewValueUser);
@@ -73,6 +70,10 @@ public class SettingConnectionFragment extends Fragment {
             portSetting.setText(item.getPort());
             clientIdSetting.setText(item.getClientId());
             cleanSessionSetting.setText(item.getCleanSession());
+            timeOutSetting.setText(item.getTimeOut());
+            keepAliveSetting.setText(item.getKeepAlive());
+            usernameSetting.setText(item.getUsername());
+            passwordSetting.setText(item.getPassword());
         });
     }
     private void setupViewValueUser() {
@@ -81,6 +82,10 @@ public class SettingConnectionFragment extends Fragment {
         viewValueUser.setPort(ConnectionConstants.getInst().getPort());
         viewValueUser.setClientId(ConnectionConstants.getInst().getClientId());
         viewValueUser.setCleanSession(ConnectionConstants.getInst().isCleanSession());
+        viewValueUser.setTimeOut(ConnectionConstants.getInst().getTimeOut());
+        viewValueUser.setKeepAlive(ConnectionConstants.getInst().getKeepAlive());
+        viewValueUser.setUsername(ConnectionConstants.getInst().getUsername());
+        viewValueUser.setPassword(ConnectionConstants.getInst().getPassword());
     }
     private void setupEditTextChange(){
         serverUser = view.findViewById(R.id.serverUser);
@@ -144,6 +149,92 @@ public class SettingConnectionFragment extends Fragment {
                     connectionViewModel.uploadValueUser(viewValueUser);
                 }catch (Exception e){
                     System.err.println("error text ClientId: "+ e);
+                    e.printStackTrace();
+                }
+            }
+        });
+        timeOutUser = view.findViewById(R.id.timeOutUser);
+        timeOutUser.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+            @Override
+            public void afterTextChanged(Editable editable) {
+                try {
+                    if(timeOutUser.getText().toString().equals("")){
+                        viewValueUser.setTimeOut(Integer.parseInt("0"));
+                    }else{
+                        viewValueUser.setTimeOut(Integer.parseInt(timeOutUser.getText().toString()));
+                    }
+                    connectionViewModel.uploadValueUser(viewValueUser);
+                }catch (Exception e){
+                    System.err.println("error text TimeOut: "+ e);
+                    e.printStackTrace();
+                }
+            }
+        });
+        keepAliveUser = view.findViewById(R.id.keepAliveUser);
+        keepAliveUser.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+            @Override
+            public void afterTextChanged(Editable editable) {
+                try {
+                    if(keepAliveUser.getText().toString().equals("")){
+                        viewValueUser.setKeepAlive(Integer.parseInt("0"));
+                    }else{
+                        viewValueUser.setKeepAlive(Integer.parseInt(keepAliveUser.getText().toString()));
+                    }
+                    connectionViewModel.uploadValueUser(viewValueUser);
+                }catch (Exception e){
+                    System.err.println("error text KeepAlive: "+ e);
+                    e.printStackTrace();
+                }
+            }
+        });
+        usernameUser = view.findViewById(R.id.usernameUser);
+        usernameUser.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+            @Override
+            public void afterTextChanged(Editable editable) {
+                try {
+                    if(usernameUser.getText().toString().equals("")){
+                        viewValueUser.setUsername("Username");
+                    }
+                    else{
+                        viewValueUser.setUsername(usernameUser.getText().toString());
+                    }
+                    connectionViewModel.uploadValueUser(viewValueUser);
+                }catch (Exception e){
+                    System.err.println("error text Username: "+ e);
+                    e.printStackTrace();
+                }
+            }
+        });
+        passwordUser = view.findViewById(R.id.passwordUser);
+        passwordUser.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+            @Override
+            public void afterTextChanged(Editable editable) {
+                try {
+                    if(passwordUser.getText().toString().equals("")){
+                        viewValueUser.setPassword("");
+                    }
+                    else{
+                        viewValueUser.setPassword(passwordUser.getText().toString());
+                    }
+                    connectionViewModel.uploadValueUser(viewValueUser);
+                }catch (Exception e){
+                    System.err.println("error text Password: "+ e);
                     e.printStackTrace();
                 }
             }

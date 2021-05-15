@@ -11,7 +11,6 @@ public class SettingConnectionViewModel extends ViewModel {
 
     private SettingConnectionViewState viewState;
     private SettingConnectionViewValueUser viewValueUser;
-    //private Status status = Status.getInst();
     private  MutableLiveData<SettingConnectionViewState> viewMLD = new MutableLiveData<>();
     LiveData<SettingConnectionViewState> viewLD = viewMLD;
 
@@ -36,6 +35,17 @@ public class SettingConnectionViewModel extends ViewModel {
             {ConnectionConstants.getInst().setClientId(this.viewValueUser.getClientId());}
 
             ConnectionConstants.getInst().setCleanSession(this.viewValueUser.isCleanSession());
+
+            ConnectionConstants.getInst().setTimeOut(this.viewValueUser.getTimeOut());
+
+            ConnectionConstants.getInst().setKeepAlive(this.viewValueUser.getKeepAlive());
+
+            if ((!this.viewValueUser.getUsername().equals(Status.EMPTY))&&(this.viewValueUser.getUsername()!=null))
+            {ConnectionConstants.getInst().setUsername(this.viewValueUser.getUsername());}
+
+            if ((!this.viewValueUser.getPassword().equals(Status.EMPTY))&&(this.viewValueUser.getPassword()!=null))
+            {ConnectionConstants.getInst().setPassword(this.viewValueUser.getPassword());}
+
             aux = true;
         }
         return aux;
@@ -45,6 +55,10 @@ public class SettingConnectionViewModel extends ViewModel {
         viewState.setPort(String.valueOf(ConnectionConstants.getInst().getPort()));
         viewState.setClientId(ConnectionConstants.getInst().getClientId());
         viewState.setCleanSession(ConnectionConstants.getInst().isCleanSession() ? "True" : "False");
+        viewState.setTimeOut(String.valueOf(ConnectionConstants.getInst().getTimeOut()));
+        viewState.setKeepAlive(String.valueOf(ConnectionConstants.getInst().getKeepAlive()));
+        viewState.setUsername(ConnectionConstants.getInst().getUsername());
+        viewState.setPassword(ConnectionConstants.getInst().getPassword());
         viewMLD.setValue(viewState);
     }
 

@@ -93,5 +93,13 @@
     <string name="menu_setting_device">Device</string>
     <string name="action_setting_connection">Setting Connection</string>
     <string name="action_addDevice">Add Device</string>
+    <string name="timeOutText">Time Out</string>
+    <string name="timeOutHint">30000</string>
+    <string name="keepAliveText">KeepAlive</string>
+    <string name="keepAliveHint">1000</string>
+    <string name="usernameText">Username</string>
+    <string name="usernameHint">Username</string>
+    <string name="passwordText">Password</string>
+    <string name="passwordHint">Password</string>
 
 </resources>
