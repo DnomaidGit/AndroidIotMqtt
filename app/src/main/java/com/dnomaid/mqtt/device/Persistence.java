@@ -44,7 +44,9 @@ public class Persistence extends SQLiteOpenHelper implements BaseColumns {
   @Override
   public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     Notify.toast(context,context.getString(R.string.onUpgradeSQLiteDatabase));
-    db.execSQL(SQL_DELETE_ENTRIES); }
+    db.execSQL(SQL_DELETE_ENTRIES);
+    onCreate(db);
+  }
   @Override
   public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     Notify.toast(context,context.getString(R.string.onDowngradeSQLiteDatabase));

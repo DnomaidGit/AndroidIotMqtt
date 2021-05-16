@@ -191,7 +191,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.22"
                     android:ems="10"
-                    android:maxLength="4"
+                    android:maxLength="2"
                     android:hint="@string/timeOutHint"
                     android:inputType="number" />
                 <TextView
@@ -228,7 +228,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.22"
                     android:ems="10"
-                    android:maxLength="4"
+                    android:maxLength="2"
                     android:hint="@string/keepAliveHint"
                     android:inputType="number" />
                 <TextView

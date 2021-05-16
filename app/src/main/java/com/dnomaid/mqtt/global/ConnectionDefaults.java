@@ -8,8 +8,8 @@ public interface ConnectionDefaults extends Constants {
   boolean CLEAN_SESSION = true;
   int PUBLISH_QOS = 0;
   int SUBSCRIBE_QOS = 1;
-  int TIME_OUT = 30000;
-  int KEEP_ALIVE = 15000;
+  int TIME_OUT = 30;
+  int KEEP_ALIVE = 10;
   boolean SSL = false;
   String SSL_PASSWORD = "mqtttest";
   boolean RETAINED = true;
