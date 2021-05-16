@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
-    <color name="colorConfig">#F7A19D9D</color>
-    <color name="colorDark">#000000</color>
+    <color name="colorPrimary">#772BE4</color>
+    <color name="colorPrimaryDark">#4D0DA8</color>
+    <color name="colorAccent">#772BE4</color>
+
+    <color name="colorBackgroundHist">#000000</color>
+
+    <color name="colorBackgroundTitle">#F7A19D9D</color>
+    <color name="colorTextTitle">#FFFFFF</color>
+
+    <color name="colorTextUser">#F7A19D9D</color>
     <color name="colorTextStatus">#3BFF45</color>
     <color name="colorTextHist">#FFC107</color>
     <color name="colorTextTemp">#03A9F4</color>
-    <color name="colorText">#FFFFFF</color>
+
+    <color name="colorTextMain">#F7A19D9D</color>
+
+    <color name="colorBackgroundButton">#F7BCB9B9</color>
+    <color name="colorTextButton">#FFFFFF</color>
+
 </resources>

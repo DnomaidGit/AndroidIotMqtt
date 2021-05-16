@@ -21,8 +21,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:background="@color/colorConfig"
-                android:textColor="@color/colorText"
+                android:background="@color/colorBackgroundTitle"
+                android:textColor="@color/colorTextTitle"
                 android:text="@string/typeDevice">
             </TextView>
         </RelativeLayout>
@@ -51,8 +51,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:background="@color/colorConfig"
-                android:textColor="@color/colorText"
+                android:background="@color/colorBackgroundTitle"
+                android:textColor="@color/colorTextTitle"
                 android:text="@string/numberDevice">
             </TextView>
         </RelativeLayout>
@@ -83,8 +83,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:background="@color/colorConfig"
-                android:textColor="@color/colorText"
+                android:background="@color/colorBackgroundTitle"
+                android:textColor="@color/colorTextTitle"
                 android:text="@string/addDevice">
             </TextView>
         </RelativeLayout>
@@ -99,6 +99,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_library_add_24"
+                android:padding="15dp"
+                android:background="@drawable/btn"
                 android:text="@string/addText"/>
         </RelativeLayout>
 

@@ -20,8 +20,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:background="@color/colorConfig"
-                android:textColor="@color/colorText"
+                android:background="@color/colorBackgroundTitle"
+                android:textColor="@color/colorTextTitle"
                 android:text="@string/connectionText">
             </TextView>
         </RelativeLayout>
@@ -36,6 +36,7 @@
                 android:layout_height="71dp"
                 android:layout_marginLeft="5dip"
                 android:layout_marginRight="17dip"
+                android:textColor="@color/colorTextMain"
                 android:text="@string/serverText"
                 android:textSize="16dp" />
             <RelativeLayout
@@ -56,6 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/serverUser"
                     android:textSize="16dp"
+                    android:textColor="@color/colorTextUser"
                     android:text="@string/serverURIHint" />
             </RelativeLayout>
         </LinearLayout>
@@ -73,6 +75,7 @@
                 android:textSize="16dp"
                 android:layout_marginLeft="5dip"
                 android:layout_marginRight="32dip"
+                android:textColor="@color/colorTextMain"
                 android:text="@string/portText" />
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -93,6 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/portUser"
                     android:textSize="16dp"
+                    android:textColor="@color/colorTextUser"
                     android:text="@string/portHint" />
             </RelativeLayout>
         </LinearLayout>
@@ -110,6 +114,7 @@
                 android:layout_marginLeft="5dip"
                 android:layout_marginRight="5dip"
                 android:text="@string/clientIdText"
+                android:textColor="@color/colorTextMain"
                 android:textSize="16dp" />
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -129,6 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/clientIdUser"
                     android:textSize="16dp"
+                    android:textColor="@color/colorTextUser"
                     android:text="@string/clientIdHint" />
             </RelativeLayout>
         </LinearLayout>
@@ -146,6 +152,7 @@
                 android:textSize="16dp"
                 android:layout_marginLeft="5dip"
                 android:layout_marginRight="30dip"
+                android:textColor="@color/colorTextMain"
                 android:text="@string/cleanSessionText" />
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -163,6 +170,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/cleanSessionCheckBoxUser"
                     android:textSize="16dp"
+                    android:textColor="@color/colorTextUser"
                     android:text="@string/empty" />
                 </RelativeLayout>
         </LinearLayout>
@@ -180,6 +188,7 @@
                 android:textSize="16dp"
                 android:layout_marginLeft="5dip"
                 android:layout_marginRight="32dip"
+                android:textColor="@color/colorTextMain"
                 android:text="@string/timeOutText" />
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -200,6 +209,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/timeOutUser"
                     android:textSize="16dp"
+                    android:textColor="@color/colorTextUser"
                     android:text="@string/timeOutHint" />
             </RelativeLayout>
         </LinearLayout>
@@ -217,6 +227,7 @@
                 android:textSize="16dp"
                 android:layout_marginLeft="5dip"
                 android:layout_marginRight="32dip"
+                android:textColor="@color/colorTextMain"
                 android:text="@string/keepAliveText" />
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -237,6 +248,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/keepAliveUser"
                     android:textSize="16dp"
+                    android:textColor="@color/colorTextUser"
                     android:text="@string/keepAliveHint" />
             </RelativeLayout>
         </LinearLayout>
@@ -254,6 +266,7 @@
                 android:textSize="16dp"
                 android:layout_marginLeft="5dip"
                 android:layout_marginRight="32dip"
+                android:textColor="@color/colorTextMain"
                 android:text="@string/usernameText" />
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -273,6 +286,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/usernameUser"
                     android:textSize="16dp"
+                    android:textColor="@color/colorTextUser"
                     android:text="@string/usernameHint" />
             </RelativeLayout>
         </LinearLayout>
@@ -290,6 +304,7 @@
                 android:textSize="16dp"
                 android:layout_marginLeft="5dip"
                 android:layout_marginRight="32dip"
+                android:textColor="@color/colorTextMain"
                 android:text="@string/passwordText" />
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -309,6 +324,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/passwordUser"
                     android:textSize="16dp"
+                    android:textColor="@color/colorTextUser"
                     android:text="@string/passwordHint" />
             </RelativeLayout>
         </LinearLayout>

@@ -20,8 +20,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:background="@color/colorConfig"
-                android:textColor="@color/colorText"
+                android:background="@color/colorBackgroundTitle"
+                android:textColor="@color/colorTextTitle"
                 android:text="@string/connectionText">
             </TextView>
         </RelativeLayout>
@@ -31,14 +31,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp">
+
             <TextView
                 android:id="@+id/textViServ"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_marginRight="30dp"
-                android:textSize="16dp"
-                android:text="@string/serverText" />
+                android:text="@string/serverText"
+                android:textColor="@color/colorTextMain"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/textViServer"
@@ -47,7 +48,7 @@
                 android:layout_toEndOf="@+id/textViServ"
                 android:layout_toRightOf="@+id/textViServ"
                 android:text="0.0.0.0"
-                android:textColor="@color/colorConfig"
+                android:textColor="@color/colorTextUser"
                 android:textSize="20dp" />
         </RelativeLayout>
         <RelativeLayout
@@ -55,14 +56,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp">
+
             <TextView
                 android:id="@+id/textViPor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_marginRight="42dip"
-                android:textSize="16dp"
-                android:text="@string/portText"/>
+                android:text="@string/portText"
+                android:textColor="@color/colorTextMain"
+                android:textSize="16dp" />
             <TextView
                 android:id="@+id/textViPort"
                 android:layout_width="wrap_content"
@@ -71,7 +73,7 @@
                 android:layout_toEndOf="@+id/textViPor"
                 android:layout_toRightOf="@+id/textViPor"
                 android:textSize="20dp"
-                android:textColor="@color/colorConfig"
+                android:textColor="@color/colorTextUser"
                 android:text="1000" />
         </RelativeLayout>
         <RelativeLayout
@@ -85,6 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="17dip"
+                android:textColor="@color/colorTextMain"
                 android:textSize="16dp"
                 android:text="@string/clientIdText" />
             <TextView
@@ -95,7 +98,7 @@
                 android:layout_toEndOf="@+id/textViClientI"
                 android:layout_toRightOf="@+id/textViClientI"
                 android:textSize="20dp"
-                android:textColor="@color/colorConfig"
+                android:textColor="@color/colorTextUser"
                 android:text="Client" />
         </RelativeLayout>
         <RelativeLayout
@@ -109,6 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="17dip"
+                android:textColor="@color/colorTextMain"
                 android:textSize="16dp"
                 android:text="@string/cleanSessionText" />
             <TextView
@@ -119,7 +123,7 @@
                 android:layout_toEndOf="@+id/textViCleanSessio"
                 android:layout_toRightOf="@+id/textViCleanSessio"
                 android:textSize="20dp"
-                android:textColor="@color/colorConfig"
+                android:textColor="@color/colorTextUser"
                 android:text="False" />
         </RelativeLayout>
 
@@ -134,6 +138,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableBottom="@drawable/ic_baseline_tap_and_play_24"
+                android:padding="15dp"
+                android:background="@drawable/btn"
+                android:textColor="@color/colorTextButton"
                 android:text="@string/connectText"/>
             <Button
                 android:id="@+id/btnDisconnect"
@@ -142,14 +149,26 @@
                 android:drawableBottom="@drawable/ic_baseline_stop_24"
                 android:layout_toRightOf="@+id/btnConnect"
                 android:layout_toEndOf="@+id/btnConnect"
+                android:layout_marginLeft="10dp"
+                android:padding="15dp"
+                android:background="@drawable/btn"
+                android:textColor="@color/colorTextButton"
                 android:text="@string/disconnectText"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
             <TextView
                 android:id="@+id/textViConnect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/btnDisconnect"
-                android:layout_toEndOf="@+id/btnDisconnect"
                 android:textStyle="bold"
                 android:textColor="@color/colorTextStatus"
                 android:autoSizeTextType="uniform"
@@ -165,8 +184,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:background="@color/colorConfig"
-                android:textColor="@color/colorText"
+                android:background="@color/colorBackgroundTitle"
+                android:textColor="@color/colorTextTitle"
                 android:text="@string/topicText">
             </TextView>
         </RelativeLayout>
@@ -181,6 +200,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableBottom="@drawable/ic_baseline_subscriptions_24"
+                android:padding="15dp"
+                android:background="@drawable/btn"
+                android:textColor="@color/colorTextButton"
                 android:text="@string/subscribeText"/>
             <Button
                 android:id="@+id/btnUnsubscribe"
@@ -189,14 +211,22 @@
                 android:drawableBottom="@drawable/ic_baseline_unsubscribe_24"
                 android:layout_toEndOf="@+id/btnSubscribe"
                 android:layout_toRightOf="@+id/btnSubscribe"
+                android:padding="15dp"
+                android:background="@drawable/btn"
+                android:textColor="@color/colorTextButton"
                 android:text="@string/unsubscribeText"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
             <TextView
                 android:id="@+id/textViSubscribe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toEndOf="@+id/btnUnsubscribe"
-                android:layout_toRightOf="@+id/btnUnsubscribe"
                 android:textColor="@color/colorTextStatus"
                 android:text="SubscribeStatus" />
         </RelativeLayout>

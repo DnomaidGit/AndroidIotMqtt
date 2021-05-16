@@ -20,8 +20,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:background="@color/colorConfig"
-                android:textColor="@color/colorText"
+                android:background="@color/colorBackgroundTitle"
+                android:textColor="@color/colorTextTitle"
                 android:text="@string/listDeviceText">
             </TextView>
         </RelativeLayout>

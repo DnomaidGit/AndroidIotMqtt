@@ -12,8 +12,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:background="@color/colorConfig"
-            android:textColor="@color/colorText"
+            android:background="@color/colorBackgroundTitle"
+            android:textColor="@color/colorTextTitle"
             android:text="@string/RelayText">
         </TextView>
     </LinearLayout>
@@ -29,6 +29,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableBottom="@android:drawable/ic_lock_power_off"
+            android:padding="15dp"
+            android:background="@drawable/btn"
             android:text="@string/onText" />
         <Button
             android:id="@+id/btnRelayOFF"
@@ -37,6 +39,9 @@
             android:drawableBottom="@android:drawable/ic_lock_power_off"
             android:layout_toEndOf="@+id/btnRelayON"
             android:layout_toRightOf="@+id/btnRelayON"
+            android:layout_marginLeft="10dp"
+            android:padding="15dp"
+            android:background="@drawable/btn"
             android:text="@string/offText"/>
     </RelativeLayout>
 </RelativeLayout>
