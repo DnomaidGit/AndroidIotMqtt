@@ -137,21 +137,21 @@
                 android:id="@+id/btnConnect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableBottom="@drawable/ic_baseline_tap_and_play_24"
+                android:drawableBottom="@drawable/ic_button_connect"
                 android:padding="15dp"
-                android:background="@drawable/btn"
+                android:background="@drawable/shape_btn"
                 android:textColor="@color/colorTextButton"
                 android:text="@string/connectText"/>
             <Button
                 android:id="@+id/btnDisconnect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableBottom="@drawable/ic_baseline_stop_24"
+                android:drawableBottom="@drawable/ic_button_stop"
                 android:layout_toRightOf="@+id/btnConnect"
                 android:layout_toEndOf="@+id/btnConnect"
                 android:layout_marginLeft="10dp"
                 android:padding="15dp"
-                android:background="@drawable/btn"
+                android:background="@drawable/shape_btn"
                 android:textColor="@color/colorTextButton"
                 android:text="@string/disconnectText"/>
 
@@ -199,20 +199,20 @@
                 android:id="@+id/btnSubscribe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableBottom="@drawable/ic_baseline_subscriptions_24"
+                android:drawableBottom="@drawable/ic_button_subscriptions"
                 android:padding="15dp"
-                android:background="@drawable/btn"
+                android:background="@drawable/shape_btn"
                 android:textColor="@color/colorTextButton"
                 android:text="@string/subscribeText"/>
             <Button
                 android:id="@+id/btnUnsubscribe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableBottom="@drawable/ic_baseline_unsubscribe_24"
+                android:drawableBottom="@drawable/ic_button_unsubscribe"
                 android:layout_toEndOf="@+id/btnSubscribe"
                 android:layout_toRightOf="@+id/btnSubscribe"
                 android:padding="15dp"
-                android:background="@drawable/btn"
+                android:background="@drawable/shape_btn"
                 android:textColor="@color/colorTextButton"
                 android:text="@string/unsubscribeText"/>
         </RelativeLayout>

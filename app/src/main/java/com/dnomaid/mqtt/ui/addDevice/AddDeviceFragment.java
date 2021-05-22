@@ -10,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -92,11 +91,11 @@ public class AddDeviceFragment extends Fragment {
     }
     private void initList(){
         deviceItems = new ArrayList<>();
-        deviceItems.add(new DeviceItem(TypeDevice.SonoffS20,R.drawable.ic_baseline_library_add_24));
-        deviceItems.add(new DeviceItem(TypeDevice.SonoffSNZB02,R.drawable.ic_baseline_library_add_24));
-        deviceItems.add(new DeviceItem(TypeDevice.AqaraTemp,R.drawable.ic_baseline_library_add_24));
-        deviceItems.add(new DeviceItem(TypeDevice.TuyaZigBeeSensor,R.drawable.ic_baseline_library_add_24));
-        deviceItems.add(new DeviceItem(TypeDevice.XiaomiZNCZ04LM,R.drawable.ic_baseline_library_add_24));
+        deviceItems.add(new DeviceItem(TypeDevice.SonoffS20,R.drawable.imag_sonoff_s20_128x128));
+        deviceItems.add(new DeviceItem(TypeDevice.SonoffSNZB02,R.drawable.imag_sonoff_snzb02_128x128));
+        deviceItems.add(new DeviceItem(TypeDevice.AqaraTemp,R.drawable.imag_aqara_temp_128x128));
+        deviceItems.add(new DeviceItem(TypeDevice.TuyaZigBeeSensor,R.drawable.imag_tuya_zigbee_sensor_128x128));
+        deviceItems.add(new DeviceItem(TypeDevice.XiaomiZNCZ04LM,R.drawable.imag_xiaomi_zncz04lm_128x128));
     }
     private void setupClickSpinner(){
         deviceSpinner = view.findViewById(R.id.deviceSpinner);

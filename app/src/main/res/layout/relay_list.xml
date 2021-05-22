@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:drawableBottom="@android:drawable/ic_lock_power_off"
             android:padding="15dp"
-            android:background="@drawable/btn"
+            android:background="@drawable/shape_btn"
             android:text="@string/onText" />
         <Button
             android:id="@+id/btnRelayOFF"
@@ -41,7 +41,7 @@
             android:layout_toRightOf="@+id/btnRelayON"
             android:layout_marginLeft="10dp"
             android:padding="15dp"
-            android:background="@drawable/btn"
+            android:background="@drawable/shape_btn"
             android:text="@string/offText"/>
     </RelativeLayout>
 </RelativeLayout>

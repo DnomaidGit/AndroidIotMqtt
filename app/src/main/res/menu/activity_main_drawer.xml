@@ -7,7 +7,7 @@
             <menu>
                 <item
                     android:id="@+id/nav_connection"
-                    android:icon="@drawable/ic_baseline_tap_and_play_24"
+                    android:icon="@drawable/ic_menu_connect"
                     android:title="@string/menu_connection" />
             </menu>
         </item>
@@ -15,11 +15,11 @@
             <menu>
                 <item
                     android:id="@+id/nav_relay"
-                    android:icon="@drawable/ic_interrupt"
+                    android:icon="@drawable/ic_menu_interrupt"
                     android:title="@string/menu_relay" />
                 <item
                     android:id="@+id/nav_temperature"
-                    android:icon="@drawable/ic_temperature"
+                    android:icon="@drawable/ic_menu_temperature"
                     android:title="@string/menu_temperature" />
             </menu>
         </item>
@@ -27,15 +27,15 @@
         <menu>
             <item
                 android:id="@+id/nav_setting_device"
-                android:icon="@drawable/ic_baseline_settings_24"
+                android:icon="@drawable/ic_menu_device_setting"
                 android:title="@string/menu_setting_device" />
             <item
                 android:id="@+id/nav_setting_connection"
-                android:icon="@drawable/ic_connection_setting"
+                android:icon="@drawable/ic_menu_connection_setting"
                 android:title="@string/menu_setting_connection" />
             <item
                 android:id="@+id/nav_addDevice"
-                android:icon="@drawable/ic_device"
+                android:icon="@drawable/ic_menu_device"
                 android:title="@string/menu_addDevice" />
         </menu>
     </item>
@@ -43,7 +43,7 @@
             <menu>
             <item
                 android:id="@+id/nav_history"
-                android:icon="@drawable/ic_terminal_cmd"
+                android:icon="@drawable/ic_menu_terminal_cmd"
                 android:title="@string/menu_history" />
             </menu>
         </item>

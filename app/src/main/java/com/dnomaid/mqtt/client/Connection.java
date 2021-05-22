@@ -142,7 +142,7 @@ public class Connection {
     SimpleDateFormat sdf = new SimpleDateFormat(context.getString(R.string.dateFormatAction));
     args[0] = sdf.format(new Date());
     String timestamp = context.getString(R.string.timestampAction, args);
-    Integer maxHistoryNumber = 100;
+    Integer maxHistoryNumber = 25;
     Integer HistoryNumber = history.size();
     if(HistoryNumber >= maxHistoryNumber)history.remove(maxHistoryNumber-1);
     history.add(0,textHistory + timestamp);

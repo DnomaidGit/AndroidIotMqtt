@@ -6,7 +6,7 @@
         android:id="@+id/imageDeviceSpinner"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:src="@drawable/ic_baseline_library_add_24"
+        android:src="@drawable/ic_button_add"
     ></ImageView>
     <TextView
         android:id="@+id/textViDeviceSpinner"

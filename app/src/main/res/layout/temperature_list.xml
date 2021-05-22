@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:gravity="center">
+
             <TextView
                 android:id="@+id/txtViTemp"
                 android:layout_width="wrap_content"
@@ -31,7 +32,9 @@
                 android:layout_marginRight="2dp"
                 android:layout_centerVertical="true"
                 android:textSize="16dp"
+
                 android:text="@string/TemperatureText" />
+
             <TextView
                 android:id="@+id/textViTemp"
                 android:layout_width="wrap_content"
