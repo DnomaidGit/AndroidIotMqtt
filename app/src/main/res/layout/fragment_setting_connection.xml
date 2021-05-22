@@ -22,7 +22,8 @@
                 android:gravity="center"
                 android:background="@color/colorBackgroundTitle"
                 android:textColor="@color/colorTextTitle"
-                android:text="@string/connectionText">
+                android:text="@string/connectionText"
+                android:textSize="@dimen/textSizeTitle">
             </TextView>
         </RelativeLayout>
         <!--Server-->
@@ -38,7 +39,8 @@
                 android:layout_marginRight="17dip"
                 android:textColor="@color/colorTextMain"
                 android:text="@string/serverText"
-                android:textSize="16dp" />
+                android:textSize="@dimen/textSizeInfo"
+                android:textStyle="bold"/>
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -50,15 +52,17 @@
                     android:layout_weight="0.22"
                     android:ems="10"
                     android:hint="@string/serverURIHint"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="@dimen/textSizeUser" />
                 <TextView
                     android:id="@+id/serverSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/serverUser"
-                    android:textSize="16dp"
                     android:textColor="@color/colorTextUser"
-                    android:text="@string/serverURIHint" />
+                    android:text="@string/serverURIHint"
+                    android:textSize="@dimen/textSizeInfoMini"
+                    android:textStyle="italic"/>
             </RelativeLayout>
         </LinearLayout>
         <!--Port-->
@@ -72,11 +76,12 @@
                 android:id="@+id/portTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="71dp"
-                android:textSize="16dp"
+                android:textSize="@dimen/textSizeInfo"
                 android:layout_marginLeft="5dip"
                 android:layout_marginRight="32dip"
                 android:textColor="@color/colorTextMain"
-                android:text="@string/portText" />
+                android:text="@string/portText"
+                android:textStyle="bold"/>
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -89,15 +94,17 @@
                     android:ems="10"
                     android:maxLength="4"
                     android:hint="@string/portHint"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="@dimen/textSizeUser"/>
                 <TextView
                     android:id="@+id/portSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/portUser"
-                    android:textSize="16dp"
                     android:textColor="@color/colorTextUser"
-                    android:text="@string/portHint" />
+                    android:text="@string/portHint"
+                    android:textSize="@dimen/textSizeInfoMini"
+                    android:textStyle="italic"/>
             </RelativeLayout>
         </LinearLayout>
         <!--Client ID-->
@@ -115,7 +122,8 @@
                 android:layout_marginRight="5dip"
                 android:text="@string/clientIdText"
                 android:textColor="@color/colorTextMain"
-                android:textSize="16dp" />
+                android:textSize="@dimen/textSizeInfo"
+                android:textStyle="bold"/>
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -127,15 +135,17 @@
                     android:layout_weight="0.22"
                     android:ems="10"
                     android:hint="@string/clientIdHint"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="@dimen/textSizeUser"/>
                 <TextView
                     android:id="@+id/clientIdSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/clientIdUser"
-                    android:textSize="16dp"
                     android:textColor="@color/colorTextUser"
-                    android:text="@string/clientIdHint" />
+                    android:text="@string/clientIdHint"
+                    android:textSize="@dimen/textSizeInfoMini"
+                    android:textStyle="italic"/>
             </RelativeLayout>
         </LinearLayout>
         <!--Clean Session-->
@@ -149,11 +159,12 @@
                 android:id="@+id/cleanSessionTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="71dp"
-                android:textSize="16dp"
+                android:textSize="@dimen/textSizeInfo"
                 android:layout_marginLeft="5dip"
                 android:layout_marginRight="30dip"
                 android:textColor="@color/colorTextMain"
-                android:text="@string/cleanSessionText" />
+                android:text="@string/cleanSessionText"
+                android:textStyle="bold"/>
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -169,10 +180,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/cleanSessionCheckBoxUser"
-                    android:textSize="16dp"
                     android:textColor="@color/colorTextUser"
-                    android:text="@string/empty" />
-                </RelativeLayout>
+                    android:text="@string/empty"
+                    android:textSize="@dimen/textSizeInfoMini"
+                    android:textStyle="italic"/>
+            </RelativeLayout>
         </LinearLayout>
         <!--Time Out-->
         <LinearLayout
@@ -185,11 +197,12 @@
                 android:id="@+id/timeOutTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="71dp"
-                android:textSize="16dp"
+                android:textSize="@dimen/textSizeInfo"
                 android:layout_marginLeft="5dip"
                 android:layout_marginRight="32dip"
                 android:textColor="@color/colorTextMain"
-                android:text="@string/timeOutText" />
+                android:text="@string/timeOutText"
+                android:textStyle="bold"/>
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -202,15 +215,17 @@
                     android:ems="10"
                     android:maxLength="2"
                     android:hint="@string/timeOutHint"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="@dimen/textSizeUser"/>
                 <TextView
                     android:id="@+id/timeOutSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/timeOutUser"
-                    android:textSize="16dp"
                     android:textColor="@color/colorTextUser"
-                    android:text="@string/timeOutHint" />
+                    android:text="@string/timeOutHint"
+                    android:textSize="@dimen/textSizeInfoMini"
+                    android:textStyle="italic"/>
             </RelativeLayout>
         </LinearLayout>
         <!--KeepAlive-->
@@ -224,11 +239,12 @@
                 android:id="@+id/keepAliveTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="71dp"
-                android:textSize="16dp"
+                android:textSize="@dimen/textSizeInfo"
                 android:layout_marginLeft="5dip"
                 android:layout_marginRight="32dip"
                 android:textColor="@color/colorTextMain"
-                android:text="@string/keepAliveText" />
+                android:text="@string/keepAliveText"
+                android:textStyle="bold"/>
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -241,15 +257,17 @@
                     android:ems="10"
                     android:maxLength="2"
                     android:hint="@string/keepAliveHint"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="@dimen/textSizeUser"/>
                 <TextView
                     android:id="@+id/keepAliveSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/keepAliveUser"
-                    android:textSize="16dp"
                     android:textColor="@color/colorTextUser"
-                    android:text="@string/keepAliveHint" />
+                    android:text="@string/keepAliveHint"
+                    android:textSize="@dimen/textSizeInfoMini"
+                    android:textStyle="italic"/>
             </RelativeLayout>
         </LinearLayout>
         <!--Username-->
@@ -263,11 +281,12 @@
                 android:id="@+id/usernameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="71dp"
-                android:textSize="16dp"
+                android:textSize="@dimen/textSizeInfo"
                 android:layout_marginLeft="5dip"
                 android:layout_marginRight="32dip"
                 android:textColor="@color/colorTextMain"
-                android:text="@string/usernameText" />
+                android:text="@string/usernameText"
+                android:textStyle="bold"/>
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -279,15 +298,17 @@
                     android:layout_weight="0.22"
                     android:ems="10"
                     android:hint="@string/usernameHint"
-                    android:inputType="text"/>
+                    android:inputType="text"
+                    android:textSize="@dimen/textSizeUser"/>
                 <TextView
                     android:id="@+id/usernameSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/usernameUser"
-                    android:textSize="16dp"
                     android:textColor="@color/colorTextUser"
-                    android:text="@string/usernameHint" />
+                    android:text="@string/usernameHint"
+                    android:textSize="@dimen/textSizeInfoMini"
+                    android:textStyle="italic"/>
             </RelativeLayout>
         </LinearLayout>
         <!--Password-->
@@ -301,11 +322,12 @@
                 android:id="@+id/passwordTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="71dp"
-                android:textSize="16dp"
+                android:textSize="@dimen/textSizeInfo"
                 android:layout_marginLeft="5dip"
                 android:layout_marginRight="32dip"
                 android:textColor="@color/colorTextMain"
-                android:text="@string/passwordText" />
+                android:text="@string/passwordText"
+                android:textStyle="bold"/>
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -317,15 +339,17 @@
                     android:layout_weight="0.22"
                     android:ems="10"
                     android:hint="@string/passwordHint"
-                    android:inputType="text"/>
+                    android:inputType="text"
+                    android:textSize="@dimen/textSizeUser"/>
                 <TextView
                     android:id="@+id/passwordSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/passwordUser"
-                    android:textSize="16dp"
                     android:textColor="@color/colorTextUser"
-                    android:text="@string/passwordHint" />
+                    android:text="@string/passwordHint"
+                    android:textSize="@dimen/textSizeInfoMini"
+                    android:textStyle="italic"/>
             </RelativeLayout>
         </LinearLayout>
 

@@ -4,9 +4,11 @@
     <color name="colorPrimaryDark">#4D0DA8</color>
     <color name="colorAccent">#772BE4</color>
 
+    <color name="colorBackgroundLogo">#FFFFFF</color>
+
     <color name="colorBackgroundHist">#000000</color>
 
-    <color name="colorBackgroundTitle">#F7A19D9D</color>
+    <color name="colorBackgroundTitle">#F7686767</color>
     <color name="colorTextTitle">#FFFFFF</color>
 
     <color name="colorTextUser">#F7A19D9D</color>
@@ -14,9 +16,10 @@
     <color name="colorTextHist">#FFC107</color>
     <color name="colorTextTemp">#03A9F4</color>
 
-    <color name="colorTextMain">#F7A19D9D</color>
+    <color name="colorTextMain">#F7686767</color>
 
-    <color name="colorBackgroundButton">#F7BCB9B9</color>
+    <color name="colorBackground1Button">#F7BCB9B9</color>
+    <color name="colorBackground2Button">#1E772BE4</color>
     <color name="colorTextButton">#FFFFFF</color>
 
 </resources>

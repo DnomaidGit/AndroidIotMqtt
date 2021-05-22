@@ -22,7 +22,8 @@
                 android:gravity="center"
                 android:background="@color/colorBackgroundTitle"
                 android:textColor="@color/colorTextTitle"
-                android:text="@string/listDeviceText">
+                android:text="@string/listDeviceText"
+                android:textSize="@dimen/textSizeTitle">
             </TextView>
         </RelativeLayout>
         <RelativeLayout

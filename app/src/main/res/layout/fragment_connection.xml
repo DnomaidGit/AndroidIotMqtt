@@ -22,7 +22,8 @@
                 android:gravity="center"
                 android:background="@color/colorBackgroundTitle"
                 android:textColor="@color/colorTextTitle"
-                android:text="@string/connectionText">
+                android:text="@string/connectionText"
+                android:textSize="@dimen/textSizeTitle">
             </TextView>
         </RelativeLayout>
 
@@ -31,16 +32,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp">
-
             <TextView
                 android:id="@+id/textViServ"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
+                android:layout_marginRight="32dp"
                 android:text="@string/serverText"
                 android:textColor="@color/colorTextMain"
-                android:textSize="16dp" />
-
+                android:textSize="@dimen/textSizeInfo"
+                android:textStyle="bold" />
             <TextView
                 android:id="@+id/textViServer"
                 android:layout_width="wrap_content"
@@ -49,7 +49,8 @@
                 android:layout_toRightOf="@+id/textViServ"
                 android:text="0.0.0.0"
                 android:textColor="@color/colorTextUser"
-                android:textSize="20dp" />
+                android:textSize="@dimen/textSizeInfo"
+                android:textStyle="italic" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -61,20 +62,22 @@
                 android:id="@+id/textViPor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="42dip"
+                android:layout_marginRight="52dip"
                 android:text="@string/portText"
                 android:textColor="@color/colorTextMain"
-                android:textSize="16dp" />
+                android:textSize="@dimen/textSizeInfo"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/textViPort"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_toEndOf="@+id/textViPor"
                 android:layout_toRightOf="@+id/textViPor"
-                android:textSize="20dp"
+                android:text="1000"
                 android:textColor="@color/colorTextUser"
-                android:text="1000" />
+                android:textSize="@dimen/textSizeInfo"
+                android:textStyle="italic" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -85,11 +88,11 @@
                 android:id="@+id/textViClientI"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_marginRight="17dip"
+                android:text="@string/clientIdText"
                 android:textColor="@color/colorTextMain"
-                android:textSize="16dp"
-                android:text="@string/clientIdText" />
+                android:textSize="@dimen/textSizeInfo"
+                android:textStyle="bold" />
             <TextView
                 android:id="@+id/textViClientId"
                 android:layout_width="wrap_content"
@@ -97,38 +100,13 @@
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@+id/textViClientI"
                 android:layout_toRightOf="@+id/textViClientI"
-                android:textSize="20dp"
+                android:textSize="@dimen/textSizeInfo"
                 android:textColor="@color/colorTextUser"
-                android:text="Client" />
+                android:text="Client"
+                android:textStyle="italic"/>
         </RelativeLayout>
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp">
-            <TextView
-                android:id="@+id/textViCleanSessio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="17dip"
-                android:textColor="@color/colorTextMain"
-                android:textSize="16dp"
-                android:text="@string/cleanSessionText" />
-            <TextView
-                android:id="@+id/textViCleanSession"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@+id/textViCleanSessio"
-                android:layout_toRightOf="@+id/textViCleanSessio"
-                android:textSize="20dp"
-                android:textColor="@color/colorTextUser"
-                android:text="False" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:gravity="center"
             android:layout_width="match_parent"
@@ -154,16 +132,13 @@
                 android:background="@drawable/shape_btn"
                 android:textColor="@color/colorTextButton"
                 android:text="@string/disconnectText"/>
-
         </RelativeLayout>
-
         <RelativeLayout
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <TextView
                 android:id="@+id/textViConnect"
                 android:layout_width="wrap_content"
@@ -186,7 +161,8 @@
                 android:gravity="center"
                 android:background="@color/colorBackgroundTitle"
                 android:textColor="@color/colorTextTitle"
-                android:text="@string/topicText">
+                android:text="@string/topicText"
+                android:textSize="@dimen/textSizeTitle">
             </TextView>
         </RelativeLayout>
         <RelativeLayout

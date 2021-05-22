@@ -24,7 +24,7 @@ public class ConnectionFragment extends Fragment {
     private View view;
     private ConnectionViewModel connectionViewModel;
     private ConnectionViewValueUser viewValueUser;
-    private TextView serverInfo, portInfo, clientIdInfo, cleanSessionInfo;
+    private TextView serverInfo, portInfo, clientIdInfo;
     private TextView textViConnect,textViSubscribe,textViMessageArrived;
     private Button btnConnect,btnDisconnect,btnSubscribe,btnUnsubscribe;
     private Activity activity;
@@ -58,7 +58,6 @@ public class ConnectionFragment extends Fragment {
         serverInfo = view.findViewById(R.id.textViServer);
         portInfo = view.findViewById(R.id.textViPort);
         clientIdInfo = view.findViewById(R.id.textViClientId);
-        cleanSessionInfo = view.findViewById(R.id.textViCleanSession);
         textViConnect = view.findViewById(R.id.textViConnect);
         textViSubscribe = view.findViewById(R.id.textViSubscribe);
         textViMessageArrived = view.findViewById(R.id.textViMessageArrived);
@@ -73,7 +72,6 @@ public class ConnectionFragment extends Fragment {
             serverInfo.setText(item.getServer());
             portInfo.setText(item.getPort());
             clientIdInfo.setText(item.getClientId());
-            cleanSessionInfo.setText(item.getCleanSession());
         });
     }
     private void setupViewValueUser() {
@@ -81,7 +79,6 @@ public class ConnectionFragment extends Fragment {
         viewValueUser.setServer(ConnectionConstants.getInst().getServer());
         viewValueUser.setPort(ConnectionConstants.getInst().getPort());
         viewValueUser.setClientId(ConnectionConstants.getInst().getClientId());
-        viewValueUser.setCleanSession(ConnectionConstants.getInst().isCleanSession());
     }
     private void setupViewOnclick(View view) {
         btnConnect = view.findViewById(R.id.btnConnect);

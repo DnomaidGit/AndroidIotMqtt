@@ -23,7 +23,8 @@
                 android:gravity="center"
                 android:background="@color/colorBackgroundTitle"
                 android:textColor="@color/colorTextTitle"
-                android:text="@string/typeDevice">
+                android:text="@string/typeDevice"
+                android:textSize="@dimen/textSizeTitle">
             </TextView>
         </RelativeLayout>
         <LinearLayout
@@ -53,7 +54,8 @@
                 android:gravity="center"
                 android:background="@color/colorBackgroundTitle"
                 android:textColor="@color/colorTextTitle"
-                android:text="@string/numberDevice">
+                android:text="@string/numberDevice"
+                android:textSize="@dimen/textSizeTitle">
             </TextView>
         </RelativeLayout>
         <LinearLayout
@@ -85,7 +87,8 @@
                 android:gravity="center"
                 android:background="@color/colorBackgroundTitle"
                 android:textColor="@color/colorTextTitle"
-                android:text="@string/addDevice">
+                android:text="@string/addDevice"
+                android:textSize="@dimen/textSizeTitle">
             </TextView>
         </RelativeLayout>
         <RelativeLayout

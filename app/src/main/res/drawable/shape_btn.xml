@@ -3,7 +3,8 @@
     <stroke android:width="4dp" android:color="#33ffffff" />
     <corners android:radius="10dp" />
     <gradient android:angle="-90"
-        android:startColor="@color/colorBackgroundButton"
-        android:endColor="#11ff"
+        android:startColor="@color/colorBackground1Button"
+        android:centerColor="@color/colorBackground1Button"
+        android:endColor="@color/colorBackground2Button"
         />
 </shape>

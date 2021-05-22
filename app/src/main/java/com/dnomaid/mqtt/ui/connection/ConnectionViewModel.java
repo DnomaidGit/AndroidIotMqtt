@@ -35,7 +35,6 @@ public class ConnectionViewModel extends ViewModel {
             if ((!this.viewValueUser.getClientId().equals(Status.EMPTY))&&(this.viewValueUser.getClientId()!=null))
             {ConnectionConstants.getInst().setClientId(this.viewValueUser.getClientId());}
 
-            ConnectionConstants.getInst().setCleanSession(this.viewValueUser.isCleanSession());
             aux = true;
         }
         return aux;

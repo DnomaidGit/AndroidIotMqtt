@@ -4,7 +4,6 @@ public class ConnectionViewValueUser {
     private String server;
     private int port;
     private String clientId;
-    private boolean cleanSession;
 
     public String getServer() {
         return server;
@@ -30,11 +29,4 @@ public class ConnectionViewValueUser {
         this.clientId = clientId;
     }
 
-    public boolean isCleanSession() {
-        return cleanSession;
-    }
-
-    public void setCleanSession(boolean cleanSession) {
-        this.cleanSession = cleanSession;
-    }
 }
