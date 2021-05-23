@@ -204,9 +204,9 @@ public class MainActivity extends AppCompatActivity
     }
     //Interface ActionsDevice
     @Override
-    public void newDevice(Constants.TypeDevice typeDevice, String numberDevice) {
+    public void newDevice(Constants.TypeDevice typeDevice, String numberDevice, String alias) {
         devices = Devices.getInst();
-        devices.newDevice(typeDevice, numberDevice);
+        devices.newDevice(typeDevice, numberDevice, alias);
     }
     @Override
     public void deleteDevice(Integer position) {
@@ -217,14 +217,14 @@ public class MainActivity extends AppCompatActivity
     private void showFloatingIcons(){
         fab.show();
         fab2.show();
-        if (Status.getInst().isConnected())
+        if (Status.getInst().isConnected()|!isMenuOpen)
             {
             fab1.hide();
             }
         else{
             fab1.show();
         }
-        if (Status.getInst().isConnectedOrConnecting())
+        if (Status.getInst().isConnectedOrConnecting()&isMenuOpen)
         {
             fab2.show();
         }
@@ -254,18 +254,6 @@ public class MainActivity extends AppCompatActivity
             if(Devices.getInst().getDevicesConfig().isEmpty()) {
                 devices = Devices.getInst();
                 devices.persistence(this);
-                /*
-                devices.newDevice(Constants.TypeDevice.SonoffS20, "1");
-                devices.newDevice(Constants.TypeDevice.SonoffS20, "2");
-                devices.newDevice(Constants.TypeDevice.SonoffS20, "3");
-                devices.newDevice(Constants.TypeDevice.SonoffS20, "4");
-                devices.newDevice(Constants.TypeDevice.SonoffS20, "5");
-                devices.newDevice(Constants.TypeDevice.SonoffSNZB02, "1");
-                devices.newDevice(Constants.TypeDevice.AqaraTemp, "1");
-                devices.newDevice(Constants.TypeDevice.TuyaZigBeeSensor, "1");
-                devices.newDevice(Constants.TypeDevice.XiaomiZNCZ04LM, "1");
-
-                 */
             }
         }
     }

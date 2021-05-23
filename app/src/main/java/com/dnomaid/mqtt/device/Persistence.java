@@ -21,6 +21,7 @@ public class Persistence extends SQLiteOpenHelper implements BaseColumns {
   public static final String TABLE_DEVICE = "device";
   public static final String COLUMN_TYPEDEVICE = "typeDevice";
   public static final String COLUMN_NUMBERDEVICE = "numberDevice";
+  public static final String COLUMN_ALIAS = "alias";
 
   private static final String TEXT_TYPE = " TEXT";
   private static final String COMMA_SEP = ",";
@@ -30,7 +31,8 @@ public class Persistence extends SQLiteOpenHelper implements BaseColumns {
                   " (" +
                   _ID + " INTEGER PRIMARY KEY," +
                   COLUMN_TYPEDEVICE + TEXT_TYPE + COMMA_SEP +
-                  COLUMN_NUMBERDEVICE + TEXT_TYPE +
+                  COLUMN_NUMBERDEVICE + TEXT_TYPE + COMMA_SEP +
+                  COLUMN_ALIAS + TEXT_TYPE +
                   ");";
   private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TABLE_DEVICE;
   public Persistence(Context context) {
@@ -52,13 +54,14 @@ public class Persistence extends SQLiteOpenHelper implements BaseColumns {
     Notify.toast(context,context.getString(R.string.onDowngradeSQLiteDatabase));
     onUpgrade(db, oldVersion, newVersion);
   }
-  public DeviceConfig newDevice(Constants.TypeDevice typeDevice, String numberDevice) throws PersistenceException {
+  public DeviceConfig newDevice(Constants.TypeDevice typeDevice, String numberDevice, String alias) throws PersistenceException {
     SQLiteDatabase db = getWritableDatabase();
     ContentValues values = new ContentValues();
-    DeviceConfig deviceConfig = new DeviceConfig(typeDevice, numberDevice);
+    DeviceConfig deviceConfig = new DeviceConfig(typeDevice, numberDevice, alias);
 
     values.put(COLUMN_TYPEDEVICE, deviceConfig.getTypeDevice().toString());
     values.put(COLUMN_NUMBERDEVICE, deviceConfig.getNumberDevice());
+    values.put(COLUMN_ALIAS, deviceConfig.getAlias());
     long newRowId = db.insert(TABLE_DEVICE, null, values);
     if (newRowId == -1) {
       Notify.toast(context,context.getString(R.string.failedPersistDev));
@@ -76,6 +79,7 @@ public class Persistence extends SQLiteOpenHelper implements BaseColumns {
     String[] deviceColumns = {
             COLUMN_TYPEDEVICE,
             COLUMN_NUMBERDEVICE,
+            COLUMN_ALIAS,
             _ID
     };
     String sort = COLUMN_TYPEDEVICE;
@@ -90,8 +94,9 @@ public class Persistence extends SQLiteOpenHelper implements BaseColumns {
       Long id = c.getLong(c.getColumnIndexOrThrow(_ID));
       String typeDevice = c.getString(c.getColumnIndexOrThrow(COLUMN_TYPEDEVICE));
       String numberDevice = c.getString(c.getColumnIndexOrThrow(COLUMN_NUMBERDEVICE));
+      String alias = c.getString(c.getColumnIndexOrThrow(COLUMN_ALIAS));
       //store it in the list
-      DeviceConfig deviceConfig = new DeviceConfig(Constants.TypeDevice.valueOf(typeDevice),numberDevice);
+      DeviceConfig deviceConfig = new DeviceConfig(Constants.TypeDevice.valueOf(typeDevice),numberDevice,alias);
       deviceConfig.assignPersistenceId(id);
       list.add(deviceConfig);
     }

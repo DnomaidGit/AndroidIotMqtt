@@ -11,12 +11,12 @@ import com.dnomaid.mqtt.R;
 public class SettingDeviceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     private SettingDeviceRecyclerViClickList mListener;
-    private TextView device;
+    private TextView nameDevice;
 
     public SettingDeviceViewHolder(@NonNull View itemView, SettingDeviceRecyclerViClickList listener) {
         super(itemView);
         mListener = listener;
-        device = itemView.findViewById(R.id.textViNameDevice);
+        nameDevice = itemView.findViewById(R.id.textViNameDevice);
         itemView.findViewById(R.id.btnDeleteDevice).setOnClickListener(this);
         itemView.findViewById(R.id.btnInfoDevice).setOnClickListener(this);
     }
@@ -25,6 +25,6 @@ public class SettingDeviceViewHolder extends RecyclerView.ViewHolder implements 
         mListener.onClick(view, getAdapterPosition());
     }
     public void setNameDevice(String name) {
-        this.device.setText(name);
+        this.nameDevice.setText(name);
     }
 }

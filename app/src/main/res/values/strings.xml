@@ -20,7 +20,7 @@
     <string name="serverText">Server</string>
     <string name="portText">Port</string>
     <string name="clientIdText">Client ID</string>
-    <string name="cleanSessionText">Clean Session</string>
+    <string name="cleanSessionText">Clean \nSession</string>
     <string name="connectionText">Connection</string>
     <string name="topicText">Topic</string>
     <string name="connectText">Connect</string>

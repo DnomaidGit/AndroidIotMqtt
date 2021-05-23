@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background ="@color/colorBackgroundSetting"
     tools:context=".ui.settingConnection.SettingConnectionFragment">
 
     <LinearLayout
@@ -36,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="71dp"
                 android:layout_marginLeft="5dip"
-                android:layout_marginRight="17dip"
+                android:layout_marginRight="34dip"
                 android:textColor="@color/colorTextMain"
                 android:text="@string/serverText"
                 android:textSize="@dimen/textSizeInfo"
@@ -78,7 +79,7 @@
                 android:layout_height="71dp"
                 android:textSize="@dimen/textSizeInfo"
                 android:layout_marginLeft="5dip"
-                android:layout_marginRight="32dip"
+                android:layout_marginRight="55dip"
                 android:textColor="@color/colorTextMain"
                 android:text="@string/portText"
                 android:textStyle="bold"/>
@@ -119,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="71dp"
                 android:layout_marginLeft="5dip"
-                android:layout_marginRight="5dip"
+                android:layout_marginRight="20dip"
                 android:text="@string/clientIdText"
                 android:textColor="@color/colorTextMain"
                 android:textSize="@dimen/textSizeInfo"
@@ -161,7 +162,7 @@
                 android:layout_height="71dp"
                 android:textSize="@dimen/textSizeInfo"
                 android:layout_marginLeft="5dip"
-                android:layout_marginRight="30dip"
+                android:layout_marginRight="25dip"
                 android:textColor="@color/colorTextMain"
                 android:text="@string/cleanSessionText"
                 android:textStyle="bold"/>
@@ -199,7 +200,7 @@
                 android:layout_height="71dp"
                 android:textSize="@dimen/textSizeInfo"
                 android:layout_marginLeft="5dip"
-                android:layout_marginRight="32dip"
+                android:layout_marginRight="19dip"
                 android:textColor="@color/colorTextMain"
                 android:text="@string/timeOutText"
                 android:textStyle="bold"/>
@@ -241,7 +242,7 @@
                 android:layout_height="71dp"
                 android:textSize="@dimen/textSizeInfo"
                 android:layout_marginLeft="5dip"
-                android:layout_marginRight="32dip"
+                android:layout_marginRight="14dip"
                 android:textColor="@color/colorTextMain"
                 android:text="@string/keepAliveText"
                 android:textStyle="bold"/>
@@ -283,7 +284,7 @@
                 android:layout_height="71dp"
                 android:textSize="@dimen/textSizeInfo"
                 android:layout_marginLeft="5dip"
-                android:layout_marginRight="32dip"
+                android:layout_marginRight="14dip"
                 android:textColor="@color/colorTextMain"
                 android:text="@string/usernameText"
                 android:textStyle="bold"/>
@@ -324,7 +325,7 @@
                 android:layout_height="71dp"
                 android:textSize="@dimen/textSizeInfo"
                 android:layout_marginLeft="5dip"
-                android:layout_marginRight="32dip"
+                android:layout_marginRight="14dip"
                 android:textColor="@color/colorTextMain"
                 android:text="@string/passwordText"
                 android:textStyle="bold"/>

@@ -12,8 +12,9 @@ public class Device implements Constants {
 	private GroupList GroupList;
 	private String NameDevice;
 	private String NumberDevice;
+	private String Alias;
 	
-	public Device(TypeGateway gateway, TypeDevice device, String numberDevice, GroupList groupList) {
+	public Device(TypeGateway gateway, TypeDevice device, String numberDevice, GroupList groupList, String alias) {
 		super();
 		Topics = new ArrayList<Topic>();
 		Gateway = gateway;
@@ -21,6 +22,7 @@ public class Device implements Constants {
 		GroupList = groupList;
 		NumberDevice = numberDevice;
 		NameDevice = setNameDevice(device, numberDevice);
+		Alias = alias;
 	}
 
 	public ArrayList<? extends Topic> getTopics() {
@@ -57,13 +59,16 @@ public class Device implements Constants {
 		return NameDevice;
 	}
 
-	
 	public String getNumberDevice() {
 		return NumberDevice;
 	}
 
 	private String setNameDevice(TypeDevice device, String NumberDevice) {
 		return device.name() + "_" + NumberDevice;
+	}
+
+	public String getAlias() {
+		return Alias;
 	}
 
 	@Override

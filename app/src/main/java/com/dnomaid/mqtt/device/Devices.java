@@ -30,10 +30,10 @@ public class Devices implements Constants {
 		return DevicesHolder.instance;
 	}
 
-    public void newDevice(TypeDevice typeDevice, String numberDevice) {
-		DeviceConfig deviceConfig = newDevicePersist(typeDevice, numberDevice);
+    public void newDevice(TypeDevice typeDevice, String numberDevice, String alias) {
+		DeviceConfig deviceConfig = newDevicePersist(typeDevice, numberDevice, alias);
     	DevicesConfig.add(deviceConfig);
-    	selectDevice(typeDevice, numberDevice);
+    	selectDevice(typeDevice, numberDevice, alias);
 	}
     public void deleteDevice(DeviceConfig deviceConfig){
 		for (int i = 0; i < getDevices().size(); ++i) {
@@ -54,7 +54,7 @@ public class Devices implements Constants {
 		Devices  = new ArrayList<>();
 		for (DeviceConfig devicesConfig:getDevicesConfig()
 		) {
-			selectDevice(devicesConfig.getTypeDevice(), devicesConfig.getNumberDevice());
+			selectDevice(devicesConfig.getTypeDevice(), devicesConfig.getNumberDevice(), devicesConfig.getAlias());
 		}
 	}
     public ArrayList<DeviceConfig> getDevicesConfig() {return DevicesConfig;}
@@ -84,7 +84,7 @@ public class Devices implements Constants {
 		return PublishTopicRelay;
 	}    
 	
-	private void selectDevice (TypeDevice typeDevice, String numberDevice){
+	private void selectDevice (TypeDevice typeDevice, String numberDevice, String alias){
 		String nametopic01 = "";
 		String nametopic02 = "";
 		GroupList groupList;
@@ -102,7 +102,7 @@ public class Devices implements Constants {
 			nametopic02 = nametopic01;			
 			topicNoJson01 = new TopicNoJson(STAT_PREFIX, nametopic01, new POWER());
 			topicNoJson02 = new TopicNoJson(CMND_PREFIX, nametopic02, new POWER());
-			device = createDevice(typeGateway, typeDevice, numberDevice, groupList, topicNoJson01, topicNoJson02);		
+			device = createDevice(typeGateway, typeDevice, numberDevice, groupList, alias, topicNoJson01, topicNoJson02);
 	    	Devices.add(device);
 			break;
 		case SonoffSNZB02:
@@ -110,7 +110,7 @@ public class Devices implements Constants {
 			groupList = GroupList.SensorClimate;
 			nametopic01 = groupList+"_1";
 			topicJson01 = new TopicJson(STAT_PREFIX, nametopic01, new SonoffSNZB02Json());
-			device = createDevice(typeGateway, typeDevice, numberDevice, groupList, topicJson01);	
+			device = createDevice(typeGateway, typeDevice, numberDevice, groupList, alias, topicJson01);
 	    	Devices.add(device);
 			break;
 		case AqaraTemp:
@@ -118,7 +118,7 @@ public class Devices implements Constants {
 			groupList = GroupList.SensorClimate;
 			nametopic01 = groupList+"_1";
 			topicJson01 = new TopicJson(STAT_PREFIX, nametopic01, new AqaraTempJson());
-			device = createDevice(typeGateway, typeDevice, numberDevice, groupList, topicJson01);	
+			device = createDevice(typeGateway, typeDevice, numberDevice, groupList, alias, topicJson01);
 	    	Devices.add(device);
 			break;
 		case TuyaZigBeeSensor:
@@ -126,7 +126,7 @@ public class Devices implements Constants {
 			groupList = GroupList.SensorClimate;
 			nametopic01 = groupList+"_1";
 			topicJson01 = new TopicJson(STAT_PREFIX, nametopic01, new TuyaZigBeeSensorJson());
-			device = createDevice(typeGateway, typeDevice, numberDevice, groupList, topicJson01);	
+			device = createDevice(typeGateway, typeDevice, numberDevice, groupList, alias, topicJson01);
 	    	Devices.add(device);
 			break;
 		case XiaomiZNCZ04LM:
@@ -136,7 +136,7 @@ public class Devices implements Constants {
 			nametopic02 = nametopic01+"/set";
 			topicJson01 = new TopicJson(MIX_PREFIX, nametopic01, new XiaomiZNCZ04LM());
 			topicNoJson02 = new TopicNoJson(MIX_PREFIX, nametopic02, new Set());
-			device = createDevice(typeGateway, typeDevice, numberDevice, groupList, topicJson01, topicNoJson02);		
+			device = createDevice(typeGateway, typeDevice, numberDevice, groupList, alias, topicJson01, topicNoJson02);
 	    	Devices.add(device);
 			break;
 		default:
@@ -145,19 +145,19 @@ public class Devices implements Constants {
 		
 	}
 
-	private Device createDevice(TypeGateway gateway, TypeDevice typeDevice, String numberDevice, GroupList groupList, TopicNoJson topic01, TopicNoJson topic02){
-		Device device = new Device(gateway,typeDevice,numberDevice,groupList);
+	private Device createDevice(TypeGateway gateway, TypeDevice typeDevice, String numberDevice, GroupList groupList, String alias, TopicNoJson topic01, TopicNoJson topic02){
+		Device device = new Device(gateway,typeDevice,numberDevice,groupList,alias);
 		device.addTopic(topic01);
 		device.addTopic(topic02);
 		return device;
 	}	
-	private Device createDevice(TypeGateway gateway, TypeDevice typeDevice, String numberDevice, GroupList groupList, TopicJson topic01){
-		Device device = new Device(gateway,typeDevice,numberDevice,groupList);
+	private Device createDevice(TypeGateway gateway, TypeDevice typeDevice, String numberDevice, GroupList groupList, String alias, TopicJson topic01){
+		Device device = new Device(gateway,typeDevice,numberDevice,groupList,alias);
 		device.addTopic(topic01);		
 		return device;
 	}
-	private Device createDevice(TypeGateway gateway, TypeDevice typeDevice, String numberDevice, GroupList groupList, TopicJson topic01, TopicNoJson topic02){
-		Device device = new Device(gateway,typeDevice,numberDevice,groupList);
+	private Device createDevice(TypeGateway gateway, TypeDevice typeDevice, String numberDevice, GroupList groupList, String alias, TopicJson topic01, TopicNoJson topic02){
+		Device device = new Device(gateway,typeDevice,numberDevice,groupList,alias);
 		device.addTopic(topic01);
 		device.addTopic(topic02);
 		return device;
@@ -168,10 +168,10 @@ public class Devices implements Constants {
 		persistence = new Persistence(this.context);
 		restoreDevice();
 	}
-	private DeviceConfig newDevicePersist(TypeDevice typeDevice, String numberDevice) {
+	private DeviceConfig newDevicePersist(TypeDevice typeDevice, String numberDevice, String alias) {
 		DeviceConfig deviceConfig = null;
 		try {
-			deviceConfig = persistence.newDevice(typeDevice,numberDevice);
+			deviceConfig = persistence.newDevice(typeDevice,numberDevice, alias);
 		}
 		catch (PersistenceException e)
 		{

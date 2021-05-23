@@ -8,7 +8,6 @@
         android:layout_height="50dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp">
-
         <Button
             android:id="@+id/btnDeleteDevice"
             android:layout_width="wrap_content"
@@ -20,7 +19,6 @@
             android:background="@drawable/shape_btn"
             android:minWidth="10dp"
             android:minHeight="10dp" />
-
         <Button
             android:id="@+id/btnInfoDevice"
             android:layout_width="wrap_content"
@@ -34,15 +32,17 @@
             android:background="@drawable/shape_btn"
             android:minWidth="10dp"
             android:minHeight="10dp" />
-
         <TextView
             android:id="@+id/textViNameDevice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginLeft="19dp"
             android:layout_toEndOf="@+id/btnInfoDevice"
             android:layout_toRightOf="@+id/btnInfoDevice"
-            android:text="Data" />
+            android:text="Name"
+            android:textColor="@color/colorTextMain" />
+
     </RelativeLayout>
 </RelativeLayout>

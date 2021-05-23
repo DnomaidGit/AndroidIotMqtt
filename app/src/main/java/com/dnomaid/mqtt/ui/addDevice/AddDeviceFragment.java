@@ -3,12 +3,15 @@ package com.dnomaid.mqtt.ui.addDevice;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -33,16 +36,18 @@ public class AddDeviceFragment extends Fragment {
     private ArrayList<DeviceItem> deviceItems;
     private DeviceAdapter deviceAdapter;
     private Spinner deviceSpinner;
+    private EditText aliasDeviceUser;
     private String selectTypeDevice;
     private String selectNumberDevice;
+    private String aliasDevice;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_add_device, container, false);
         setupViewOnclick(view);
+        setupEditTextChange();
         initList();
         setupClickSpinner();
-
         return view;
     }
     @Override
@@ -75,6 +80,25 @@ public class AddDeviceFragment extends Fragment {
             }
         });
     }
+    private void setupEditTextChange(){
+        aliasDeviceUser = view.findViewById(R.id.aliasDeviceUser);
+        aliasDeviceUser.setText("");
+        aliasDeviceUser.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+            @Override
+            public void afterTextChanged(Editable editable) {
+                try {
+                    aliasDevice = aliasDeviceUser.getText().toString();
+                }catch (Exception e){
+                    System.err.println("error text Alias: "+ e);
+                    e.printStackTrace();
+                }
+            }
+        });
+         }
     private void setupViewModel() {
 
     }
@@ -83,9 +107,15 @@ public class AddDeviceFragment extends Fragment {
         btnAddDevice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(aliasDeviceUser.getText().toString().equals("")){
+                    aliasDevice = "Anonymous";
+                }
+                else{
+                    aliasDevice = aliasDeviceUser.getText().toString();
+                }
                 actions.newDevice(TypeDevice.valueOf(
                         selectTypeDevice),
-                        selectNumberDevice);
+                        selectNumberDevice,aliasDevice);
             }
         });
     }

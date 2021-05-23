@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background ="@color/colorBackgroundSetting"
     tools:context=".ui.addDevice.AddDeviceFragment">
 
     <LinearLayout
@@ -10,7 +11,6 @@
         android:layout_height="match_parent"
         android:padding="8dp"
         android:orientation="vertical">
-
         <!--Type Device-->
         <RelativeLayout
             android:layout_width="match_parent"
@@ -41,7 +41,6 @@
                 android:layout_gravity="center"
             />
         </LinearLayout>
-
         <!--Number Device-->
         <RelativeLayout
             android:layout_width="match_parent"
@@ -72,9 +71,43 @@
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:text="name"
+                android:textColor="@color/colorTextMain"
                 />
         </LinearLayout>
-
+        <!--Number Device-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="@color/colorBackgroundTitle"
+                android:textColor="@color/colorTextTitle"
+                android:text="Alias Device"
+                android:textSize="@dimen/textSizeTitle">
+            </TextView>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
+            <EditText
+                android:id="@+id/aliasDeviceUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.22"
+                android:ems="10"
+                android:hint="name"
+                android:textAlignment="center"
+                android:inputType="text"
+                android:textSize="@dimen/textSizeUser" />
+        </LinearLayout>
         <!--Add Device-->
         <RelativeLayout
             android:layout_width="match_parent"

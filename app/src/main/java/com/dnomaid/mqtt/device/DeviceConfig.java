@@ -5,12 +5,14 @@ import com.dnomaid.mqtt.global.Constants.TypeDevice;
 public class DeviceConfig {
 	private TypeDevice typeDevice; 
 	private String numberDevice;
+	private String alias;
 	private long persistenceId = -1;
 	
-	public DeviceConfig(TypeDevice typeDevice, String numberDevice) {
+	public DeviceConfig(TypeDevice typeDevice, String numberDevice, String alias) {
 		super();
 		this.typeDevice = typeDevice;
 		this.numberDevice = numberDevice;
+		this.alias = alias;
 	}
 	public TypeDevice getTypeDevice() {
 		return typeDevice;
@@ -21,10 +23,15 @@ public class DeviceConfig {
 	public String getNumberDevice() {
 		return numberDevice;
 	}
+	public String getAlias() {
+		return alias;
+	}
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
 	public void setNumberDevice(String numberDevice) {
 		this.numberDevice = numberDevice;
 	}
-
 	public void assignPersistenceId(long id) {
 		persistenceId = id;
 	}

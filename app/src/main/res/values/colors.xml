@@ -6,7 +6,10 @@
 
     <color name="colorBackgroundLogo">#FFFFFF</color>
 
-    <color name="colorBackgroundHist">#000000</color>
+    <color name="colorBackgroundClientMqtt">#FFFFFF</color>
+    <color name="colorBackgroundDashboard">#FFFFFF</color>
+    <color name="colorBackgroundSetting">#FFFFFF</color>
+    <color name="colorBackgroundSystem">#000000</color>
 
     <color name="colorBackgroundTitle">#F7686767</color>
     <color name="colorTextTitle">#FFFFFF</color>

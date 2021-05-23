@@ -40,7 +40,7 @@ public class TemperatureDataAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             TemperatureViewHolder temperatureHolder = (TemperatureViewHolder) holder;
             temperatureHolder.setDataTemp(Device.get(position).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Temperature));
             temperatureHolder.setDataHum(Device.get(position).getTopics().get(0).getValueTopic(ActionTopic.TypeTopic.Humidity));
-            temperatureHolder.setNameTemperature(Device.get(position).getNameDevice());
+            temperatureHolder.setNameTemperature(Device.get(position).getAlias());
         }
     }
     @Override
