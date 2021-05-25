@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity
     public static final long PERIODO = 500; // 60 segundos (6 * 1000 millisegundos)
     private Handler handler;
     private Runnable runnable;
+    private static Boolean FLAGINI = false;
 
     private Connection connection = null;
     private Mqtt mqtt;
@@ -86,10 +87,7 @@ public class MainActivity extends AppCompatActivity
                 showFloatingIcons();
             }
         });
-        setupDevice();
-        setupViewModel();
-        if (connection == null) connection = Connection.getInstance(this);
-        if (mqtt == null) mqtt = new Mqtt(this);
+        setup();
     }
     private void initFabMenu() {
         fab = findViewById(R.id.fabMain);
@@ -148,7 +146,7 @@ public class MainActivity extends AppCompatActivity
         };
         handler.postDelayed(runnable, PERIODO);
         //Recover connections.
-        connection = Connection.getInstance(this);
+        //connection = Connection.getInstance(this);
     }
     @Override
     protected void onPause() {
@@ -214,6 +212,7 @@ public class MainActivity extends AppCompatActivity
         devices.deleteDevice(devices.getDevicesConfig().get(position));
         updateState();
     }
+    //Methods
     private void showFloatingIcons(){
         fab.show();
         fab2.show();
@@ -232,29 +231,42 @@ public class MainActivity extends AppCompatActivity
             fab2.hide();
         }
     }
-    private void setupViewModel(){
-        if (connectionViewModel == null) connectionViewModel = new ViewModelProvider(this).get(ConnectionViewModel.class);
-        if (historyViewModel == null) historyViewModel = new ViewModelProvider(this).get(HistoryViewModel.class);
-        if (temperatureViewModel == null) temperatureViewModel = new ViewModelProvider(this).get(TemperatureViewModel.class);
-        if (relayViewModel == null) relayViewModel = new ViewModelProvider(this).get(RelayViewModel.class);
-        if (configViewModel == null) configViewModel = new ViewModelProvider(this).get(SettingDeviceViewModel.class);
-        if (settingConnectionViewModel == null) settingConnectionViewModel = new ViewModelProvider(this).get(SettingConnectionViewModel.class);
-    }
     private void updateState(){
-            connectionViewModel.updateState();
-            historyViewModel.updateState();
-            temperatureViewModel.updateState(devices.getSensorsClimate());
-            relayViewModel.updateState(devices.getRelays());
-            configViewModel.updateState(devices.getDevicesConfig());
-            settingConnectionViewModel.updateState();
+        connectionViewModel.updateState();
+        historyViewModel.updateState();
+        temperatureViewModel.updateState(devices.getSensorsClimate());
+        relayViewModel.updateState(devices.getRelays());
+        configViewModel.updateState(devices.getDevicesConfig());
+        settingConnectionViewModel.updateState();
+    }
+    private void setup(){
+        setupDevice();
+        setupViewModel();
+        setupConnect();
+        FLAGINI = true;
     }
     private void setupDevice(){
         if (devices == null){
-            Devices.getInst().getDevicesConfig().clear();
-            if(Devices.getInst().getDevicesConfig().isEmpty()) {
-                devices = Devices.getInst();
-                devices.persistence(this);
+            if(!FLAGINI) {
+                Devices.getInst().getDevicesConfig().clear();
+                if (Devices.getInst().getDevicesConfig().isEmpty()) {
+                    devices = Devices.getInst();
+                    devices.persistence(this);
+                }
             }
+            devices = Devices.getInst();
         }
+    }
+    private void setupViewModel(){
+        connectionViewModel = new ViewModelProvider(this).get(ConnectionViewModel.class);
+        historyViewModel = new ViewModelProvider(this).get(HistoryViewModel.class);
+        temperatureViewModel = new ViewModelProvider(this).get(TemperatureViewModel.class);
+        relayViewModel = new ViewModelProvider(this).get(RelayViewModel.class);
+        configViewModel = new ViewModelProvider(this).get(SettingDeviceViewModel.class);
+        settingConnectionViewModel = new ViewModelProvider(this).get(SettingConnectionViewModel.class);
+    }
+    private void setupConnect(){
+        if (connection == null) connection = Connection.getInstance(this);
+        if (mqtt == null) mqtt = new Mqtt(this);
     }
 }
