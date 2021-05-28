@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -26,6 +27,7 @@ import com.dnomaid.mqtt.device.ActionsDevice;
 import com.dnomaid.mqtt.device.Devices;
 import com.dnomaid.mqtt.global.Constants;
 import com.dnomaid.mqtt.global.Status;
+import com.dnomaid.mqtt.ui.settingConnection.SettingConnectionFragment;
 import com.dnomaid.mqtt.ui.settingDevice.SettingDeviceViewModel;
 import com.dnomaid.mqtt.ui.connection.ConnectionViewModel;
 import com.dnomaid.mqtt.ui.history.HistoryViewModel;
@@ -237,7 +239,7 @@ public class MainActivity extends AppCompatActivity
         temperatureViewModel.updateState(devices.getSensorsClimate());
         relayViewModel.updateState(devices.getRelays());
         configViewModel.updateState(devices.getDevicesConfig());
-        settingConnectionViewModel.updateState();
+        //settingConnectionViewModel.updateState();
     }
     private void setup(){
         setupDevice();
@@ -258,12 +260,18 @@ public class MainActivity extends AppCompatActivity
         }
     }
     private void setupViewModel(){
+        //connectionViewModel = ViewModelProviders.of(this).get(ConnectionViewModel.class);
+        //historyViewModel = ViewModelProviders.of(this).get(HistoryViewModel.class);
+        //temperatureViewModel = ViewModelProviders.of(this).get(TemperatureViewModel.class);
+        //relayViewModel = ViewModelProviders.of(this).get(RelayViewModel.class);
+        //configViewModel = ViewModelProviders.of(this).get(SettingDeviceViewModel.class);
+        //settingConnectionViewModel = ViewModelProviders.of(this).get(SettingConnectionViewModel.class);
         connectionViewModel = new ViewModelProvider(this).get(ConnectionViewModel.class);
         historyViewModel = new ViewModelProvider(this).get(HistoryViewModel.class);
         temperatureViewModel = new ViewModelProvider(this).get(TemperatureViewModel.class);
         relayViewModel = new ViewModelProvider(this).get(RelayViewModel.class);
         configViewModel = new ViewModelProvider(this).get(SettingDeviceViewModel.class);
-        settingConnectionViewModel = new ViewModelProvider(this).get(SettingConnectionViewModel.class);
+        //settingConnectionViewModel = new ViewModelProvider(this).get(SettingConnectionViewModel.class);
     }
     private void setupConnect(){
         if (connection == null) connection = Connection.getInstance(this);

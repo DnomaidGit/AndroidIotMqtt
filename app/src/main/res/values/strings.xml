@@ -101,5 +101,6 @@
     <string name="usernameHint">Username</string>
     <string name="passwordText">Password</string>
     <string name="passwordHint">Password</string>
+    <string name="saveText">Save</string>
 
 </resources>

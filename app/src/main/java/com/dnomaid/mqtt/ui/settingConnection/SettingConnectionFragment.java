@@ -1,13 +1,12 @@
 package com.dnomaid.mqtt.ui.settingConnection;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -20,18 +19,20 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.dnomaid.mqtt.R;
-import com.dnomaid.mqtt.client.ActionsMqtt;
 import com.dnomaid.mqtt.global.ConnectionConstants;
+import com.dnomaid.mqtt.global.Constants;
 
 public class SettingConnectionFragment extends Fragment {
 
     private View view;
     private SettingConnectionViewModel connectionViewModel;
     private SettingConnectionViewValueUser viewValueUser;
+    private Button btnSaveSettingConnection;
     private EditText serverUser, portUser, clientIdUser, timeOutUser, keepAliveUser, usernameUser, passwordUser;
     private CheckBox cleanSessionCheckBoxUser;
     private TextView serverSetting, portSetting, clientIdSetting, cleanSessionSetting,
             timeOutSetting, keepAliveSetting, usernameSetting, passwordSetting;
+    private static Boolean FLAGINI = false;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -40,6 +41,7 @@ public class SettingConnectionFragment extends Fragment {
                 ViewModelProviders.of(this).get(SettingConnectionViewModel.class);
         view = inflater.inflate(R.layout.fragment_setting_connection, container, false);
         setupViewValueUser();
+        setupViewOnclick(view);
         setupEditTextChange();
         setupCheckedChanged();
         return view;
@@ -76,6 +78,16 @@ public class SettingConnectionFragment extends Fragment {
             passwordSetting.setText(item.getPassword());
         });
     }
+    private void setupViewOnclick(View view) {
+        btnSaveSettingConnection = view.findViewById(R.id.btnSaveSettingConnection);
+        btnSaveSettingConnection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                connectionViewModel.saveSettingConnection();
+            }
+        });
+    }
+
     private void setupViewValueUser() {
         viewValueUser = new SettingConnectionViewValueUser();
         viewValueUser.setServer(ConnectionConstants.getInst().getServer());

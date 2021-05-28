@@ -353,6 +353,38 @@
                     android:textStyle="italic"/>
             </RelativeLayout>
         </LinearLayout>
+        <!--Save-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="@color/colorBackgroundTitle"
+                android:textColor="@color/colorTextTitle"
+                android:text="@string/saveText"
+                android:textSize="@dimen/textSizeTitle">
+            </TextView>
+        </RelativeLayout>
+        <!--Save-->
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnSaveSettingConnection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_button_save"
+                android:padding="15dp"
+                android:background="@drawable/shape_btn"
+                android:text="@string/saveText"/>
+        </RelativeLayout>
 
     </LinearLayout>
 </ScrollView>
