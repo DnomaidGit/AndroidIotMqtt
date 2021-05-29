@@ -10,6 +10,17 @@ public class SettingConnectionViewValueUser {
     private String username;
     private String password;
 
+    public SettingConnectionViewValueUser() {
+        this.server = "";
+        this.port = 0;
+        this.clientId = "";
+        this.cleanSession = true;
+        this.timeOut = 0;
+        this.keepAlive = 0;
+        this.username = "";
+        this.password = "";
+    }
+
     public String getServer() {
         return server;
     }

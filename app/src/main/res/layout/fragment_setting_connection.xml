@@ -340,13 +340,14 @@
                     android:layout_weight="0.22"
                     android:ems="10"
                     android:hint="@string/passwordHint"
-                    android:inputType="text"
+                    android:inputType="textPassword"
                     android:textSize="@dimen/textSizeUser"/>
                 <TextView
                     android:id="@+id/passwordSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/passwordUser"
+                    android:inputType="textPassword"
                     android:textColor="@color/colorTextUser"
                     android:text="@string/passwordHint"
                     android:textSize="@dimen/textSizeInfoMini"

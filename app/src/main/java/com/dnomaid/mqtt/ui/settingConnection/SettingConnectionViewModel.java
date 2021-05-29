@@ -17,6 +17,14 @@ public class SettingConnectionViewModel extends ViewModel {
     public SettingConnectionViewModel(){
         viewState = new SettingConnectionViewState();
         viewValueUser = new SettingConnectionViewValueUser();
+        this.viewValueUser.setServer(ConnectionConstants.getInst().getServer());
+        this.viewValueUser.setPort(ConnectionConstants.getInst().getPort());
+        this.viewValueUser.setClientId(ConnectionConstants.getInst().getClientId());
+        this.viewValueUser.setCleanSession(ConnectionConstants.getInst().isCleanSession());
+        this.viewValueUser.setTimeOut(ConnectionConstants.getInst().getTimeOut());
+        this.viewValueUser.setKeepAlive(ConnectionConstants.getInst().getKeepAlive());
+        this.viewValueUser.setUsername(ConnectionConstants.getInst().getUsername());
+        this.viewValueUser.setPassword(ConnectionConstants.getInst().getPassword());
         updateState();
     }
     public SettingConnectionViewModel(SettingConnectionViewValueUser viewValueUser){
@@ -41,25 +49,28 @@ public class SettingConnectionViewModel extends ViewModel {
     public boolean  saveSettingConnection(){
         boolean aux = false;
         if (this.viewValueUser!=null) {
-            if ((!this.viewValueUser.getServer().equals(Status.EMPTY))&&(this.viewValueUser.getServer()!=null))
-            {ConnectionConstants.getInst().setServer(this.viewValueUser.getServer());}
+            if ((!this.viewValueUser.getServer().equals(Status.EMPTY)))
+            ConnectionConstants.getInst().setServer(this.viewValueUser.getServer());
 
+            if (this.viewValueUser.getPort()>0)
             ConnectionConstants.getInst().setPort(this.viewValueUser.getPort());
 
-            if ((!this.viewValueUser.getClientId().equals(Status.EMPTY))&&(this.viewValueUser.getClientId()!=null))
-            {ConnectionConstants.getInst().setClientId(this.viewValueUser.getClientId());}
+            if ((!this.viewValueUser.getClientId().equals(Status.EMPTY)))
+            ConnectionConstants.getInst().setClientId(this.viewValueUser.getClientId());
 
             ConnectionConstants.getInst().setCleanSession(this.viewValueUser.isCleanSession());
 
+            if (this.viewValueUser.getTimeOut()>0)
             ConnectionConstants.getInst().setTimeOut(this.viewValueUser.getTimeOut());
 
+            if (this.viewValueUser.getKeepAlive()>0)
             ConnectionConstants.getInst().setKeepAlive(this.viewValueUser.getKeepAlive());
 
-            if ((!this.viewValueUser.getUsername().equals(Status.EMPTY))&&(this.viewValueUser.getUsername()!=null))
-            {ConnectionConstants.getInst().setUsername(this.viewValueUser.getUsername());}
+            if ((!this.viewValueUser.getUsername().equals(Status.EMPTY)))
+            ConnectionConstants.getInst().setUsername(this.viewValueUser.getUsername());
 
-            if ((!this.viewValueUser.getPassword().equals(Status.EMPTY))&&(this.viewValueUser.getPassword()!=null))
-            {ConnectionConstants.getInst().setPassword(this.viewValueUser.getPassword());}
+            if ((!this.viewValueUser.getPassword().equals(Status.EMPTY)))
+            ConnectionConstants.getInst().setPassword(this.viewValueUser.getPassword());
 
             aux = true;
             updateState();
