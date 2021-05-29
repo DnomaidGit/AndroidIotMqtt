@@ -102,5 +102,8 @@
     <string name="passwordText">Password</string>
     <string name="passwordHint">Password</string>
     <string name="saveText">Save</string>
+    <string name="connectstatus">ConnectStatus</string>
+    <string name="subscribestatus">SubscribeStatus</string>
+    <string name="message_arrived">Message Arrived</string>
 
 </resources>

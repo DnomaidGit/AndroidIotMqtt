@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -42,13 +42,13 @@
                 android:textColor="@color/colorTextMain"
                 android:textSize="@dimen/textSizeInfo"
                 android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/textViServer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/textViServ"
                 android:layout_toRightOf="@+id/textViServ"
-                android:text="0.0.0.0"
+                android:text="@string/serverURIHint"
                 android:textColor="@color/colorTextUser"
                 android:textSize="@dimen/textSizeInfo"
                 android:textStyle="italic" />
@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/textViPor"
                 android:layout_toRightOf="@+id/textViPor"
-                android:text="1000"
+                android:text="@string/portHint"
                 android:textColor="@color/colorTextUser"
                 android:textSize="@dimen/textSizeInfo"
                 android:textStyle="italic" />
@@ -103,7 +103,7 @@
                 android:layout_toRightOf="@+id/textViClientI"
                 android:textSize="@dimen/textSizeInfo"
                 android:textColor="@color/colorTextUser"
-                android:text="Client"
+                android:text="@string/clientIdHint"
                 android:textStyle="italic"/>
         </RelativeLayout>
         <RelativeLayout
@@ -114,7 +114,7 @@
             android:layout_height="wrap_content">
             <Button
                 android:id="@+id/btnConnect"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:drawableBottom="@drawable/ic_button_connect"
                 android:padding="15dp"
@@ -123,7 +123,7 @@
                 android:text="@string/connectText"/>
             <Button
                 android:id="@+id/btnDisconnect"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:drawableBottom="@drawable/ic_button_stop"
                 android:layout_toRightOf="@+id/btnConnect"
@@ -147,8 +147,7 @@
                 android:layout_centerVertical="true"
                 android:textStyle="bold"
                 android:textColor="@color/colorTextStatus"
-                android:autoSizeTextType="uniform"
-                android:text="ConnectStatus" />
+                android:text="@string/connectstatus" />
         </RelativeLayout>
         <!--Topic-->
         <RelativeLayout
@@ -174,7 +173,7 @@
             android:gravity="center">
             <Button
                 android:id="@+id/btnSubscribe"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:drawableBottom="@drawable/ic_button_subscriptions"
                 android:padding="15dp"
@@ -183,11 +182,12 @@
                 android:text="@string/subscribeText"/>
             <Button
                 android:id="@+id/btnUnsubscribe"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:drawableBottom="@drawable/ic_button_unsubscribe"
                 android:layout_toEndOf="@+id/btnSubscribe"
                 android:layout_toRightOf="@+id/btnSubscribe"
+                android:layout_marginLeft="10dp"
                 android:padding="15dp"
                 android:background="@drawable/shape_btn"
                 android:textColor="@color/colorTextButton"
@@ -199,13 +199,14 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:gravity="center">
+
             <TextView
                 android:id="@+id/textViSubscribe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+                android:text="@string/subscribestatus"
                 android:textColor="@color/colorTextStatus"
-                android:text="SubscribeStatus" />
+                android:textStyle="bold" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -218,7 +219,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="@color/colorTextHist"
-                android:text="Message Arrived" />
+                android:text="@string/message_arrived" />
         </RelativeLayout>
 
     </LinearLayout>

@@ -71,7 +71,7 @@ public class AqaraTempJson implements ActionTopic {
 				str = String.valueOf(getTemperature());
 				break;				
 			default:
-				str = "??¿¿";
+				str = "----";
 		}
 		return str;
 	}

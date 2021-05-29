@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,7 +35,7 @@ public class SettingDeviceFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         configViewModel =
                 ViewModelProviders.of(this).get(SettingDeviceViewModel.class);
-        view = inflater.inflate(R.layout.fragment_setting, container, false);
+        view = inflater.inflate(R.layout.fragment_setting_device, container, false);
         buttonClickDevice();
         return view;
     }

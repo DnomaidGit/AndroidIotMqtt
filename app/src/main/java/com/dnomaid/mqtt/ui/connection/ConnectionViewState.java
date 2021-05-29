@@ -7,7 +7,6 @@ public class ConnectionViewState {
     private String Server;
     private String Port;
     private String ClientId;
-    private String CleanSession;
 
     public String getConnectionStatus() {
         return ConnectionStatus;
@@ -51,10 +50,4 @@ public class ConnectionViewState {
         ClientId = clientId;
     }
 
-    public String getCleanSession() {
-        return CleanSession;
-    }
-    public void setCleanSession(String cleanSession) {
-        CleanSession = cleanSession;
-    }
 }

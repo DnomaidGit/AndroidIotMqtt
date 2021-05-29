@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel;
 
 import com.dnomaid.mqtt.device.DeviceConfig;
 import com.dnomaid.mqtt.device.Devices;
-import com.dnomaid.mqtt.global.ConnectionConstants;
 
 import java.util.ArrayList;
 

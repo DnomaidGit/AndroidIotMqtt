@@ -17,13 +17,11 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.dnomaid.mqtt.R;
 import com.dnomaid.mqtt.client.ActionsMqtt;
-import com.dnomaid.mqtt.global.ConnectionConstants;
 
 public class ConnectionFragment extends Fragment {
 
     private View view;
     private ConnectionViewModel connectionViewModel;
-    private ConnectionViewValueUser viewValueUser;
     private TextView serverInfo, portInfo, clientIdInfo;
     private TextView textViConnect,textViSubscribe,textViMessageArrived;
     private Button btnConnect,btnDisconnect,btnSubscribe,btnUnsubscribe;
@@ -35,7 +33,6 @@ public class ConnectionFragment extends Fragment {
         connectionViewModel =
                 ViewModelProviders.of(this).get(ConnectionViewModel.class);
         view = inflater.inflate(R.layout.fragment_connection, container, false);
-        setupViewValueUser();
         setupViewOnclick(view);
         return view;
     }
@@ -63,8 +60,7 @@ public class ConnectionFragment extends Fragment {
         textViMessageArrived = view.findViewById(R.id.textViMessageArrived);
     }
     private void setupViewModel() {
-        ConnectionVMFactory connectionVMFactory = new ConnectionVMFactory(viewValueUser);
-        connectionViewModel = new ViewModelProvider(requireActivity(),connectionVMFactory).get(ConnectionViewModel.class);
+        connectionViewModel = new ViewModelProvider(requireActivity()).get(ConnectionViewModel.class);
         connectionViewModel.viewLD.observe(getViewLifecycleOwner(), item -> {
             textViConnect.setText(item.getConnectionStatus());
             textViSubscribe.setText(item.getSubscribeStatus());
@@ -73,12 +69,6 @@ public class ConnectionFragment extends Fragment {
             portInfo.setText(item.getPort());
             clientIdInfo.setText(item.getClientId());
         });
-    }
-    private void setupViewValueUser() {
-        viewValueUser = new ConnectionViewValueUser();
-        viewValueUser.setServer(ConnectionConstants.getInst().getServer());
-        viewValueUser.setPort(ConnectionConstants.getInst().getPort());
-        viewValueUser.setClientId(ConnectionConstants.getInst().getClientId());
     }
     private void setupViewOnclick(View view) {
         btnConnect = view.findViewById(R.id.btnConnect);

@@ -58,5 +58,5 @@
             app:srcCompat="@drawable/ic_button_plus"
             android:tint="@android:color/white"
             />
-    ></LinearLayout>
+    </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

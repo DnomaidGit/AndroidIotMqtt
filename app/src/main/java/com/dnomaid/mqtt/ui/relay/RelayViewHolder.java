@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dnomaid.mqtt.R;
 
-import java.io.BufferedOutputStream;
-
 public class RelayViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     private RelayRecyclerViClickList mListener;
