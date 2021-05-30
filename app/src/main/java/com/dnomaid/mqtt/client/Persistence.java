@@ -13,7 +13,7 @@ import com.dnomaid.mqtt.global.Notify;
 
 public class Persistence extends SQLiteOpenHelper implements BaseColumns {
   private Context context;
-  public static final int DATABASE_VERSION = 1;
+  public static final int DATABASE_VERSION = 2;
   public static final String DATABASE_NAME = "connection.db";
   public static final String TABLE_CONNECTION = "connection";
   public static final String COLUMN_HOST = "host";

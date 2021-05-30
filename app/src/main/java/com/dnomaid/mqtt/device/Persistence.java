@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class Persistence extends SQLiteOpenHelper implements BaseColumns {
   private Context context;
-  public static final int DATABASE_VERSION = 1;
+  public static final int DATABASE_VERSION = 2;
   public static final String DATABASE_NAME = "devices.db";
 
   public static final String TABLE_DEVICE = "device";
