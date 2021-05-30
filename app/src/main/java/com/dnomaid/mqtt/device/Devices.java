@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import com.dnomaid.mqtt.R;
+import com.dnomaid.mqtt.db.DevicesPersistence;
+import com.dnomaid.mqtt.db.PersistenceException;
 import com.dnomaid.mqtt.global.Constants;
 import com.dnomaid.mqtt.global.Notify;
 import com.dnomaid.mqtt.topic.TopicJson;
@@ -17,7 +19,7 @@ public class Devices implements Constants {
     private ArrayList<DeviceConfig> DevicesConfig;
 	private ArrayList<Device> Devices;
 	private Context context;
-	private static Persistence persistence;
+	private static DevicesPersistence persistence;
 
 	private static class DevicesHolder {
 		public static Devices instance = new Devices();
@@ -165,7 +167,7 @@ public class Devices implements Constants {
 
 	public void persistence(Context context){
 		this.context = context;
-		persistence = new Persistence(this.context);
+		persistence = new DevicesPersistence(this.context);
 		restoreDevice();
 	}
 	private DeviceConfig newDevicePersist(TypeDevice typeDevice, String numberDevice, String alias) {

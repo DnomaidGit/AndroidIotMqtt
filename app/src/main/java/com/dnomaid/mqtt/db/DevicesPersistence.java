@@ -1,4 +1,4 @@
-package com.dnomaid.mqtt.device;
+package com.dnomaid.mqtt.db;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,12 +8,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
 import com.dnomaid.mqtt.R;
+import com.dnomaid.mqtt.device.DeviceConfig;
 import com.dnomaid.mqtt.global.Constants;
 import com.dnomaid.mqtt.global.Notify;
 
 import java.util.ArrayList;
 
-public class Persistence extends SQLiteOpenHelper implements BaseColumns {
+public class DevicesPersistence extends SQLiteOpenHelper implements BaseColumns {
   private Context context;
   public static final int DATABASE_VERSION = 2;
   public static final String DATABASE_NAME = "devices.db";
@@ -35,7 +36,7 @@ public class Persistence extends SQLiteOpenHelper implements BaseColumns {
                   COLUMN_ALIAS + TEXT_TYPE +
                   ");";
   private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TABLE_DEVICE;
-  public Persistence(Context context) {
+  public DevicesPersistence(Context context) {
     super(context, DATABASE_NAME, null, DATABASE_VERSION);
     this.context = context;
   }

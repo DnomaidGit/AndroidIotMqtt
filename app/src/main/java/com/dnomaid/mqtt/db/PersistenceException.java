@@ -1,4 +1,4 @@
-package com.dnomaid.mqtt.client;
+package com.dnomaid.mqtt.db;
 
 public class PersistenceException extends Exception {
   public PersistenceException(String message) { super(message); }

@@ -105,5 +105,9 @@
     <string name="connectstatus">ConnectStatus</string>
     <string name="subscribestatus">SubscribeStatus</string>
     <string name="message_arrived">Message Arrived</string>
+    <string name="alias_device">Alias Device</string>
+    <string name="name_device">Name Device</string>
+    <string name="info">Info.</string>
+    <string name="delete">Delete</string>
 
 </resources>

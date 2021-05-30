@@ -40,6 +40,7 @@ public class SettingDeviceDataAdapter extends RecyclerView.Adapter<RecyclerView.
         if (holder instanceof SettingDeviceViewHolder) {
             SettingDeviceViewHolder configHolder = (SettingDeviceViewHolder) holder;
             configHolder.setNameDevice(DeviceConfig.get(position).toString());
+            configHolder.setAliasDevice(DeviceConfig.get(position).getAlias());
         }
     }
     @Override

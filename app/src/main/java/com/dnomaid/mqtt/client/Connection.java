@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.Log;
 
 import com.dnomaid.mqtt.R;
+import com.dnomaid.mqtt.db.ConnectionPersistence;
+import com.dnomaid.mqtt.db.PersistenceException;
 import com.dnomaid.mqtt.global.ConnectionConstants;
 import com.dnomaid.mqtt.global.Notify;
 import com.dnomaid.mqtt.global.Status;
@@ -38,7 +40,7 @@ public class Connection {
   private ArrayList<PropertyChangeListener> listeners = new ArrayList<PropertyChangeListener>();
   private Context context;
   private long persistenceId;
-  private static Persistence persistence;
+  private static ConnectionPersistence persistence;
 
   public Connection(Context context) {
     this.uri = "";
@@ -55,7 +57,7 @@ public class Connection {
     this.context = context;
     this.history = new ArrayList<String>();
     this.persistenceId = 1;
-    persistence = new Persistence(context);
+    persistence = new ConnectionPersistence(context);
     restoreConnection();
   }
   public synchronized static Connection getInstance(Context context) {

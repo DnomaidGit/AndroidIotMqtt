@@ -1,48 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp">
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
         <Button
             android:id="@+id/btnDeleteDevice"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:background="@drawable/shape_btn"
             android:drawableBottom="@android:drawable/ic_delete"
             android:gravity="center_horizontal|top"
-            android:padding="15dp"
-            android:background="@drawable/shape_btn"
             android:minWidth="10dp"
-            android:minHeight="10dp" />
+            android:minHeight="10dp"
+            android:padding="15dp"
+            android:text="@string/delete"
+            android:textColor="@color/colorTextButton" />
         <Button
             android:id="@+id/btnInfoDevice"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_toEndOf="@+id/btnDeleteDevice"
             android:layout_toRightOf="@+id/btnDeleteDevice"
+            android:background="@drawable/shape_btn"
             android:drawableBottom="@android:drawable/ic_dialog_info"
             android:gravity="center_horizontal|top"
-            android:padding="15dp"
-            android:background="@drawable/shape_btn"
             android:minWidth="10dp"
-            android:minHeight="10dp" />
+            android:minHeight="10dp"
+            android:padding="15dp"
+            android:textColor="@color/colorTextButton"
+            android:text="@string/info"/>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/btnInfoDevice"
+        android:layout_toRightOf="@+id/btnInfoDevice"
+        >
         <TextView
             android:id="@+id/textViNameDevice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="19dp"
-            android:layout_marginLeft="19dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:text="@string/name_device"
+            android:textColor="@color/colorTextMain"
+            android:textSize="@dimen/textSizeInfo"
+            android:textStyle="italic"/>
+        <TextView
+            android:id="@+id/textViAliasDevice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViNameDevice"
+            android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/btnInfoDevice"
             android:layout_toRightOf="@+id/btnInfoDevice"
-            android:text="Name"
-            android:textColor="@color/colorTextMain" />
-
-    </RelativeLayout>
+            android:text="@string/alias_device"
+            android:textColor="@color/colorTextMain"
+            android:textSize="@dimen/textSizeInfo"
+            android:textStyle="italic"/>
+    </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
