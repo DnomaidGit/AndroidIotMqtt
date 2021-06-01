@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:background="@color/colorBackgroundTitle"
+                android:background="@drawable/shape_title"
                 android:textColor="@color/colorTextTitle"
                 android:text="@string/connectionText"
                 android:textSize="@dimen/textSizeTitle">
@@ -159,7 +159,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:background="@color/colorBackgroundTitle"
+                android:background="@drawable/shape_title"
                 android:textColor="@color/colorTextTitle"
                 android:text="@string/topicText"
                 android:textSize="@dimen/textSizeTitle">
