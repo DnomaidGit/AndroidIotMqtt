@@ -25,4 +25,7 @@
     <color name="colorBackground2Button">#1E772BE4</color>
     <color name="colorTextButton">#FFFFFF</color>
 
+    <color name= "colorTextButtonRelayON">#13da33</color>
+    <color name= "colorTextButtonRelayOFF">#F44336</color>
+
 </resources>

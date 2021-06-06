@@ -38,7 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             app:srcCompat="@drawable/ic_button_stop"
-            android:tint="@android:color/white"
+            app:backgroundTint="@color/colorAccent"
+            app:tint="@android:color/white"
             app:fabSize="mini"
         />
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -47,7 +48,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             app:srcCompat="@drawable/ic_button_connect"
-            android:tint="@android:color/white"
+            app:backgroundTint="@color/colorAccent"
+            app:tint="@android:color/white"
             app:fabSize="mini"
         />
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -56,7 +58,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
             app:srcCompat="@drawable/ic_button_plus"
-            android:tint="@android:color/white"
+            app:backgroundTint="@color/colorAccent"
+            app:tint="@android:color/white"
             />
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

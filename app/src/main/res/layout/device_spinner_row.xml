@@ -2,13 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background ="@color/colorBackgroundSetting">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBackgroundSetting">
     <ImageView
         android:id="@+id/imageDeviceSpinner"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:src="@drawable/ic_button_add"
-    ></ImageView>
+        tools:ignore="ContentDescription" />
     <TextView
         android:id="@+id/textViDeviceSpinner"
         android:layout_width="wrap_content"
@@ -18,7 +19,7 @@
         android:layout_margin="16dp"
         android:layout_toEndOf="@id/imageDeviceSpinner"
         android:gravity="center"
-        android:text="name"
+        android:text="@string/name"
         android:textSize="15sp"
         android:textColor="@color/colorTextMain"
      ></TextView>

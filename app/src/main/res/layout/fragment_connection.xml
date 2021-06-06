@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background ="@color/colorBackgroundClientMqtt"
+    android:background="@color/colorBackgroundClientMqtt"
     tools:context=".ui.connection.ConnectionFragment">
 
     <LinearLayout
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp">
+            android:layout_marginStart="10dp">
             <TextView
                 android:id="@+id/textViServ"
                 android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp">
+            android:layout_marginStart="10dp">
 
             <TextView
                 android:id="@+id/textViPor"
@@ -74,7 +74,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/textViPor"
-                android:layout_toRightOf="@+id/textViPor"
                 android:text="@string/portHint"
                 android:textColor="@color/colorTextUser"
                 android:textSize="@dimen/textSizeInfo"
@@ -84,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp">
+            android:layout_marginStart="10dp">
             <TextView
                 android:id="@+id/textViClientI"
                 android:layout_width="wrap_content"
@@ -100,7 +99,6 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@+id/textViClientI"
-                android:layout_toRightOf="@+id/textViClientI"
                 android:textSize="@dimen/textSizeInfo"
                 android:textColor="@color/colorTextUser"
                 android:text="@string/clientIdHint"
@@ -113,25 +111,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Button
+                style="@style/ButtonRelayTheme"
                 android:id="@+id/btnConnect"
-                android:layout_width="130dp"
+                android:layout_width="136dp"
                 android:layout_height="wrap_content"
-                android:drawableBottom="@drawable/ic_button_connect"
+                android:drawableTop="@drawable/ic_button_connect"
                 android:padding="15dp"
-                android:background="@drawable/shape_btn"
-                android:textColor="@color/colorTextButton"
                 android:text="@string/connectText"/>
             <Button
+                style="@style/ButtonRelayTheme"
                 android:id="@+id/btnDisconnect"
-                android:layout_width="130dp"
+                android:layout_width="136dp"
                 android:layout_height="wrap_content"
-                android:drawableBottom="@drawable/ic_button_stop"
-                android:layout_toRightOf="@+id/btnConnect"
+                android:drawableTop="@drawable/ic_button_stop"
                 android:layout_toEndOf="@+id/btnConnect"
                 android:layout_marginLeft="10dp"
                 android:padding="15dp"
-                android:background="@drawable/shape_btn"
-                android:textColor="@color/colorTextButton"
                 android:text="@string/disconnectText"/>
         </RelativeLayout>
         <RelativeLayout
@@ -172,25 +167,22 @@
             android:layout_marginBottom="10dp"
             android:gravity="center">
             <Button
+                style="@style/ButtonRelayTheme"
                 android:id="@+id/btnSubscribe"
-                android:layout_width="130dp"
+                android:layout_width="136dp"
                 android:layout_height="wrap_content"
-                android:drawableBottom="@drawable/ic_button_subscriptions"
+                android:drawableTop="@drawable/ic_button_subscriptions"
                 android:padding="15dp"
-                android:background="@drawable/shape_btn"
-                android:textColor="@color/colorTextButton"
                 android:text="@string/subscribeText"/>
             <Button
+                style="@style/ButtonRelayTheme"
                 android:id="@+id/btnUnsubscribe"
-                android:layout_width="130dp"
+                android:layout_width="136dp"
                 android:layout_height="wrap_content"
-                android:drawableBottom="@drawable/ic_button_unsubscribe"
+                android:drawableTop="@drawable/ic_button_unsubscribe"
                 android:layout_toEndOf="@+id/btnSubscribe"
-                android:layout_toRightOf="@+id/btnSubscribe"
                 android:layout_marginLeft="10dp"
                 android:padding="15dp"
-                android:background="@drawable/shape_btn"
-                android:textColor="@color/colorTextButton"
                 android:text="@string/unsubscribeText"/>
         </RelativeLayout>
         <RelativeLayout
@@ -220,6 +212,7 @@
                 android:gravity="center"
                 android:textColor="@color/colorTextHist"
                 android:text="@string/message_arrived" />
+
         </RelativeLayout>
 
     </LinearLayout>

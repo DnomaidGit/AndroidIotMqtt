@@ -109,5 +109,8 @@
     <string name="name_device">Name Device</string>
     <string name="info">Info.</string>
     <string name="delete">Delete</string>
+    <string name="_00_00">00.00</string>
+    <string name="history">History</string>
+    <string name="name">name</string>
 
 </resources>

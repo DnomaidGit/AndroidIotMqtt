@@ -5,21 +5,13 @@
     android:layout_height="match_parent"
     android:background ="@color/colorBackgroundDashboard"
     tools:context=".ui.relay.RelayFragment">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp"
-        android:orientation="vertical">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp">
+            android:layout_marginTop="10dp">
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViRelayDevice"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
         </RelativeLayout>
-    </LinearLayout>
 </ScrollView>

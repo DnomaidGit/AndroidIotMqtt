@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background ="@color/colorBackgroundDashboard">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBackgroundDashboard">
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,54 +21,40 @@
             </TextView>
         </LinearLayout>
     <!--Sensor-->
-    <RelativeLayout
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:gravity="center">
-            <TextView
-                android:id="@+id/txtViTemp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="2dp"
-                android:layout_centerVertical="true"
-                android:textSize="16dp"
-                android:textColor="@color/colorTextMain"
-                android:text="@string/TemperatureText" />
-
-            <TextView
-                android:id="@+id/textViTemp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@+id/txtViTemp"
-                android:layout_toRightOf="@+id/txtViTemp"
-                android:textSize="30dp"
-                android:textColor="@color/colorTextTemp"
-                android:text="00.00" />
-            <TextView
-                android:id="@+id/txtViHum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="2dp"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@+id/textViTemp"
-                android:layout_toRightOf="@+id/textViTemp"
-                android:textSize="16dp"
-                android:text="@string/HumidityText"
-                android:textColor="@color/colorTextMain"/>
-            <TextView
-                android:id="@+id/textViHum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@+id/txtViHum"
-                android:layout_toRightOf="@+id/txtViHum"
-                android:textSize="30dp"
-                android:textColor="@color/colorTextTemp"
-                android:text="00.00" />
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/textViTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_00_00"
+            android:textColor="@color/colorTextTemp"
+            android:textSize="30sp" />
+        <ImageView
+            android:id="@+id/imaViTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/ic_celsius_degrees"
+            tools:ignore="ContentDescription" />
+        <TextView
+            android:id="@+id/textViHum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/_00_00"
+            android:textColor="@color/colorTextTemp"
+            android:textSize="30sp" />
+        <ImageView
+            android:id="@+id/imaViHum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/ic_weather_humidity"
+            tools:ignore="ContentDescription" />
+    </LinearLayout>
 
 </RelativeLayout>

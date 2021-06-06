@@ -372,19 +372,20 @@
         </RelativeLayout>
         <!--Save-->
         <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:gravity="center">
+
             <Button
                 android:id="@+id/btnSaveSettingConnection"
+                style="@style/ButtonRelayTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_button_save"
+                android:drawableTop="@drawable/ic_button_save"
                 android:padding="15dp"
-                android:background="@drawable/shape_btn"
-                android:text="@string/saveText"/>
+                android:text="@string/saveText" />
         </RelativeLayout>
 
     </LinearLayout>

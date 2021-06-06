@@ -1,6 +1,6 @@
 package com.dnomaid.mqtt.ui.relay;
 
-import android.graphics.Color;
+import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,16 +15,18 @@ public class RelayViewHolder extends RecyclerView.ViewHolder implements View.OnC
     private RelayRecyclerViClickList mListener;
     private TextView name;
     private Button RelayON,RelayOFF;
+    private Context context;
 
-    public RelayViewHolder(@NonNull View itemView, RelayRecyclerViClickList listener) {
+    public RelayViewHolder(@NonNull View itemView, RelayRecyclerViClickList listener, Context context) {
         super(itemView);
+        this.context = context;
         mListener = listener;
         name = itemView.findViewById(R.id.textViNameRelay);
         RelayON = itemView.findViewById(R.id.btnRelayON);
-        RelayON.setTextColor(Color.WHITE);
+        RelayON.setTextColor(context.getResources().getColor(R.color.colorPrimary));
         RelayON.setOnClickListener(this);
         RelayOFF = itemView.findViewById(R.id.btnRelayOFF);
-        RelayOFF.setTextColor(Color.WHITE);
+        RelayOFF.setTextColor(context.getResources().getColor(R.color.colorPrimary));
         RelayOFF.setOnClickListener(this);
     }
     @Override
@@ -34,18 +36,19 @@ public class RelayViewHolder extends RecyclerView.ViewHolder implements View.OnC
     public void setNameRelay(String name) {
         this.name.setText(name);
     }
+
     public void setTextColorButton (String power){
         if(power != null) {
             switch (power) {
                 case "ON":
-                    RelayON.setTextColor(Color.parseColor("#13da33"));
+                    RelayON.setTextColor(context.getResources().getColor(R.color.colorTextButtonRelayON));
                     break;
                 case "OFF":
-                    RelayOFF.setTextColor(Color.RED);
+                    RelayOFF.setTextColor(context.getResources().getColor(R.color.colorTextButtonRelayOFF));
                     break;
                 default:
-                    RelayON.setTextColor(Color.WHITE);
-                    RelayOFF.setTextColor(Color.WHITE);
+                    RelayON.setTextColor(context.getResources().getColor(R.color.colorPrimary));
+                    RelayOFF.setTextColor(context.getResources().getColor(R.color.colorPrimary));
             }
         }
     }

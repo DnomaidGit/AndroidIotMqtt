@@ -5,8 +5,8 @@
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="textSizeInfo">20dp</dimen>
-    <dimen name="textSizeInfoMini">16dp</dimen>
-    <dimen name="textSizeTitle">20dp</dimen>
-    <dimen name="textSizeUser">20dp</dimen>
+    <dimen name="textSizeInfo">20sp</dimen>
+    <dimen name="textSizeInfoMini">16sp</dimen>
+    <dimen name="textSizeTitle">20sp</dimen>
+    <dimen name="textSizeUser">20sp</dimen>
 </resources>

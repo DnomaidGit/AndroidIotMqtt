@@ -34,7 +34,7 @@ public class RelayDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         View v = LayoutInflater.from(context).inflate(R.layout.relay_list, null, false);
-        return new RelayViewHolder(v, mListener);
+        return new RelayViewHolder(v, mListener,context);
     }
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
