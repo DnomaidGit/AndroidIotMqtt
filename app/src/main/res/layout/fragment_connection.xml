@@ -8,141 +8,145 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
         <!--Connection-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
                 android:background="@drawable/shape_title"
-                android:textColor="@color/colorTextTitle"
+                android:gravity="center"
                 android:text="@string/connectionText"
-                android:textSize="@dimen/textSizeTitle">
-            </TextView>
+                android:textColor="@color/colorTextTitle"
+                android:textSize="@dimen/textSizeTitle"></TextView>
         </RelativeLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp">
-            <TextView
-                android:id="@+id/textViServ"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="32dp"
-                android:text="@string/serverText"
-                android:textColor="@color/colorTextMain"
-                android:textSize="@dimen/textSizeInfo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textViServer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/textViServ"
-                android:text="@string/serverURIHint"
-                android:textColor="@color/colorTextUser"
-                android:textSize="@dimen/textSizeInfo"
-                android:textStyle="italic" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp">
-
-            <TextView
-                android:id="@+id/textViPor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="52dip"
-                android:text="@string/portText"
-                android:textColor="@color/colorTextMain"
-                android:textSize="@dimen/textSizeInfo"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textViPort"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/textViPor"
-                android:text="@string/portHint"
-                android:textColor="@color/colorTextUser"
-                android:textSize="@dimen/textSizeInfo"
-                android:textStyle="italic" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp">
-            <TextView
-                android:id="@+id/textViClientI"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="17dip"
-                android:text="@string/clientIdText"
-                android:textColor="@color/colorTextMain"
-                android:textSize="@dimen/textSizeInfo"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/textViClientId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@+id/textViClientI"
-                android:textSize="@dimen/textSizeInfo"
-                android:textColor="@color/colorTextUser"
-                android:text="@string/clientIdHint"
-                android:textStyle="italic"/>
-        </RelativeLayout>
-        <RelativeLayout
+            android:layout_height="match_parent"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViServ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/serverText"
+                    android:textColor="@color/colorTextMain"
+                    android:textSize="@dimen/textSizeInfo"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViPor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/portText"
+                    android:textColor="@color/colorTextMain"
+                    android:textSize="@dimen/textSizeInfo"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViClientI"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/clientIdText"
+                    android:textColor="@color/colorTextMain"
+                    android:textSize="@dimen/textSizeInfo"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViServer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/serverURIHint"
+                    android:textColor="@color/colorTextUser"
+                    android:textSize="@dimen/textSizeInfo"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/textViPort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/portHint"
+                    android:textColor="@color/colorTextUser"
+                    android:textSize="@dimen/textSizeInfo"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/textViClientId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/clientIdHint"
+                    android:textColor="@color/colorTextUser"
+                    android:textSize="@dimen/textSizeInfo"
+                    android:textStyle="italic" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
             <Button
-                style="@style/ButtonRelayTheme"
                 android:id="@+id/btnConnect"
+                style="@style/ButtonRelayTheme"
                 android:layout_width="136dp"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/ic_button_connect"
                 android:padding="15dp"
-                android:text="@string/connectText"/>
+                android:text="@string/connectText" />
+
             <Button
-                style="@style/ButtonRelayTheme"
                 android:id="@+id/btnDisconnect"
+                style="@style/ButtonRelayTheme"
                 android:layout_width="136dp"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_button_stop"
+                android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/btnConnect"
-                android:layout_marginLeft="10dp"
+                android:drawableTop="@drawable/ic_button_stop"
                 android:padding="15dp"
-                android:text="@string/disconnectText"/>
+                android:text="@string/disconnectText" />
         </RelativeLayout>
+
         <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:gravity="center">
+
             <TextView
                 android:id="@+id/textViConnect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:textStyle="bold"
+                android:text="@string/connectstatus"
                 android:textColor="@color/colorTextStatus"
-                android:text="@string/connectstatus" />
+                android:textStyle="bold" />
         </RelativeLayout>
         <!--Topic-->
         <RelativeLayout
@@ -150,41 +154,45 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
                 android:background="@drawable/shape_title"
-                android:textColor="@color/colorTextTitle"
+                android:gravity="center"
                 android:text="@string/topicText"
-                android:textSize="@dimen/textSizeTitle">
-            </TextView>
+                android:textColor="@color/colorTextTitle"
+                android:textSize="@dimen/textSizeTitle"></TextView>
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:gravity="center">
+
             <Button
-                style="@style/ButtonRelayTheme"
                 android:id="@+id/btnSubscribe"
+                style="@style/ButtonRelayTheme"
                 android:layout_width="136dp"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/ic_button_subscriptions"
                 android:padding="15dp"
-                android:text="@string/subscribeText"/>
+                android:text="@string/subscribeText" />
+
             <Button
-                style="@style/ButtonRelayTheme"
                 android:id="@+id/btnUnsubscribe"
+                style="@style/ButtonRelayTheme"
                 android:layout_width="136dp"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_button_unsubscribe"
+                android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/btnSubscribe"
-                android:layout_marginLeft="10dp"
+                android:drawableTop="@drawable/ic_button_unsubscribe"
                 android:padding="15dp"
-                android:text="@string/unsubscribeText"/>
+                android:text="@string/unsubscribeText" />
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -200,18 +208,20 @@
                 android:textColor="@color/colorTextStatus"
                 android:textStyle="bold" />
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center">
+
             <TextView
                 android:id="@+id/textViMessageArrived"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@color/colorTextHist"
-                android:text="@string/message_arrived" />
+                android:text="@string/message_arrived"
+                android:textColor="@color/colorTextHist" />
 
         </RelativeLayout>
 

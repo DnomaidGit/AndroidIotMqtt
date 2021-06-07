@@ -8,38 +8,39 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
         <!--Type Device-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
                 android:background="@drawable/shape_title"
-                android:textColor="@color/colorTextTitle"
+                android:gravity="center"
                 android:text="@string/typeDevice"
-                android:textSize="@dimen/textSizeTitle">
-            </TextView>
+                android:textColor="@color/colorTextTitle"
+                android:textSize="@dimen/textSizeTitle"></TextView>
         </RelativeLayout>
+
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
+
             <Spinner
                 android:id="@+id/deviceSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-            />
+                android:layout_gravity="center" />
         </LinearLayout>
         <!--Number Device-->
         <RelativeLayout
@@ -47,32 +48,33 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
                 android:background="@drawable/shape_title"
-                android:textColor="@color/colorTextTitle"
+                android:gravity="center"
                 android:text="@string/numberDevice"
-                android:textSize="@dimen/textSizeTitle">
-            </TextView>
+                android:textColor="@color/colorTextTitle"
+                android:textSize="@dimen/textSizeTitle"></TextView>
         </RelativeLayout>
+
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
+
             <Spinner
                 android:id="@+id/spinnerNumberDevice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:text="@string/name"
                 android:textAlignment="center"
-                android:text="name"
-                android:textColor="@color/colorTextMain"
-                />
+                android:textColor="@color/colorTextMain" />
         </LinearLayout>
         <!--Number Device-->
         <RelativeLayout
@@ -80,32 +82,37 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
                 android:background="@drawable/shape_title"
+                android:gravity="center"
+                android:text="@string/alias_device"
                 android:textColor="@color/colorTextTitle"
-                android:text="Alias Device"
-                android:textSize="@dimen/textSizeTitle">
-            </TextView>
+                android:textSize="@dimen/textSizeTitle"
+            ></TextView>
         </RelativeLayout>
+
+
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
+
             <EditText
                 android:id="@+id/aliasDeviceUser"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.22"
+                android:autofillHints=""
                 android:ems="10"
-                android:hint="name"
-                android:textAlignment="center"
+                android:hint="@string/name"
                 android:inputType="text"
+                android:textAlignment="center"
                 android:textSize="@dimen/textSizeUser" />
         </LinearLayout>
         <!--Add Device-->
@@ -114,30 +121,32 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
                 android:background="@drawable/shape_title"
-                android:textColor="@color/colorTextTitle"
+                android:gravity="center"
                 android:text="@string/addDevice"
-                android:textSize="@dimen/textSizeTitle">
-            </TextView>
+                android:textColor="@color/colorTextTitle"
+                android:textSize="@dimen/textSizeTitle"></TextView>
         </RelativeLayout>
+
         <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:gravity="center">
+
             <Button
-                style="@style/ButtonRelayTheme"
                 android:id="@+id/btnAddDevice"
+                style="@style/ButtonRelayTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/ic_button_add"
                 android:padding="15dp"
-                android:text="@string/addText"/>
+                android:text="@string/addText" />
         </RelativeLayout>
 
     </LinearLayout>
