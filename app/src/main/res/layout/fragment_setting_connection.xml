@@ -5,339 +5,231 @@
     android:layout_height="match_parent"
     android:background ="@color/colorBackgroundSetting"
     tools:context=".ui.settingConnection.SettingConnectionFragment">
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="8dp"
         android:orientation="vertical">
-        <!--Connection-->
         <!--Server-->
         <LinearLayout
             android:id="@+id/serverGroup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/serverTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="71dp"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="34dip"
-                android:textColor="@color/colorTextMain"
-                android:text="@string/serverText"
-                android:textSize="@dimen/textSizeInfo"
-                android:textStyle="bold"/>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <EditText
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/EditTextTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                android:hint="@string/serverURIHint">
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/serverUser"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.22"
-                    android:ems="10"
-                    android:hint="@string/serverURIHint"
-                    android:inputType="text"
-                    android:textSize="@dimen/textSizeUser" />
-                <TextView
-                    android:id="@+id/serverSetting"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/serverUser"
-                    android:textColor="@color/colorTextUser"
-                    android:text="@string/serverURIHint"
-                    android:textSize="@dimen/textSizeInfoMini"
-                    android:textStyle="italic"/>
-            </RelativeLayout>
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/serverSetting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/serverText"
+                android:textColor="@color/colorTextUser"
+                android:textSize="@dimen/textSizeInfoMini"
+                android:textStyle="italic" />
         </LinearLayout>
         <!--Port-->
         <LinearLayout
             android:id="@+id/portGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/serverGroup">
-            <TextView
-                android:id="@+id/portTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="71dp"
-                android:textSize="@dimen/textSizeInfo"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="55dip"
-                android:textColor="@color/colorTextMain"
-                android:text="@string/portText"
-                android:textStyle="bold"/>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <EditText
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/EditTextTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterEnabled="true"
+                app:counterMaxLength="4"
+                android:hint="@string/portHint">
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/portUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.22"
-                    android:ems="10"
-                    android:maxLength="4"
-                    android:hint="@string/portHint"
-                    android:inputType="number"
-                    android:textSize="@dimen/textSizeUser"/>
-                <TextView
-                    android:id="@+id/portSetting"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/portUser"
-                    android:textColor="@color/colorTextUser"
-                    android:text="@string/portHint"
-                    android:textSize="@dimen/textSizeInfoMini"
-                    android:textStyle="italic"/>
-            </RelativeLayout>
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/portSetting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/portText"
+                android:textColor="@color/colorTextUser"
+                android:textSize="@dimen/textSizeInfoMini"
+                android:textStyle="italic" />
         </LinearLayout>
         <!--Client ID-->
         <LinearLayout
             android:id="@+id/clientIdGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/portGroup">
-            <TextView
-                android:id="@+id/clientIDTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="71dp"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="20dip"
-                android:text="@string/clientIdText"
-                android:textColor="@color/colorTextMain"
-                android:textSize="@dimen/textSizeInfo"
-                android:textStyle="bold"/>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <EditText
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/EditTextTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                android:hint="@string/clientIdHint">
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/clientIdUser"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.22"
-                    android:ems="10"
-                    android:hint="@string/clientIdHint"
-                    android:inputType="text"
-                    android:textSize="@dimen/textSizeUser"/>
-                <TextView
-                    android:id="@+id/clientIdSetting"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/clientIdUser"
-                    android:textColor="@color/colorTextUser"
-                    android:text="@string/clientIdHint"
-                    android:textSize="@dimen/textSizeInfoMini"
-                    android:textStyle="italic"/>
-            </RelativeLayout>
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/clientIdSetting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/clientIdText"
+                android:textColor="@color/colorTextUser"
+                android:textSize="@dimen/textSizeInfoMini"
+                android:textStyle="italic" />
         </LinearLayout>
         <!--Clean Session-->
         <LinearLayout
             android:id="@+id/cleanSessionGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/clientIdGroup" >
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
+            <CheckBox
+                android:id="@+id/cleanSessionCheckBoxUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/contentDescriptionCleanSession" />
             <TextView
-                android:id="@+id/cleanSessionTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="71dp"
-                android:textSize="@dimen/textSizeInfo"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="25dip"
-                android:textColor="@color/colorTextMain"
-                android:text="@string/cleanSessionText"
-                android:textStyle="bold"/>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <CheckBox
-                    android:id="@+id/cleanSessionCheckBoxUser"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/contentDescriptionCleanSession"
-                    android:text="@string/empty" />
-                <TextView
-                    android:id="@+id/cleanSessionSetting"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/cleanSessionCheckBoxUser"
-                    android:textColor="@color/colorTextUser"
-                    android:text="@string/empty"
-                    android:textSize="@dimen/textSizeInfoMini"
-                    android:textStyle="italic"/>
-            </RelativeLayout>
+                android:id="@+id/cleanSessionSetting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/empty"
+                android:textColor="@color/colorTextUser"
+                android:textSize="@dimen/textSizeInfoMini"
+                android:textStyle="italic" />
         </LinearLayout>
         <!--Time Out-->
         <LinearLayout
             android:id="@+id/timeOutGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/cleanSessionGroup" >
-            <TextView
-                android:id="@+id/timeOutTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="71dp"
-                android:textSize="@dimen/textSizeInfo"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="19dip"
-                android:textColor="@color/colorTextMain"
-                android:text="@string/timeOutText"
-                android:textStyle="bold"/>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <EditText
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/EditTextTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterEnabled="true"
+                app:counterMaxLength="2"
+                android:hint="@string/timeOutHint">
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/timeOutUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.22"
-                    android:ems="10"
-                    android:maxLength="2"
-                    android:hint="@string/timeOutHint"
-                    android:inputType="number"
-                    android:textSize="@dimen/textSizeUser"/>
-                <TextView
-                    android:id="@+id/timeOutSetting"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/timeOutUser"
-                    android:textColor="@color/colorTextUser"
-                    android:text="@string/timeOutHint"
-                    android:textSize="@dimen/textSizeInfoMini"
-                    android:textStyle="italic"/>
-            </RelativeLayout>
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/timeOutSetting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/timeOutText"
+                android:textColor="@color/colorTextUser"
+                android:textSize="@dimen/textSizeInfoMini"
+                android:textStyle="italic" />
         </LinearLayout>
         <!--KeepAlive-->
         <LinearLayout
             android:id="@+id/keepAliveGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/timeOutGroup" >
-            <TextView
-                android:id="@+id/keepAliveTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="71dp"
-                android:textSize="@dimen/textSizeInfo"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="14dip"
-                android:textColor="@color/colorTextMain"
-                android:text="@string/keepAliveText"
-                android:textStyle="bold"/>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <EditText
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/EditTextTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterEnabled="true"
+                app:counterMaxLength="2"
+                android:hint="@string/keepAliveHint">
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/keepAliveUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.22"
-                    android:ems="10"
-                    android:maxLength="2"
-                    android:hint="@string/keepAliveHint"
-                    android:inputType="number"
-                    android:textSize="@dimen/textSizeUser"/>
-                <TextView
-                    android:id="@+id/keepAliveSetting"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/keepAliveUser"
-                    android:textColor="@color/colorTextUser"
-                    android:text="@string/keepAliveHint"
-                    android:textSize="@dimen/textSizeInfoMini"
-                    android:textStyle="italic"/>
-            </RelativeLayout>
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/keepAliveSetting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/keepAliveText"
+                android:textColor="@color/colorTextUser"
+                android:textSize="@dimen/textSizeInfoMini"
+                android:textStyle="italic" />
         </LinearLayout>
         <!--Username-->
         <LinearLayout
             android:id="@+id/usernameGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/keepAliveGroup" >
-            <TextView
-                android:id="@+id/usernameTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="71dp"
-                android:textSize="@dimen/textSizeInfo"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="14dip"
-                android:textColor="@color/colorTextMain"
-                android:text="@string/usernameText"
-                android:textStyle="bold"/>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <EditText
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/EditTextTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                android:hint="@string/usernameHint">
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/usernameUser"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.22"
-                    android:ems="10"
-                    android:hint="@string/usernameHint"
-                    android:inputType="text"
-                    android:textSize="@dimen/textSizeUser"/>
-                <TextView
-                    android:id="@+id/usernameSetting"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/usernameUser"
-                    android:textColor="@color/colorTextUser"
-                    android:text="@string/usernameHint"
-                    android:textSize="@dimen/textSizeInfoMini"
-                    android:textStyle="italic"/>
-            </RelativeLayout>
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/usernameSetting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/usernameText"
+                android:textColor="@color/colorTextUser"
+                android:textSize="@dimen/textSizeInfoMini"
+                android:textStyle="italic" />
         </LinearLayout>
         <!--Password-->
         <LinearLayout
             android:id="@+id/passwordGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/usernameGroup" >
-            <TextView
-                android:id="@+id/passwordTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="71dp"
-                android:textSize="@dimen/textSizeInfo"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="14dip"
-                android:textColor="@color/colorTextMain"
-                android:text="@string/passwordText"
-                android:textStyle="bold"/>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <EditText
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/EditTextTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                app:endIconMode="password_toggle"
+                android:hint="@string/passwordHint">
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.22"
-                    android:ems="10"
-                    android:hint="@string/passwordHint"
-                    android:inputType="textPassword"
-                    android:textSize="@dimen/textSizeUser"/>
-                <TextView
-                    android:id="@+id/passwordSetting"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/passwordUser"
-                    android:inputType="textPassword"
-                    android:textColor="@color/colorTextUser"
-                    android:text="@string/passwordHint"
-                    android:textSize="@dimen/textSizeInfoMini"
-                    android:textStyle="italic"/>
-            </RelativeLayout>
+                    android:inputType="textPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/passwordSetting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/passwordHint"
+                android:textColor="@color/colorTextUser"
+                android:textSize="@dimen/textSizeInfoMini"
+                android:textStyle="italic"/>
         </LinearLayout>
         <!--Save-->
         <RelativeLayout

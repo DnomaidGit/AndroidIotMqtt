@@ -6,7 +6,8 @@
     <string name="nav_header_subtitle">Dnomaid</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_setting_device">Setting Device</string>
-
+    <string name="empty"> </string>
+    <!-- Menu -->
     <string name="menu_connection">Connection</string>
     <string name="menu_relay">Relay</string>
     <string name="menu_temperature">Temperature</string>
@@ -14,8 +15,6 @@
     <string name="menu_setting">Setting</string>
     <string name="menu_settingConnection">Setting Connection</string>
     <string name="menu_addDevice">Add Device</string>
-
-    <string name="empty"> </string>
     <!-- Fragment -->
     <string name="serverText">Server</string>
     <string name="portText">Port</string>
@@ -35,10 +34,18 @@
     <string name="TemperatureText">Temperature</string>
     <string name="HumidityText">Humidity</string>
     <!-- Hints -->
-    <string name="serverURIHint">0.0.0.0 (tcp)</string>
-    <string name="portHint">0000</string>
-    <string name="clientIdHint">ClientIdAndroidDnomaid</string>
+    <string name="serverURIHint">Server</string>
+    <string name="portHint">Port</string>
+    <string name="clientIdHint">ClientId</string>
+    <string name="timeOutHint">Time Out</string>
+    <string name="keepAliveHint">KeepAlive</string>
+    <string name="usernameHint">Username</string>
+    <string name="passwordHint">Password</string>
     <!-- ContentDescription -->
+    <string name="timeOutText">Time Out</string>
+    <string name="keepAliveText">KeepAlive</string>
+    <string name="usernameText">Username</string>
+    <string name="passwordText">Password</string>
     <string name="contentDescriptionCleanSession">Clean Session</string>
     <!-- Notify -->
     <string name="client_connecting">Client connecting___</string>
@@ -76,7 +83,7 @@
     <!-- New  -->
     <string name="device">Device</string>
     <string name="numDeviceText">Number Device</string>
-    <string name="numberDeviceHint">1</string>
+    <string name="numberDeviceHint">Number Device</string>
     <string name="typeDeviceText">Type Device</string>
     <string name="failedPersistDev">"Failed to persist device"</string>
     <string name="restoreDevice">"Restore device"</string>
@@ -93,14 +100,6 @@
     <string name="menu_setting_device">Device</string>
     <string name="action_setting_connection">Setting Connection</string>
     <string name="action_addDevice">Add Device</string>
-    <string name="timeOutText">Time Out</string>
-    <string name="timeOutHint">0 (s)</string>
-    <string name="keepAliveText">KeepAlive</string>
-    <string name="keepAliveHint">0 (s)</string>
-    <string name="usernameText">Username</string>
-    <string name="usernameHint">Username</string>
-    <string name="passwordText">Password</string>
-    <string name="passwordHint">Password</string>
     <string name="saveText">Save</string>
     <string name="connectstatus">ConnectStatus</string>
     <string name="subscribestatus">SubscribeStatus</string>
