@@ -3,7 +3,7 @@
     android:shape="rectangle">
     <stroke
         android:width="2sp"
-        android:color="@color/colorBackground1Button"
+        android:color="#FFFFFFFF"
     ></stroke>
     <padding
         android:left="2sp"
@@ -17,4 +17,10 @@
     <solid
         android:color="@color/colorBackgroundTitle"
     ></solid>
+    <gradient
+        android:angle="0"
+        android:centerColor="#0C616161"
+        android:startColor="@color/colorBackgroundTitle"
+        android:endColor="#FFFFFF"
+        android:type="linear" />
 </shape>

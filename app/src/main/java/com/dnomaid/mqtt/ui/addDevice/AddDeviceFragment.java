@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -29,7 +30,7 @@ public class AddDeviceFragment extends Fragment {
 
     private View view;
     private Button btnAddDevice;
-    private Spinner spinnerNumberDevice;
+    private AutoCompleteTextView spinnerNumberDevice;
     private Activity activity;
     private ActionsDevice actions;
 

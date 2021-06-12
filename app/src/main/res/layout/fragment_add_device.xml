@@ -5,37 +5,20 @@
     android:layout_height="match_parent"
     android:background ="@color/colorBackgroundSetting"
     tools:context=".ui.addDevice.AddDeviceFragment">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
         <!--Type Device-->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/shape_title"
-                android:gravity="center"
-                android:text="@string/typeDevice"
-                android:textColor="@color/colorTextTitle"
-                android:textSize="@dimen/textSizeTitle"></TextView>
-        </RelativeLayout>
-
         <LinearLayout
+            style="@style/SpinnerTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:gravity="center"
             android:orientation="horizontal">
-
             <Spinner
                 android:id="@+id/deviceSpinner"
                 android:layout_width="match_parent"
@@ -43,102 +26,39 @@
                 android:layout_gravity="center" />
         </LinearLayout>
         <!--Number Device-->
-        <RelativeLayout
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/SpinnerTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/shape_title"
-                android:gravity="center"
-                android:text="@string/numberDevice"
-                android:textColor="@color/colorTextTitle"
-                android:textSize="@dimen/textSizeTitle"></TextView>
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <Spinner
+            android:hint="@string/numberDevice">
+            <AutoCompleteTextView
                 android:id="@+id/spinnerNumberDevice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/name"
-                android:textAlignment="center"
-                android:textColor="@color/colorTextMain" />
-        </LinearLayout>
+                android:inputType="none"
+                tools:ignore="LabelFor"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
         <!--Number Device-->
-        <RelativeLayout
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/EditTextTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/shape_title"
-                android:gravity="center"
-                android:text="@string/alias_device"
-                android:textColor="@color/colorTextTitle"
-                android:textSize="@dimen/textSizeTitle"
-            ></TextView>
-        </RelativeLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <EditText
+            android:hint="@string/alias_device">
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/aliasDeviceUser"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.22"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint="@string/name"
-                android:inputType="text"
-                android:textAlignment="center"
-                android:textSize="@dimen/textSizeUser" />
-        </LinearLayout>
+                />
+        </com.google.android.material.textfield.TextInputLayout>
         <!--Add Device-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/shape_title"
-                android:gravity="center"
-                android:text="@string/addDevice"
-                android:textColor="@color/colorTextTitle"
-                android:textSize="@dimen/textSizeTitle"></TextView>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center">
-
             <Button
                 android:id="@+id/btnAddDevice"
                 style="@style/ButtonRelayTheme"
@@ -148,6 +68,5 @@
                 android:padding="15dp"
                 android:text="@string/addText" />
         </RelativeLayout>
-
     </LinearLayout>
 </ScrollView>

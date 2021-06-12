@@ -12,21 +12,6 @@
         android:padding="8dp"
         android:orientation="vertical">
         <!--Connection-->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:background="@drawable/shape_title"
-                android:textColor="@color/colorTextTitle"
-                android:text="@string/connectionText"
-                android:textSize="@dimen/textSizeTitle">
-            </TextView>
-        </RelativeLayout>
         <!--Server-->
         <LinearLayout
             android:id="@+id/serverGroup"
@@ -357,27 +342,10 @@
         <!--Save-->
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:background="@drawable/shape_title"
-                android:textColor="@color/colorTextTitle"
-                android:text="@string/saveText"
-                android:textSize="@dimen/textSizeTitle">
-            </TextView>
-        </RelativeLayout>
-        <!--Save-->
-        <RelativeLayout
-            android:layout_width="match_parent"
             android:layout_height="105dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:gravity="center">
-
             <Button
                 android:id="@+id/btnSaveSettingConnection"
                 style="@style/ButtonRelayTheme"
@@ -387,6 +355,5 @@
                 android:padding="15dp"
                 android:text="@string/saveText" />
         </RelativeLayout>
-
     </LinearLayout>
 </ScrollView>

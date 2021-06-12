@@ -5,42 +5,23 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackgroundClientMqtt"
     tools:context=".ui.connection.ConnectionFragment">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
         <!--Connection-->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/shape_title"
-                android:gravity="center"
-                android:text="@string/connectionText"
-                android:textColor="@color/colorTextTitle"
-                android:textSize="@dimen/textSizeTitle"></TextView>
-        </RelativeLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:orientation="vertical">
-
                 <TextView
                     android:id="@+id/textViServ"
                     android:layout_width="wrap_content"
@@ -49,7 +30,6 @@
                     android:textColor="@color/colorTextMain"
                     android:textSize="@dimen/textSizeInfo"
                     android:textStyle="bold" />
-
                 <TextView
                     android:id="@+id/textViPor"
                     android:layout_width="wrap_content"
@@ -58,7 +38,6 @@
                     android:textColor="@color/colorTextMain"
                     android:textSize="@dimen/textSizeInfo"
                     android:textStyle="bold" />
-
                 <TextView
                     android:id="@+id/textViClientI"
                     android:layout_width="wrap_content"
@@ -68,13 +47,11 @@
                     android:textSize="@dimen/textSizeInfo"
                     android:textStyle="bold" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:orientation="vertical">
-
                 <TextView
                     android:id="@+id/textViServer"
                     android:layout_width="wrap_content"
@@ -83,7 +60,6 @@
                     android:textColor="@color/colorTextUser"
                     android:textSize="@dimen/textSizeInfo"
                     android:textStyle="italic" />
-
                 <TextView
                     android:id="@+id/textViPort"
                     android:layout_width="wrap_content"
@@ -92,7 +68,6 @@
                     android:textColor="@color/colorTextUser"
                     android:textSize="@dimen/textSizeInfo"
                     android:textStyle="italic" />
-
                 <TextView
                     android:id="@+id/textViClientId"
                     android:layout_width="wrap_content"
@@ -103,14 +78,12 @@
                     android:textStyle="italic" />
             </LinearLayout>
         </LinearLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:gravity="center">
-
             <Button
                 android:id="@+id/btnConnect"
                 style="@style/ButtonRelayTheme"
@@ -119,7 +92,6 @@
                 android:drawableTop="@drawable/ic_button_connect"
                 android:padding="15dp"
                 android:text="@string/connectText" />
-
             <Button
                 android:id="@+id/btnDisconnect"
                 style="@style/ButtonRelayTheme"
@@ -131,7 +103,6 @@
                 android:padding="15dp"
                 android:text="@string/disconnectText" />
         </RelativeLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -152,26 +123,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/shape_title"
-                android:gravity="center"
-                android:text="@string/topicText"
-                android:textColor="@color/colorTextTitle"
-                android:textSize="@dimen/textSizeTitle"></TextView>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:gravity="center">
-
             <Button
                 android:id="@+id/btnSubscribe"
                 style="@style/ButtonRelayTheme"
@@ -180,7 +134,6 @@
                 android:drawableTop="@drawable/ic_button_subscriptions"
                 android:padding="15dp"
                 android:text="@string/subscribeText" />
-
             <Button
                 android:id="@+id/btnUnsubscribe"
                 style="@style/ButtonRelayTheme"
@@ -192,14 +145,12 @@
                 android:padding="15dp"
                 android:text="@string/unsubscribeText" />
         </RelativeLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:gravity="center">
-
             <TextView
                 android:id="@+id/textViSubscribe"
                 android:layout_width="wrap_content"
@@ -208,13 +159,11 @@
                 android:textColor="@color/colorTextStatus"
                 android:textStyle="bold" />
         </RelativeLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center">
-
             <TextView
                 android:id="@+id/textViMessageArrived"
                 android:layout_width="wrap_content"
@@ -222,8 +171,6 @@
                 android:gravity="center"
                 android:text="@string/message_arrived"
                 android:textColor="@color/colorTextHist" />
-
         </RelativeLayout>
-
     </LinearLayout>
 </ScrollView>

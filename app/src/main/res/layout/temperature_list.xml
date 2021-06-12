@@ -13,7 +13,7 @@
                 android:id="@+id/textViNameTemp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
+                android:paddingStart="10dp"
                 android:background="@drawable/shape_title"
                 android:textColor="@color/colorTextTitle"
                 android:text="@string/SensorText"
