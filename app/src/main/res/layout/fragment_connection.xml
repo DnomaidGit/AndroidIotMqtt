@@ -27,7 +27,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textViServ"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/serverText"
@@ -36,7 +35,6 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViPor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/portText"
@@ -45,7 +43,6 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViClientI"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/clientIdText"

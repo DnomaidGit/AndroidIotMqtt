@@ -8,5 +8,4 @@
     <dimen name="textSizeInfo">20sp</dimen>
     <dimen name="textSizeInfoMini">16sp</dimen>
     <dimen name="textSizeTitle">20sp</dimen>
-    <dimen name="textSizeUser">20sp</dimen>
 </resources>

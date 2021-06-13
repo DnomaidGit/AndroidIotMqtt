@@ -29,7 +29,7 @@ public class SettingConnectionFragment extends Fragment {
     private EditText serverUser, portUser, clientIdUser, timeOutUser, keepAliveUser, usernameUser, passwordUser;
     private CheckBox cleanSessionCheckBoxUser;
     private TextView serverSetting, portSetting, clientIdSetting, cleanSessionSetting,
-            timeOutSetting, keepAliveSetting, usernameSetting, passwordSetting;
+            timeOutSetting, keepAliveSetting, usernameSetting;
     //private SettingConnectionVMFactory connectionVMFactory;
 
 
@@ -61,7 +61,6 @@ public class SettingConnectionFragment extends Fragment {
         timeOutSetting = view.findViewById(R.id.timeOutSetting);
         keepAliveSetting = view.findViewById(R.id.keepAliveSetting);
         usernameSetting = view.findViewById(R.id.usernameSetting);
-        passwordSetting = view.findViewById(R.id.passwordSetting);
     }
     private void setupEditText(View view) {
         serverUser = view.findViewById(R.id.serverUser);
@@ -85,7 +84,6 @@ public class SettingConnectionFragment extends Fragment {
             timeOutSetting.setText(item.getTimeOut());
             keepAliveSetting.setText(item.getKeepAlive());
             usernameSetting.setText(item.getUsername());
-            passwordSetting.setText(item.getPassword());
         });
         connectionViewModel.updateState();
     }

@@ -1,31 +1,27 @@
 <resources>
     <string name="app_name">DnomaidMqtt</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Client manager mqtt</string>
     <string name="nav_header_subtitle">Dnomaid</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="empty"> </string>
     <!-- Menu -->
     <string name="menu_connection">Connection</string>
     <string name="menu_relay">Relays</string>
     <string name="menu_temperature">Temperatures</string>
     <string name="menu_history">History</string>
-    <string name="menu_setting">Setting</string>
-    <string name="menu_settingConnection">Setting Connection</string>
     <string name="menu_addDevice">Add Device</string>
-    <string name="menu_setting_connection">Connection</string>
+    <string name="menu_setting_connection">Setting Connection</string>
     <string name="menu_setting_device">List Devices</string>
     <string name="option_menu_setting_connection">Setting Connection</string>
     <string name="option_menu_addDevice">Add Device</string>
-    <string name="option_menu_setting_device">Setting List Devices</string>
+    <string name="option_menu_setting_device">List Devices</string>
+    <string name="group_menu_clientmqtt">ClientMqtt</string>
+    <string name="group_menu_dashboard">Dashboard</string>
+    <string name="group_menu_settings">Settings</string>
+    <string name="group_menu_system">System</string>
     <!-- Fragment -->
     <string name="serverText">Server</string>
     <string name="portText">Port</string>
     <string name="clientIdText">Client ID</string>
-    <string name="cleanSessionText">Clean \nSession</string>
-    <string name="connectionText">Connection</string>
-    <string name="topicText">Topic</string>
     <string name="connectText">Connect</string>
     <string name="disconnectText">Disconnect</string>
     <string name="subscribeText">Subscribe</string>
@@ -33,10 +29,25 @@
     <string name="RelayText">::::Relay::::</string>
     <string name="onText">On</string>
     <string name="offText">Off</string>
-    <string name="statusText">Status</string>
     <string name="SensorText">::::Sensor::::</string>
-    <string name="TemperatureText">Temperature</string>
-    <string name="HumidityText">Humidity</string>
+    <string name="addText">Add</string>
+    <string name="numberDevice">Number Device</string>
+    <string name="saveText">Save</string>
+    <string name="connectstatus">ConnectStatus</string>
+    <string name="subscribestatus">SubscribeStatus</string>
+    <string name="message_arrived">Message Arrived</string>
+    <string name="name_device">Name Device</string>
+    <string name="info">Info.</string>
+    <string name="delete">Delete</string>
+    <string name="_00_00">00.00</string>
+    <string name="history">History</string>
+    <string name="name">name</string>
+    <string name="alias_device">Alias Device</string>
+    <string name="message_add">Message Add</string>
+    <string name="timeOutText">Time Out</string>
+    <string name="keepAliveText">KeepAlive</string>
+    <string name="usernameText">Username</string>
+    <string name="contentDescriptionCleanSession">Clean Session</string>
     <!-- Hints -->
     <string name="serverURIHint">Server</string>
     <string name="portHint">Port</string>
@@ -45,12 +56,7 @@
     <string name="keepAliveHint">KeepAlive</string>
     <string name="usernameHint">Username</string>
     <string name="passwordHint">Password</string>
-    <!-- ContentDescription -->
-    <string name="timeOutText">Time Out</string>
-    <string name="keepAliveText">KeepAlive</string>
-    <string name="usernameText">Username</string>
-    <string name="passwordText">Password</string>
-    <string name="contentDescriptionCleanSession">Clean Session</string>
+    <string name="aliasDeviceHint">Alias Device</string>
     <!-- Notify -->
     <string name="client_connecting">Client connecting___</string>
     <string name="client_error_connecting">Client error connecting</string>
@@ -59,7 +65,6 @@
     <string name="notConnecting">You are not connecting</string>
     <string name="disconnecting___">Disconnecting___</string>
     <string name="alreadyDisconnected">Already disconnected</string>
-    <string name="clientConnectedSuccessfully">Client connected successfully</string>
     <string name="onCreateSQLiteDatabase">"onCreate SQLiteDatabase"</string>
     <string name="onUpgradeSQLiteDatabase">"onUpgrade SQLiteDatabase"</string>
     <string name="onDowngradeSQLiteDatabase">"onDowngrade SQLiteDatabase"</string>
@@ -67,6 +72,11 @@
     <string name="restoreConnection">"Restore connection"</string>
     <string name="deleteConnection">"Delete connection"</string>
     <string name="failedPersistRestConn">"Failed restoring connection"</string>
+    <string name="failedPersistDev">"Failed to persist device"</string>
+    <string name="restoreDevice">"Restore device"</string>
+    <string name="deleteDevice">"Delete device"</string>
+    <string name="newDevice">"New device"</string>
+    <string name="failedPersistRestDev">"Failed restoring device"</string>
     <!-- MqttCallback  -->
     <string name="connectionLost">%1$s has lost connection to %2$s</string>
     <string name="messageRecieved">Received message %1$s &lt;br/&gt; &lt;small&gt;Topic: %2$s &lt;/small&gt; </string>
@@ -85,32 +95,6 @@
     <string name="unSubAction">UnSubscribed to %1$s</string>
     <string name="unSubActionFailed">Failed to unsubscribe to %1$s</string>
     <!-- New  -->
-    <string name="device">Device</string>
-    <string name="numDeviceText">Number Device</string>
-    <string name="numberDeviceHint">Number Device</string>
-    <string name="typeDeviceText">Type Device</string>
-    <string name="failedPersistDev">"Failed to persist device"</string>
-    <string name="restoreDevice">"Restore device"</string>
-    <string name="deleteDevice">"Delete device"</string>
-    <string name="newDevice">"New device"</string>
-    <string name="failedPersistRestDev">"Failed restoring device"</string>
-    <string name="addText">Add</string>
-    <string name="numberDevice">Number Device</string>
-    <string name="typeDevice">Type Device</string>
-    <string name="listDeviceText">List Device</string>
-    <string name="addDevice">Add Device</string>
-    <string name="lastConnectionText">Last connection</string>
-    <string name="saveText">Save</string>
-    <string name="connectstatus">ConnectStatus</string>
-    <string name="subscribestatus">SubscribeStatus</string>
-    <string name="message_arrived">Message Arrived</string>
-    <string name="name_device">Name Device</string>
-    <string name="info">Info.</string>
-    <string name="delete">Delete</string>
-    <string name="_00_00">00.00</string>
-    <string name="history">History</string>
-    <string name="name">name</string>
-    <string name="alias_device">Alias Device</string>
-    <string name="message_add">Message Add</string>
+    <string name="empty"> </string>
 
 </resources>

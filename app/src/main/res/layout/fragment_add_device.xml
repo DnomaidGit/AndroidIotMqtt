@@ -51,7 +51,7 @@
             app:counterEnabled="true"
             app:counterMaxLength="14"
             android:layout_marginTop="20dp"
-            android:hint="@string/alias_device">
+            android:hint="@string/aliasDeviceHint">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/aliasDeviceUser"
                 android:layout_width="match_parent"

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-        <item android:title="ClientMqtt">
+        <item android:title="@string/group_menu_clientmqtt">
             <menu>
                 <item
                     android:id="@+id/nav_connection"
@@ -11,7 +11,7 @@
                     android:title="@string/menu_connection" />
             </menu>
         </item>
-        <item android:title="Dashboard">
+        <item android:title="@string/group_menu_dashboard">
             <menu>
                 <item
                     android:id="@+id/nav_relay"
@@ -23,7 +23,7 @@
                     android:title="@string/menu_temperature" />
             </menu>
         </item>
-        <item android:title="Settings">
+        <item android:title="@string/group_menu_settings">
         <menu>
             <item
                 android:id="@+id/nav_setting_device"
@@ -39,7 +39,7 @@
                 android:title="@string/menu_addDevice" />
         </menu>
     </item>
-        <item android:title="System">
+        <item android:title="@string/group_menu_system">
             <menu>
             <item
                 android:id="@+id/nav_history"

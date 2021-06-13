@@ -75,7 +75,24 @@ public class SettingDeviceFragment extends Fragment {
         listener = (view, position) -> {
             switch (view.getId()) {
                 case R.id.btnDeleteDevice:
-                    actions.deleteDevice(position);
+                    AlertDialog.Builder alertDialog1 = new AlertDialog.Builder(this.getContext());
+                    alertDialog1.setTitle(Devices.getInst().getDevices().get(position).toString());
+                    alertDialog1.setMessage("Are you sure to remove the device "+
+                            Devices.getInst().getDevices().get(position).getAlias()+" ?");
+                    alertDialog1.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            actions.deleteDevice(position);
+                        }
+                    });
+                    alertDialog1.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog dialog1 = alertDialog1.create();
+                    dialog1.show();
                     break;
                 case R.id.btnInfoDevice:
                     AlertDialog.Builder alertDialog = new AlertDialog.Builder(this.getContext());

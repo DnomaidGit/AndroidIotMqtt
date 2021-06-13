@@ -12,7 +12,6 @@
         android:orientation="vertical">
         <!--Server-->
         <LinearLayout
-            android:id="@+id/serverGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -39,7 +38,6 @@
         </LinearLayout>
         <!--Port-->
         <LinearLayout
-            android:id="@+id/portGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -68,7 +66,6 @@
         </LinearLayout>
         <!--Client ID-->
         <LinearLayout
-            android:id="@+id/clientIdGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -96,7 +93,6 @@
         </LinearLayout>
         <!--Clean Session-->
         <LinearLayout
-            android:id="@+id/cleanSessionGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -117,7 +113,6 @@
         </LinearLayout>
         <!--Time Out-->
         <LinearLayout
-            android:id="@+id/timeOutGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -146,7 +141,6 @@
         </LinearLayout>
         <!--KeepAlive-->
         <LinearLayout
-            android:id="@+id/keepAliveGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -175,7 +169,6 @@
         </LinearLayout>
         <!--Username-->
         <LinearLayout
-            android:id="@+id/usernameGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -203,7 +196,6 @@
         </LinearLayout>
         <!--Password-->
         <LinearLayout
-            android:id="@+id/passwordGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -222,14 +214,6 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"/>
             </com.google.android.material.textfield.TextInputLayout>
-            <TextView
-                android:id="@+id/passwordSetting"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/passwordHint"
-                android:textColor="@color/colorTextUser"
-                android:textSize="@dimen/textSizeInfoMini"
-                android:textStyle="italic"/>
         </LinearLayout>
         <!--Save-->
         <RelativeLayout

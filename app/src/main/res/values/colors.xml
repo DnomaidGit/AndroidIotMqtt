@@ -21,11 +21,20 @@
 
     <color name="colorTextMain">#F7686767</color>
 
-    <color name="colorBackground1Button">#F7BCB9B9</color>
-    <color name="colorBackground2Button">#1E772BE4</color>
-    <color name="colorTextButton">#FFFFFF</color>
-
     <color name= "colorTextButtonRelayON">#13da33</color>
     <color name= "colorTextButtonRelayOFF">#F44336</color>
+
+    <color name="colorSpace">#772BE4</color>
+    <color name="colorSpaceStart">#7C772BE4</color>
+    <color name="colorSpaceCenter">#32772BE4</color>
+    <color name="colorSpaceEnd">#FFFFFF</color>
+
+    <color name="colorTitleStart">#F7686767</color>
+    <color name="colorTitleCenter">#0D686767</color>
+    <color name="colorTitleEnd">#FFFFFF</color>
+
+    <color name="colorSideStart">#27616161</color>
+    <color name="colorSideCenter">#FFFFFF</color>
+    <color name="colorSideEnd">#F75C5B5B</color>
 
 </resources>
