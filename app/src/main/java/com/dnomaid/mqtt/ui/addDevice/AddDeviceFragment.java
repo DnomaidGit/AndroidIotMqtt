@@ -13,7 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,7 +36,7 @@ public class AddDeviceFragment extends Fragment {
 
     private ArrayList<DeviceItem> deviceItems;
     private DeviceAdapter deviceAdapter;
-    private Spinner deviceSpinner;
+    private AutoCompleteTextView deviceSpinner;
     private EditText aliasDeviceUser;
     private TextView MessAddDevice;
     private String selectTypeDevice;
@@ -47,9 +46,9 @@ public class AddDeviceFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_add_device, container, false);
+        initList();
         setupViewOnclick(view);
         setupEditTextChange();
-        initList();
         setupClickSpinner();
         return view;
     }
@@ -127,18 +126,13 @@ public class AddDeviceFragment extends Fragment {
         deviceSpinner = view.findViewById(R.id.deviceSpinner);
         deviceAdapter = new DeviceAdapter(getContext(), R.layout.device_spinner_row,deviceItems);
         deviceSpinner.setAdapter(deviceAdapter);
-        deviceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        deviceSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
                 selectTypeDevice = deviceItems.get(position).getType().toString();
-                //Toast.makeText(parent.getContext(),"Type selected : "
-                  //      +deviceItems.get(position).getType().toString(),Toast.LENGTH_SHORT).show();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+                Toast.makeText(parent.getContext(),"Type selected : "
+                        +selectTypeDevice,Toast.LENGTH_SHORT).show();
             }
         });
-
-    }
+        }
 }

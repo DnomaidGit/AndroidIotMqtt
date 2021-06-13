@@ -81,7 +81,7 @@ public class XiaomiZNCZ04LM implements ActionTopic {
 
 	@Override
 	public String getValueTopic(TypeTopic typeTopic) {
-		String str = "--.--";
+		String str = "??.??";
 		switch (typeTopic) {
 			case Power:
 				str = getState();
@@ -90,7 +90,7 @@ public class XiaomiZNCZ04LM implements ActionTopic {
 				str = String.valueOf(getTemperature());
 				break;				
 			default:
-				str = "??¿¿";
+				str = "--.--";
 		}
 		return str;
 	}

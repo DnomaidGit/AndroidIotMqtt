@@ -11,27 +11,30 @@
         android:orientation="vertical"
         android:padding="8dp">
         <!--Type Device-->
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             style="@style/SpinnerTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <Spinner
+            android:layout_marginTop="20dp"
+            android:hint="@string/TypeDeviceHint">
+            <AutoCompleteTextView
                 android:id="@+id/deviceSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center" />
-        </LinearLayout>
+                android:clickable = "true"
+                android:focusable = "true"
+                android:focusableInTouchMode = "false"
+                android:inputType = "none"
+                tools:ignore="LabelFor"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
         <!--Number Device-->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/SpinnerTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="@string/numberDevice">
+            android:hint="@string/numberDeviceHint">
             <AutoCompleteTextView
                 android:id="@+id/spinnerNumberDevice"
                 android:layout_width="match_parent"

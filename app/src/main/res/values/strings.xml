@@ -31,7 +31,6 @@
     <string name="offText">Off</string>
     <string name="SensorText">::::Sensor::::</string>
     <string name="addText">Add</string>
-    <string name="numberDevice">Number Device</string>
     <string name="saveText">Save</string>
     <string name="connectstatus">ConnectStatus</string>
     <string name="subscribestatus">SubscribeStatus</string>
@@ -57,6 +56,8 @@
     <string name="usernameHint">Username</string>
     <string name="passwordHint">Password</string>
     <string name="aliasDeviceHint">Alias Device</string>
+    <string name="TypeDeviceHint">Type Device</string>
+    <string name="numberDeviceHint">Number Device</string>
     <!-- Notify -->
     <string name="client_connecting">Client connecting___</string>
     <string name="client_error_connecting">Client error connecting</string>

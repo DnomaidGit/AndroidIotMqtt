@@ -18,4 +18,9 @@ public class DeviceItem {
     public TypeDevice getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return type.name();
+    }
 }
