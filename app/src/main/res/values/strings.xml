@@ -5,16 +5,20 @@
     <string name="nav_header_title">Client manager mqtt</string>
     <string name="nav_header_subtitle">Dnomaid</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_setting_device">Setting Device</string>
     <string name="empty"> </string>
     <!-- Menu -->
     <string name="menu_connection">Connection</string>
-    <string name="menu_relay">Relay</string>
-    <string name="menu_temperature">Temperature</string>
+    <string name="menu_relay">Relays</string>
+    <string name="menu_temperature">Temperatures</string>
     <string name="menu_history">History</string>
     <string name="menu_setting">Setting</string>
     <string name="menu_settingConnection">Setting Connection</string>
     <string name="menu_addDevice">Add Device</string>
+    <string name="menu_setting_connection">Connection</string>
+    <string name="menu_setting_device">List Devices</string>
+    <string name="option_menu_setting_connection">Setting Connection</string>
+    <string name="option_menu_addDevice">Add Device</string>
+    <string name="option_menu_setting_device">Setting List Devices</string>
     <!-- Fragment -->
     <string name="serverText">Server</string>
     <string name="portText">Port</string>
@@ -96,10 +100,6 @@
     <string name="listDeviceText">List Device</string>
     <string name="addDevice">Add Device</string>
     <string name="lastConnectionText">Last connection</string>
-    <string name="menu_setting_connection">Connection</string>
-    <string name="menu_setting_device">Device</string>
-    <string name="action_setting_connection">Setting Connection</string>
-    <string name="action_addDevice">Add Device</string>
     <string name="saveText">Save</string>
     <string name="connectstatus">ConnectStatus</string>
     <string name="subscribestatus">SubscribeStatus</string>
@@ -111,5 +111,6 @@
     <string name="history">History</string>
     <string name="name">name</string>
     <string name="alias_device">Alias Device</string>
+    <string name="message_add">Message Add</string>
 
 </resources>

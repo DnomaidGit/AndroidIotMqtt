@@ -36,7 +36,10 @@
                 android:id="@+id/spinnerNumberDevice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none"
+                android:clickable = "true"
+                android:focusable = "true"
+                android:focusableInTouchMode = "false"
+                android:inputType = "none"
                 tools:ignore="LabelFor"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -45,6 +48,8 @@
             style="@style/EditTextTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="14"
             android:layout_marginTop="20dp"
             android:hint="@string/alias_device">
             <com.google.android.material.textfield.TextInputEditText
@@ -67,6 +72,20 @@
                 android:drawableTop="@drawable/ic_button_add"
                 android:padding="15dp"
                 android:text="@string/addText" />
+        </RelativeLayout>
+        <!--Message Add Device-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/textViMessAddDevice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/message_add"
+                android:textColor="@color/colorTextHist" />
         </RelativeLayout>
     </LinearLayout>
 </ScrollView>

@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity
     private RelayViewModel relayViewModel;
     private SettingDeviceViewModel settingDeviceViewModel;
     private SettingConnectionViewModel settingConnectionViewModel;
+    private Integer destinationId;
     Toolbar toolbar;
     FloatingActionButton fab,fab1,fab2;
     DrawerLayout drawer;
@@ -83,8 +84,8 @@ public class MainActivity extends AppCompatActivity
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-            //    if(destination.getId() == R.id.nav_connection) {
-                showFloatingIcons();
+                destinationId = destination.getId();
+                showFloatingIcons(destinationId);
             }
         });
         setup();
@@ -141,7 +142,7 @@ public class MainActivity extends AppCompatActivity
                 handler.postDelayed(this, PERIODO);
                 updateState();
                 if (Status.getInst().isConnected()&(Status.getInst().getTopicStatus().equals(Status.TopicStatus.NONE.name())))subscribe();
-                showFloatingIcons();
+                showFloatingIcons(destinationId);
             }
         };
         handler.postDelayed(runnable, PERIODO);
@@ -202,9 +203,9 @@ public class MainActivity extends AppCompatActivity
     }
     //Interface ActionsDevice
     @Override
-    public void newDevice(Constants.TypeDevice typeDevice, String numberDevice, String alias) {
+    public String newDevice(Constants.TypeDevice typeDevice, String numberDevice, String alias) {
         devices = Devices.getInst();
-        devices.newDevice(typeDevice, numberDevice, alias);
+        return devices.newDevice(typeDevice, numberDevice, alias);
     }
     @Override
     public void deleteDevice(Integer position) {
@@ -213,7 +214,7 @@ public class MainActivity extends AppCompatActivity
         updateState();
     }
     //Methods
-    private void showFloatingIcons(){
+    private void showFloatingIcons(Integer ID){
         fab.show();
         fab2.show();
         if (Status.getInst().isConnected()|!isMenuOpen)
@@ -228,6 +229,11 @@ public class MainActivity extends AppCompatActivity
             fab2.show();
         }
         else{
+            fab2.hide();
+        }
+        if(ID == R.id.nav_addDevice || ID == R.id.nav_setting_connection || ID == R.id.nav_setting_device) {
+            fab.hide();
+            fab1.hide();
             fab2.hide();
         }
     }

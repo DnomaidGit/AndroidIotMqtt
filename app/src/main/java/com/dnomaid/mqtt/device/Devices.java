@@ -32,10 +32,29 @@ public class Devices implements Constants {
 		return DevicesHolder.instance;
 	}
 
-    public void newDevice(TypeDevice typeDevice, String numberDevice, String alias) {
-		DeviceConfig deviceConfig = newDevicePersist(typeDevice, numberDevice, alias);
-    	DevicesConfig.add(deviceConfig);
-    	selectDevice(typeDevice, numberDevice, alias);
+    public String newDevice(TypeDevice typeDevice, String numberDevice, String alias) {
+		String newDevice = "Error";
+		String auxAlias = alias;
+		if(auxAlias==null){
+			auxAlias = "Anonymous";
+		}else{
+			if(auxAlias.equals("")){
+				auxAlias = "Anonymous";
+			}
+		}
+		if(numberDevice != null) {
+			if (!isCreatedDevice(typeDevice, numberDevice)) {
+				DeviceConfig deviceConfig = newDevicePersist(typeDevice, numberDevice, auxAlias);
+				DevicesConfig.add(deviceConfig);
+				selectDevice(typeDevice, numberDevice, auxAlias);
+				newDevice = "Successfully added, " + typeDevice.name()+"_"+numberDevice+" "+auxAlias;
+			}else {
+				newDevice = "Error, this device is already created";
+			}
+		}else {
+			newDevice = "Error, number device?";
+		}
+		return newDevice;
 	}
     public void deleteDevice(DeviceConfig deviceConfig){
 		for (int i = 0; i < getDevices().size(); ++i) {
@@ -169,6 +188,14 @@ public class Devices implements Constants {
 		this.context = context;
 		persistence = new DevicesPersistence(this.context);
 		restoreDevice();
+	}
+	private Boolean isCreatedDevice(TypeDevice typeDevice, String numberDevice){
+		for (int i = 0; i < getDevicesConfig().size(); ++i) {
+			if (getDevicesConfig().get(i).toString().equals(typeDevice.name()+"_"+numberDevice)){
+				return true;
+			}
+		}
+		return false;
 	}
 	private DeviceConfig newDevicePersist(TypeDevice typeDevice, String numberDevice, String alias) {
 		DeviceConfig deviceConfig = null;

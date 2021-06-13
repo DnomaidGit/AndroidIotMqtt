@@ -14,6 +14,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,7 @@ public class AddDeviceFragment extends Fragment {
     private DeviceAdapter deviceAdapter;
     private Spinner deviceSpinner;
     private EditText aliasDeviceUser;
+    private TextView MessAddDevice;
     private String selectTypeDevice;
     private String selectNumberDevice;
     private String aliasDevice;
@@ -68,16 +70,12 @@ public class AddDeviceFragment extends Fragment {
         spinnerNumberDevice = view.findViewById(R.id.spinnerNumberDevice);
         ArrayAdapter<CharSequence> adapater = ArrayAdapter.createFromResource(getContext(),R.array.numberDevice,android.R.layout.simple_spinner_item);
         spinnerNumberDevice.setAdapter(adapater);
-        spinnerNumberDevice.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerNumberDevice.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
                 selectNumberDevice = parent.getItemAtPosition(position).toString();
                 Toast.makeText(parent.getContext(),"Number selected : "
                         +selectNumberDevice,Toast.LENGTH_SHORT).show();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });
     }
@@ -105,18 +103,15 @@ public class AddDeviceFragment extends Fragment {
     }
     private void setupViewOnclick(View view) {
         btnAddDevice = view.findViewById(R.id.btnAddDevice);
+        MessAddDevice = view.findViewById(R.id.textViMessAddDevice);
+        MessAddDevice.setText("");
         btnAddDevice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(aliasDeviceUser.getText().toString().equals("")){
-                    aliasDevice = "Anonymous";
-                }
-                else{
-                    aliasDevice = aliasDeviceUser.getText().toString();
-                }
-                actions.newDevice(TypeDevice.valueOf(
-                        selectTypeDevice),
-                        selectNumberDevice,aliasDevice);
+                MessAddDevice.setText(
+                        actions.newDevice(TypeDevice.valueOf(
+                                selectTypeDevice),
+                                selectNumberDevice,aliasDevice));
             }
         });
     }
@@ -136,8 +131,8 @@ public class AddDeviceFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selectTypeDevice = deviceItems.get(position).getType().toString();
-                Toast.makeText(parent.getContext(),"Type selected : "
-                        +deviceItems.get(position).getType().toString(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(parent.getContext(),"Type selected : "
+                  //      +deviceItems.get(position).getType().toString(),Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
