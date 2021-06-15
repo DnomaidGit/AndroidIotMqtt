@@ -104,6 +104,7 @@ public class AddDeviceFragment extends Fragment {
         btnAddDevice = view.findViewById(R.id.btnAddDevice);
         MessAddDevice = view.findViewById(R.id.textViMessAddDevice);
         MessAddDevice.setText("");
+        selectTypeDevice = TypeDevice.None.name();
         btnAddDevice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -42,6 +42,12 @@ public class Devices implements Constants {
 				auxAlias = "Anonymous";
 			}
 		}
+		if(typeDevice == null) {
+			return newDevice = "Error, type Device?";
+		}
+		if (typeDevice == TypeDevice.None) {
+			return newDevice = "Error, type Device??";
+		}
 		if(numberDevice != null) {
 			if (!isCreatedDevice(typeDevice, numberDevice)) {
 				DeviceConfig deviceConfig = newDevicePersist(typeDevice, numberDevice, auxAlias);
