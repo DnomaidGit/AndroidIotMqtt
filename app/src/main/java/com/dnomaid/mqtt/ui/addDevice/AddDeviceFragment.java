@@ -55,7 +55,7 @@ public class AddDeviceFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setupView(view);
+
     }
     @Override
     public void onAttach(@NonNull Context context) {
@@ -65,19 +65,7 @@ public class AddDeviceFragment extends Fragment {
             actions = (ActionsDevice) activity;
         }
     }
-    private void setupView(View view) {
-        spinnerNumberDevice = view.findViewById(R.id.spinnerNumberDevice);
-        ArrayAdapter<CharSequence> adapater = ArrayAdapter.createFromResource(getContext(),R.array.numberDevice,android.R.layout.simple_spinner_item);
-        spinnerNumberDevice.setAdapter(adapater);
-        spinnerNumberDevice.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
-                selectNumberDevice = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(),"Number selected : "
-                        +selectNumberDevice,Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+
     private void setupEditTextChange(){
         aliasDeviceUser = view.findViewById(R.id.aliasDeviceUser);
         aliasDeviceUser.setText("");
@@ -97,9 +85,6 @@ public class AddDeviceFragment extends Fragment {
             }
         });
          }
-    private void setupViewModel() {
-
-    }
     private void setupViewOnclick(View view) {
         btnAddDevice = view.findViewById(R.id.btnAddDevice);
         MessAddDevice = view.findViewById(R.id.textViMessAddDevice);
@@ -133,6 +118,18 @@ public class AddDeviceFragment extends Fragment {
                 selectTypeDevice = deviceItems.get(position).getType().toString();
                 Toast.makeText(parent.getContext(),"Type selected : "
                         +selectTypeDevice,Toast.LENGTH_SHORT).show();
+            }
+        });
+        spinnerNumberDevice = view.findViewById(R.id.spinnerNumberDevice);
+        ArrayAdapter<CharSequence> adapater = ArrayAdapter.createFromResource(getContext(),R.array.numberDevice,android.R.layout.simple_spinner_item);
+        spinnerNumberDevice.setAdapter(adapater);
+        spinnerNumberDevice.setText("");
+        spinnerNumberDevice.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
+                selectNumberDevice = parent.getItemAtPosition(position).toString();
+                Toast.makeText(parent.getContext(),"Number selected : "
+                        +selectNumberDevice,Toast.LENGTH_SHORT).show();
             }
         });
         }

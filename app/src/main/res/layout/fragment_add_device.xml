@@ -16,16 +16,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="@string/TypeDeviceHint">
+            android:hint="@string/TypeDeviceHint"
+            tools:ignore="LabelFor">
             <AutoCompleteTextView
                 android:id="@+id/deviceSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable = "true"
-                android:focusable = "true"
-                android:focusableInTouchMode = "false"
-                android:inputType = "none"
-                tools:ignore="LabelFor"
+                android:inputType="text"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <!--Number Device-->
@@ -34,16 +31,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="@string/numberDeviceHint">
+            android:hint="@string/numberDeviceHint"
+            tools:ignore="LabelFor">
             <AutoCompleteTextView
                 android:id="@+id/spinnerNumberDevice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable = "true"
-                android:focusable = "true"
-                android:focusableInTouchMode = "false"
-                android:inputType = "none"
-                tools:ignore="LabelFor"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <!--Number Device-->
@@ -68,12 +61,12 @@
             android:layout_marginTop="20dp"
             android:gravity="center">
             <Button
-                android:id="@+id/btnAddDevice"
                 style="@style/ButtonRelayTheme"
+                android:id="@+id/btnAddDevice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_button_add"
                 android:padding="15dp"
+                app:icon="@drawable/ic_button_add"
                 android:text="@string/addText" />
         </RelativeLayout>
         <!--Message Add Device-->
