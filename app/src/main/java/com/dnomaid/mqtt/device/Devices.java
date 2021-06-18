@@ -36,29 +36,26 @@ public class Devices implements Constants {
 		String newDevice = "Error";
 		String auxAlias = alias;
 		if(auxAlias==null){
-			auxAlias = "Anonymous";
+			auxAlias = "Unknown";
 		}else{
 			if(auxAlias.equals("")){
 				auxAlias = "Anonymous";
 			}
 		}
-		if(typeDevice == null) {
-			return newDevice = "Error, type Device?";
-		}
-		if (typeDevice == TypeDevice.None) {
-			return newDevice = "Error, type Device??";
-		}
+		if(typeDevice == null) return newDevice = "Error, null type Device";
+		if (typeDevice == TypeDevice.None) return newDevice = "Error, type Device none";
+		if(!isTypeDevice(typeDevice))return newDevice = "Error, the type of device unknown";
 		if(numberDevice != null) {
 			if (!isCreatedDevice(typeDevice, numberDevice)) {
 				DeviceConfig deviceConfig = newDevicePersist(typeDevice, numberDevice, auxAlias);
 				DevicesConfig.add(deviceConfig);
 				selectDevice(typeDevice, numberDevice, auxAlias);
-				newDevice = "Successfully added, " + typeDevice.name()+"_"+numberDevice+" "+auxAlias;
+				return newDevice = "Successfully added, " + typeDevice.name()+"_"+numberDevice+" "+auxAlias;
 			}else {
-				newDevice = "Error, this device is already created";
+				return newDevice = "Error, this device is already created";
 			}
 		}else {
-			newDevice = "Error, number device?";
+			newDevice = "Error, null number device?";
 		}
 		return newDevice;
 	}
@@ -200,6 +197,13 @@ public class Devices implements Constants {
 			if (getDevicesConfig().get(i).toString().equals(typeDevice.name()+"_"+numberDevice)){
 				return true;
 			}
+		}
+		return false;
+	}
+	private Boolean isTypeDevice(TypeDevice typeDevice){
+		for (TypeDevice type : TypeDevice.values())
+		{
+			if(type.name()==typeDevice.name())return true;
 		}
 		return false;
 	}

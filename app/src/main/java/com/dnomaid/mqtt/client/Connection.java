@@ -81,7 +81,7 @@ public class Connection {
   }
   public void removeConnection() {
     instance = null;
-    persistence.deleteConnection(instance);
+    //persistence.deleteConnection(instance);
   }
   public MqttAndroidClient createClient() {
     server = ConnectionConstants.getInst().getServer();
