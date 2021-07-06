@@ -6,11 +6,11 @@
 4. [Links](#links)
 ### General Info
 ***
-It is an Android application that consists of creating a Mqtt client connected to a Broker of the same local network. We can add from a predetermined list of IoT devices. In this list we have devices with Tasmota firmware and Zigbee2Mqtt connected devices. The configuration is very easy since the Topics are automatically created and added directly to a Dashboard.
+This is an open source code to build an Android application for IoT. It consists of creating a Mqtt client connected to a Broker in the same local network. We will be able to add from a predetermined list different IoT devices. In this list we have Tasmota and Zigbee2Mqtt devices. The configuration is very simple since the Topics are automatically created and added directly to a Dashboard. 
 
 ## List of IoT devices
 ***
-A list of technologies used within the project:
+A list of IoT devices used within the project:
 * Sonoff20 (Tasmota)
 * TuyaZigbeeSensor (Zigbee2Mqtt)
 * AqaraTemp (Zigbee2Mqtt)
@@ -24,7 +24,7 @@ A list of technologies used within the project:
 ***
 From this link you can see a demo:
 * https://www.youtube.com/watch?v=_CStETtgtKI
-```
-```
+
+
 If you are interested, but do not know where to start, I leave this link where there are videos that can help you:
 * https://www.youtube.com/playlist?list=PLAfoA6cZ1I71SV9nh7iQiCnGN15wPkWFY
