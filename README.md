@@ -28,6 +28,8 @@ Currently, the application is released and available here:
 ## Installation
 ***
 ### Watch the video
+Watch the video on youtube where the app is added and set up.
+
 [![Watch the video](https://img.youtube.com/vi/_CStETtgtKI/0.jpg)](https://www.youtube.com/watch?v=_CStETtgtKI)
 ## Why am I open-sourcing it?
 1. I got help all around from open-source community, and it is time for me to help back.
