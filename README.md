@@ -1,14 +1,14 @@
 # AndroidIotMqtt
 ## Table of Contents
 1. [General Info](#general-info)
-2. [Technologies](#technologies)
+2. [List of IoT devices](#list of IoT devices)
 3. [Installation](#installation)
 4. [Links](#links)
 ### General Info
 ***
-It is an App for IoT where a single Mqtt client is created, connected to a Broker of the same local network. We can add from a predetermined list of IoT devices. In this list we have devices with Tasmota firmware and Zigbee2Mqtt connected devices. The configuration is very easy since the Topics are automatically created and added directly to a Dashboard.  
+It is an Android application that consists of creating a Mqtt client connected to a Broker of the same local network. We can add from a predetermined list of IoT devices. In this list we have devices with Tasmota firmware and Zigbee2Mqtt connected devices. The configuration is very easy since the Topics are automatically created and added directly to a Dashboard.
 
-## Technologies
+## List of IoT devices
 ***
 A list of technologies used within the project:
 * Sonoff20 (Tasmota)
