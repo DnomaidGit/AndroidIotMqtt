@@ -1,7 +1,7 @@
 # AndroidIotMqtt
 ## Table of Contents
 1. [General Info](#general-info)
-2. [Devices](#list of IoT devices)
+2. [List of IoT device](#list-of-IoT-devices)
 3. [Installation](#installation)
 4. [Links](#links)
 ### General Info
