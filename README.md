@@ -27,10 +27,7 @@ Download me on Google Play
 [![Watch the video](https://img.youtube.com/vi/_CStETtgtKI/0.jpg)](https://www.youtube.com/watch?v=_CStETtgtKI)
 ## Why am I open-sourcing it?
 1. I got help all around from open-source community, and it is time for me to help back.
-2. The rate limit on AndroidIotMqtt makes it impossible for this app to scale to a big crowd of users. Opensourcing the app could allow any hobbyist to use their own API keys to build the app.
-3. A big problem of hobby projects is they lack continuity. I believe open sourcing the app could allow this app to be kept improving.
-4. Another problem of third-party apps is about privacy and transparency. Since this is an app for the Product Hunt community, I believe it is better supervised by the community.
-
+2. A big problem of hobby projects is they lack continuity. I believe open sourcing the app could allow this app to be kept improving.
 
 ## Links
 ***
