@@ -21,6 +21,12 @@ A list of IoT devices used within the project:
 ## Download
 ***
 Download me on Google Play
+
+Currently, the application is released and available here:
+[Google Play](https://play.google.com/store/apps/details?id=com.eventyay.organizer).
+
+<a href='https://play.google.com/store/apps/details?id=com.eventyay.organizer'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height="80"/></a>
+
 ## Installation
 ***
 ### Watch the video
@@ -28,6 +34,7 @@ Download me on Google Play
 ## Why am I open-sourcing it?
 1. I got help all around from open-source community, and it is time for me to help back.
 2. A big problem of hobby projects is they lack continuity. I believe open sourcing the app could allow this app to be kept improving.
+3. The list of IoT devices is very small and the code is ready to add more devices in the future.
 
 ## Links
 ***
