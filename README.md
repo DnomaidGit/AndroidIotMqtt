@@ -15,7 +15,7 @@ Write down the general informations of your project. It is worth to always put a
 ### Screenshot
 ![Image text](https://www.united-internet.de/fileadmin/user_upload/Brands/Downloads/Logo_IONOS_by.jpg)
 ### Video
-[![Alt text](https://img.youtube.com/vi/configuroweb/0.jpg)](https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=_CStETtgtKI)
+![Alt text](https://img.youtube.com/vi/configuroweb/0.jpg)](https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=_CStETtgtKI)
 ## Technologies
 ***
 A list of technologies used within the project:
