@@ -16,9 +16,6 @@ This is an open source code to build an Android application for IoT. It consists
     <img src="/AppMqttScreenCapture/Menu.png" width="200px"</img>
     <img src="/AppMqttScreenCapture/Relay.png" width="200px"</img>
     <img src="/AppMqttScreenCapture/AddDevice.png" width="200px"</img>
-</div
-    
-<div align="center">
     <img src="/AppMqttScreenCapture/SettingConnection.png" width="200px"</img>
     <img src="/AppMqttScreenCapture/SettingTopic.png" width="200px"</img>
     <img src="/AppMqttScreenCapture/Temperature.png" width="200px"</img>
