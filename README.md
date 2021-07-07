@@ -14,10 +14,10 @@ This is an open source code to build an Android application for IoT. It consists
 ***
 ![Screenshot](AppMqttScreenCapture/Menu.png)
 <div align="center">
-    <img src="/AppMqttScreenCapture/Menu.png" width="400px"</img> 
+    <img src="/AppMqttScreenCapture/Menu.png" width="200px"</img>
+    <img src="/AppMqttScreenCapture/Relay.png" width="200px"</img>
+    <img src="/AppMqttScreenCapture/AddDevice.png" width="200px"</img>
 </div
-![Screenshot](AppMqttScreenCapture/Relay.png)
-![Screenshot](AppMqttScreenCapture/AddDevice.png)
 
 ## List of IoT devices
 ***
