@@ -8,7 +8,11 @@
 6. [Links](#links)
 ### General Info
 ***
-This is an open source code to build an Android application for IoT. It consists of creating a Mqtt client connected to a Broker in the same local network. We will be able to add from a predetermined list different IoT devices. In this list we have Tasmota and Zigbee2Mqtt devices. The configuration is very simple since the Topics are automatically created and added directly to a Dashboard. 
+This is an open source code to build an Android application for IoT. It consists of creating a Mqtt client connected to a Broker in the same local network. We will be able to add from a predetermined list different IoT devices. In this list we have Tasmota and Zigbee2Mqtt devices. The configuration is very simple since the Topics are automatically created and added directly to a Dashboard.
+
+### Screenshot
+***
+![Screenshot](AppMqttScreenCapture/Menu.png)
 
 ## List of IoT devices
 ***
