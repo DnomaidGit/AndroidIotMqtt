@@ -19,7 +19,8 @@ This is an open source code to build an Android application for IoT. It consists
     <img src="/AppMqttScreenCapture/SettingConnection.png" width="200px"</img>
     <img src="/AppMqttScreenCapture/SettingTopic.png" width="200px"</img>
     <img src="/AppMqttScreenCapture/Temperature.png" width="200px"</img>
-</div    
+</div>    
+
 ## List of IoT devices
 ***
 A list of IoT devices used within the project:
@@ -28,6 +29,7 @@ A list of IoT devices used within the project:
 * AqaraTemp (Zigbee2Mqtt)
 * SonoffSNZB02 (Zigbee2Mqtt)
 * XiaomiZNCZ04LM (Zigbee2Mqtt)
+
 ## Download
 ***
 Currently, the application is released and available here:
@@ -42,6 +44,7 @@ Watch the video on youtube.
 [![Watch the video](https://img.youtube.com/vi/_CStETtgtKI/0.jpg)](https://www.youtube.com/watch?v=_CStETtgtKI)
 
 ## Why am I open-sourcing it?
+***
 1. I got help all around from open-source community, and it is time for me to help back.
 2. A big problem of hobby projects is they lack continuity. I believe open sourcing the app could allow this app to be kept improving.
 3. The list of IoT devices is very small and the code is ready to add more devices in the future.
