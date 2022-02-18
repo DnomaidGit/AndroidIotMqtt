@@ -56,4 +56,7 @@ From this link you can see a demo:
 
 
 If you are interested, but do not know where to start, I leave this link where there are videos that can help you:
-* https://www.youtube.com/playlist?list=PLAfoA6cZ1I71SV9nh7iQiCnGN15wPkWFY
+* https://www.youtube.com/playlist?list=PLAfoA6cZ1I72s6Jc_N0iGBRDbZ6ubbuAH
+
+Eclipse Kura project:
+* https://github.com/DnomaidGit/KuraIotMqtt
