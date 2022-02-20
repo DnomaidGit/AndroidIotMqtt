@@ -2,10 +2,11 @@
 ## Table of Contents
 1. [General Info](#general-info)
 2. [List of IoT device](#list-of-iot-devices)
-3. [Download](#download)
-4. [Installation](#installation)
-5. [Why am I open-sourcing it?](#why-am-i-open-sourcing-it)
-6. [Links](#links)
+3. [Topics Publish](#topics-publish)
+4. [Download](#download)
+5. [Installation](#installation)
+6. [Why am I open-sourcing it?](#why-am-i-open-sourcing-it)
+7. [Links](#links)
 ## General Info
 ***
 This is an open source code to build an Android application for IoT. It consists of creating a Mqtt client connected to a Broker in the same local network. We will be able to add from a predetermined list different IoT devices. In this list we have Tasmota and Zigbee2Mqtt devices. The configuration is very simple since the Topics are automatically created and added directly to a Dashboard.
@@ -29,6 +30,30 @@ A list of IoT devices used within the project:
 * AqaraTemp (Zigbee2Mqtt)
 * SonoffSNZB02 (Zigbee2Mqtt)
 * XiaomiZNCZ04LM (Zigbee2Mqtt)
+
+## Topics Publish
+***
+The publish topic is created automatically and the device has to be configured with this same topic. 
+1. Sonoff20:
+    + Example:
+      + Configuration (App): Type device: **Sonoff20**; Number Device: **1**.
+      + Topic (Tasmota): Dnomaid/Router_1/**Sonoff20**_**1**/Relay_1
+2. XiaomiZNCZ04LM: 
+   + Example:  
+      + Configuration (App): Type device: **XiaomiZNCZ04LM**; Number Device: **2**.
+      + Topic (Zigbee2mqtt): Dnomaid/mix/CC2531_1/**XiaomiZNCZ04LM**_**2**/RelaySensorClimate_1.
+3. SonoffSNZB02: 
+   + Example:  
+      + Configuration (App): Type device: **SonoffSNZB02**; Number Device: **1**.
+      + Topic (Zigbee2mqtt): Dnomaid/stat/CC2531_1/**SonoffSNZB02**_**1**/SensorClimate_1.	  
+4. AqaraTemp: 
+   + Example:  
+      + Configuration (App): Type device: **AqaraTemp**; Number Device: **1**.
+      + Topic (Zigbee2mqtt): Dnomaid/stat/CC2531_1/**AqaraTemp**_**1**/SensorClimate_1.	  
+5. TuyaZigbeeSensor: 
+   + Example:  
+      + Configuration (App): Type device: **TuyaZigbeeSensor**; Number Device: **1**.
+      + Topic (Zigbee2mqtt): Dnomaid/stat/CC2531_1/**TuyaZigbeeSensor**_**1**/SensorClimate_1.	  	  
 
 ## Download
 ***
